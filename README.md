@@ -1,108 +1,146 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# A short story about a magic number and throwing sticks 
 
-Welcome USER_NAME,
+The number $\pi$ is widely used in probably each and every modern technological device. Yet, its understanding is somehow limited - like a car, we can use it without knowing exactly what it does. This website is an attempt to teach the value of this number in an interactive and fun way.
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+Link to the live page : [To do]
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **September 1, 2021**
 
-## Gitpod Reminders
+![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![Javascript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+![GitHub contributors](https://img.shields.io/github/contributors/nils-n/throwing-sticks)
+![GitHub last commit](https://img.shields.io/github/last-commit/nils-n/throwing-sticks)
+![GitHub language count](https://img.shields.io/github/languages/count/nils-n/throwing-sticks)
+![GitHub repo file count](https://img.shields.io/github/directory-file-count/nils-n/throwing-sticks)
+![W3C Validation](https://img.shields.io/w3c-validation/html?targetUrl=https%3A%2F%2Fnils-n.github.io%2Fasd%2F)
 
-`python3 -m http.server`
+## Table of Contents
 
-A blue button should appear to click: _Make Public_,
+----- 
 
-Another blue button should appear to click: _Open Browser_.
+## User Experience (UX)
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+### User Stories 
 
-A blue button should appear to click: _Make Public_,
+### Website Aims
 
-Another blue button should appear to click: _Open Browser_.
+### How these needs are addressed
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+### Opportunities 
 
-To log into the Heroku toolbelt CLI:
+### Feature selection
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+----- 
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+## Design
 
-------
+### Color Scheme
 
-## Release History
+### Typography
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+### Imagery 
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+### Wireframes
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
+----- 
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+## Features
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+### General Features 
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+### Main Page 
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+#### 404 Page 
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+----- 
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+### Future Implementations
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+### Accessibility
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+## Technologies Used 
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+- GitPod as IDE [Link](https://www.gitpod.io/)
+- Git / GitHub  for Version Control [Link] (https://github.com/)
+- Figma for Wireframs [Link](https://www.figma.com/)
+- Mac OS Image Preview Tool for cropping and resizing Images 
+- Favicon for making a browser Icon [Link](https://favicon.io/favicon-converter/)
+- W3 Validation Tools for Testing [Link](https://validator.w3.org/)
+- Shields.io for adding badges this Readme file [Link](https://shields.io/)
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+### Languages Used
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+- HTML 
+- CSS 
+- Javascript
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+### Frameworks Used
+- N/A
 
-------
+----- 
 
-## FAQ about the uptime script
+## Deployment and Local Development 
 
-**Why have you added this script?**
+### Deployment 
 
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
+### Local Development
 
-**How will this affect me?**
+#### How to Fork
 
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
+#### How to Clone
 
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
+----- 
 
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
+## Testing 
 
-**So….?**
+### Testing Procedure 
+The website was tested extensively for several apsects , and the results were documented in [TO DO TESTING.md](./TESTING.md) 
 
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
+ - Functionality
+ - User Stories
+- Usability and Accessibility 
+- Compatibility and Responsiveness 
 
-**Can I opt out?**
+### Solved Bugs 
 
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
+---- 
 
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
+## Credits 
 
-**Anything more?**
+### Code Used
 
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
+- Github badges from [Shields.io](https://shields.io/)
+- Excel Template for Website Testing [Link to Page](https://www.guru99.com/download-sample-test-case-template-with-explanation-of-important-fields.html)
 
----
+### Content 
 
-Happy coding!
+- All of the content was written by myself.
+- Externally used code (such as code snippets from stackoverflow) in this project are referenced in this Readme and inside the Html/Css/Js source code. 
+
+
+## Acknowledgements
+- Teaching and Support from Code Insitute [Code Insitute](https://codeinstitute.net/)
+- Example Readme from Kera Cudmore [Kera's Github](https://github.com/kera-cudmore/readme-examples/blob/main/milestone1-readme.md)
+- Color Palette Generator from [Mycolor.space](https://mycolor.space/)
+- Font Generator from  [Fontjoy](https://fontjoy.com/)
+- Fonts from [Google Fonts](https://fonts.google.com/) 
+- Images from  [Pexels](https://pexels.com/) : 
+    - add refernce HERE once decided on final images 
+- Kevin Powell's [Youtube](https://www.youtube.com/@KevinPowell) Channel: 
+    - How to approach a design layout with Figma [Youtube Link](https://youtu.be/KYFwcIRx16g)
+    - 6 simple typography tips to more professional looking sites [Link](https://youtu.be/6ardZEhjvV0)
+    - Give your site a fantastic color scheme fast [Youtube Link](https://youtu.be/mq8LYj6kRyE)
+    - Concepts to help simplify CSS layouts [Youtube Link](https://youtu.be/nYyFf-97Qqg) 
+    - Build a responsive website with HTML & CSS   [Part1 ](https://youtu.be/h3bTwCqX4ns), [Part 2](https://youtu.be/3K6zr1CdZy8), [Part 3](https://youtu.be/Ch_LoWKLv3A)
+    - The secret to mastering CSS layouts [Youtube Link](https://youtu.be/vHuSz4fRM88)
+- Last but not least : Thanks to my mentor Ronan (Code Institute) for his advices and clear feedback! 
+
+
+
+
+
+
+
+
+
