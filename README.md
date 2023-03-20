@@ -48,7 +48,22 @@ As a first-time user...
 
 ### Opportunities 
 
+| Description                            | Impact | Feasibility | 
+|----------------------------------------|--------|-------------|
+| Promote Math and the value of &pi;     | 5      | 5           | 
+| Entertain the users                    | 5      | 5           | 
+| Animate the calulation of Pi using thrown sticks in JS  | 5      | 5           | 
+| Animate the explanations using JS      | 5      | 5          | 
+| ~~Do large-scale simulation (> 10e6 sticks)~~  | 2   | 1    | 
+| **Sum**                          | **20**   | **20**     | 
+
 ### Feature selection
+
+- The sum of Impact/Feasibility is balanced after discarding the entry "Do large-scale simulation (> 10e6 sticks)".
+-  This had to be discarded because it is currently not feasible without using dedicated simulation software (i.e. [Processing](https://processing.org/)) or running the simulation on a backend server - which is beyond the scope of this project. 
+- I figured that for educational purposes, an animation of ~1000 sticks the simulation can be handled by most browsers using d3.js and would still lead to a sufficient approximation of &pi; .
+
+
 
 ----- 
 
