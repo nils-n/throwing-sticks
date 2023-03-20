@@ -23,9 +23,28 @@ Link to the live page : [To do]
 
 ### User Stories 
 
+As a first-time user...
+<ol>
+    <li> I want a to learn about &pi; by exploring data interactively so that my learning experience is fun.</li>
+    <li> I have never heard about &pi; and i am curious to learn what makes this number special. </li>
+    <li> I am aware of the value of &pi;  but i never liked the dull, academic style how it is taught on other websites. Visiting this website, i want to refresh my memory in a fun way what this number was all about. </li>
+    <li> I want a friendly, entertaining website so that i can show it to my friends or children and motivate them to learn more about math. </li>
+</ol>
+
 ### Website Aims
 
+<ul>
+    <li> Motive a change to the dull academic-style websites by using modern web technologies </li>
+    <li> Advertise the value of &pi; in a fun, interactive and exploratory way </li>
+    <li> Promote the art of coding by showcasing modern browser technologies </li>
+    <li> Provide accurate and correct information </li>
+</ul>
+
 ### How these needs are addressed
+
+- All possible user scenarios and potential needs were identified and documented. 
+- The user needs to feel instantly a positive emotion and should know instantly what to expect from this website. 
+- THIS IS A WIP 
 
 ### Opportunities 
 
