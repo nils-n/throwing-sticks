@@ -21,7 +21,6 @@
    ************** 
 */
 
-
 /* recommended from Kevin Powell https://youtu.be/nYyFf-97Qqg
 */
 *, *::before, *::after {
@@ -36,14 +35,32 @@
 }
 
 body {
-    color:dimgray;
+    color: var(--color-dark-gray);
+    background-origin: var(--color-white-background);
     line-height: 1.4;
+    margin: 0 auto;
+}
+
+
+/* define colors that you will use througout this page */
+/*   The dard brown color (#54433A) is the primary color on which the others are based on mycolor.space  */
+:root {
+
+    --color-white-background: #f5f5f5;
+    --color-light-gray: #c1c1c1;
+    --color-dark-gray: #3a3a3a;
+    --color-dark-bluegreen: #4F6E7A;
 }
 
 /* recommended Kevin Powell https://youtu.be/h3bTwCqX4ns */
 img, svg {
     max-width: 100%;
     display: block;
+}
+
+.container {
+    max-width: 80ch;
+    margin: 0 auto;
 }
 
 /* note for later: add here a media query to address users that enable recuded motion 
@@ -53,6 +70,36 @@ img, svg {
     typography
    ************** 
 */
+
+h1 {
+    font-family: 'Catamaran', sans-serif;
+    font-size: 3.5rem;
+    line-height: 0.94;
+    padding: 80px 0;
+    color: var(--color-dark-gray);
+}
+
+h2, 
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Mulish', sans-serif;
+    font-size: 3rem;
+    line-height: 0.9;
+    padding: 2rem 0;
+    color: var(--color-dark-bluegreen);
+}
+
+p {
+    font-family: 'Roboto Slab', serif;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    padding: 1rem 0;
+    /* max-width: 75ch; */
+    margin: 0 auto;
+
+}
 
 
 /* ************** 
@@ -64,4 +111,13 @@ img, svg {
     background-color: beige;
     max-width: 500px;
     min-height: 200px;
+}
+
+/* ************** 
+    classes
+   ************** 
+*/
+
+.top-panel {
+    padding: 80px 0;
 }
