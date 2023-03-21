@@ -91,6 +91,11 @@ As a first-time user...
 
 ### Future Implementations
 
+- Estimate $\pi$ using similar heuristical methods ( see example  [here](https://academo.org/demos/estimating-pi-monte-carlo/) )
+- compare these estimates using interactive charts (i.e. for efficiency, run-time, stability)
+- visualize  how to derive $\pi$ in a graphical or algebraic way 
+- visualize other intersting numbers such as $\phi$ (golden ratio), or the  Euler number, or $\tau$ 
+
 ### Accessibility
 
 ## Technologies Used 
