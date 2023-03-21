@@ -1,3 +1,67 @@
+
+/* */
+
+/* table of contents
+
+    general layout
+
+    typography
+
+    components
+
+
+
+    based on : Kevin Poweell' Youtube "5 CSS mistakes that I see way too often" 
+    https://youtu.be/iHEkRIF7zxI 
+*/
+
+
+/* ************** 
+    general layout
+   ************** 
+*/
+
+
+/* recommended from Kevin Powell https://youtu.be/nYyFf-97Qqg
+*/
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+/* recommended Kevin Powell https://youtu.be/h3bTwCqX4ns */
+* {
+    margin: 0;
+    padding: 0;
+   /* font: inherit;  to enforce that headings are not used for styling */
+}
+
 body {
-    color: red;
+    color:dimgray;
+    line-height: 1.4;
+}
+
+/* recommended Kevin Powell https://youtu.be/h3bTwCqX4ns */
+img, svg {
+    max-width: 100%;
+    display: block;
+}
+
+/* note for later: add here a media query to address users that enable recuded motion 
+/* recommended Kevin Powell https://youtu.be/h3bTwCqX4ns */
+
+/* ************** 
+    typography
+   ************** 
+*/
+
+
+/* ************** 
+    components
+   ************** 
+*/
+
+.diagram {
+    background-color: beige;
+    max-width: 500px;
+    min-height: 200px;
 }

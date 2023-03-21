@@ -168,6 +168,8 @@ The website was tested extensively for several apsects , and the results were do
     - Concepts to help simplify CSS layouts [Youtube Link](https://youtu.be/nYyFf-97Qqg) 
     - Build a responsive website with HTML & CSS   [Part1 ](https://youtu.be/h3bTwCqX4ns), [Part 2](https://youtu.be/3K6zr1CdZy8), [Part 3](https://youtu.be/Ch_LoWKLv3A)
     - The secret to mastering CSS layouts [Youtube Link](https://youtu.be/vHuSz4fRM88)
+    - 5 CSS mistakes that I see way too often [Youtube](https://youtu.be/iHEkRIF7zxI)
+
 - Last but not least : Thanks to my mentor Ronan (Code Institute) for his advices and clear feedback! 
 
 
