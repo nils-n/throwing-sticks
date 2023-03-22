@@ -123,21 +123,31 @@ p {
 */
 
 .diagram {
+    display: grid;
+    grid-auto-flow: row;
     max-width: 500px;
     min-height: 200px;
     margin: 0 auto;
     border-radius: 25px;
 }
 
-.diagram > button {
+.btn-box > button {
     background-color: var(--color-dark-bluegreen);
     color: var(--color-white-background);
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 3rem;
     border-radius: 25px;
     font-family: 'Mulish', sans-serif;
     font-size: var(--fs-regular);
     font-weight: var(--fw-bold);
 }
+
+.btn-box {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
 
 .slidecontainer {
     display: grid;
