@@ -48,8 +48,8 @@ body {
 @media (min-width: 600px) {
     body {
         min-height: 100vh;
-        display: grid;
-        place-items: center;
+        /* display: grid; */
+        /* place-items: center; */
     }
 }
 
@@ -77,7 +77,7 @@ img, svg {
 }
 
 .container {
-    max-width: 80ch;
+    max-width: 70ch;
     margin: 0 auto;
 }
 
@@ -93,7 +93,7 @@ h1 {
     font-family: 'Catamaran', sans-serif;
     font-size: var(--fs-large);
     line-height: 0.94;
-    padding: 80px 0;
+    padding: 3rem 0 1rem;
     color: var(--color-dark-gray);
 }
 
@@ -134,5 +134,11 @@ p {
 */
 
 .top-panel {
-    padding: 80px 0;
+    width: 100%;
+    padding: 4rem 1rem;
+    background-image: url(/assets/images/free-blue-retractable-pen-on-top-of-notebook-near-magic-keyboard-stock-small-compressed.jpg);
+    background-size: cover;
+    background-position: center center;
 }
+
+
