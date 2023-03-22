@@ -126,6 +126,26 @@ p {
     background-color: beige;
     max-width: 500px;
     min-height: 200px;
+    margin: 0 auto;
+    border-radius: 25px;
+}
+
+.diagram > button {
+    background-color: var(--color-dark-bluegreen);
+    color: var(--color-white-background);
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    font-family: 'Mulish', sans-serif;
+    font-size: var(--fs-regular);
+    font-weight: var(--fw-bold);
+}
+
+.slidecontainer {
+    display: grid;
+    place-content: center;
+    grid-auto-flow: column;
+    gap: 3rem;
+    padding: 1rem 0 1rem;
 }
 
 /* ************** 
@@ -136,9 +156,13 @@ p {
 .top-panel {
     width: 100%;
     padding: 4rem 1rem;
-    background-image: url(/assets/images/free-blue-retractable-pen-on-top-of-notebook-near-magic-keyboard-stock-small-compressed.jpg);
+    background-image: linear-gradient(to bottom, rgba(255,255,255,0.2) ,rgba(255,255,255,0.2) )  ,
+                    url(/assets/images/free-blue-retractable-pen-on-top-of-notebook-near-magic-keyboard-stock-small-compressed.jpg);
     background-size: cover;
     background-position: center center;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    
 }
 
 
