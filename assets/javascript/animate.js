@@ -13,6 +13,7 @@ const width = diagram.clientWidth;
 console.log('animate.js :   height  ' + height)
 console.log('animate.js :   width   ' + width)
 
+
 // now create a circle and move its position 
 const circles = [{
     x: 2,
@@ -49,6 +50,10 @@ svg.selectAll("mycircles")
     .attr('fill', function (d) {
         return d.color
     })
+
+// make the background transparent 
+svg.fillStyle = "#FF0000";
+
 
 function throwSticks() {
     console.log('enter function : throwSticks')
