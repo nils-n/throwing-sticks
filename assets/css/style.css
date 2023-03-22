@@ -31,25 +31,43 @@
 * {
     margin: 0;
     padding: 0;
-   /* font: inherit;  to enforce that headings are not used for styling */
+    font: inherit; /* to enforce that headings are not used for styling */
 }
 
 body {
     color: var(--color-dark-gray);
     background-origin: var(--color-white-background);
-    line-height: 1.4;
+    font-family: 'Roboto Slab', serif;
+    font-size: var(--fs-regular);
+    line-height: 1.6;
     margin: 0 auto;
 }
 
+/* adapted from Kevin Powell https://youtu.be/KqFAs5d3Yl8 
+    to ensure that layout works for mobile */
+@media (min-width: 600px) {
+    body {
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+    }
+}
 
 /* define colors that you will use througout this page */
-/*   The dard brown color (#54433A) is the primary color on which the others are based on mycolor.space  */
+ /* customm css properties as suggested in Kevin Powell Video https://youtu.be/CBEhJN0KcJA */
 :root {
-
     --color-white-background: #f5f5f5;
     --color-light-gray: #c1c1c1;
     --color-dark-gray: #3a3a3a;
     --color-dark-bluegreen: #4F6E7A;
+    
+    --fw-normal: 400;
+    --fw-bold: 700;
+    --fw-black: 900;
+    
+    --fs-regular: 1.2rem;
+    --fs-medium: 3rem;
+    --fs-large: 3.5rem; 
 }
 
 /* recommended Kevin Powell https://youtu.be/h3bTwCqX4ns */
@@ -73,7 +91,7 @@ img, svg {
 
 h1 {
     font-family: 'Catamaran', sans-serif;
-    font-size: 3.5rem;
+    font-size: var(--fs-large);
     line-height: 0.94;
     padding: 80px 0;
     color: var(--color-dark-gray);
@@ -85,16 +103,13 @@ h4,
 h5,
 h6 {
     font-family: 'Mulish', sans-serif;
-    font-size: 3rem;
+    font-size: var(--fs-medium);
     line-height: 0.9;
     padding: 2rem 0;
     color: var(--color-dark-bluegreen);
 }
 
 p {
-    font-family: 'Roboto Slab', serif;
-    font-size: 1.2rem;
-    line-height: 1.6;
     padding: 1rem 0;
     /* max-width: 75ch; */
     margin: 0 auto;

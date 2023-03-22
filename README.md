@@ -174,8 +174,9 @@ The website was tested extensively for several apsects , and the results were do
     - Build a responsive website with HTML & CSS   [Part1 ](https://youtu.be/h3bTwCqX4ns), [Part 2](https://youtu.be/3K6zr1CdZy8), [Part 3](https://youtu.be/Ch_LoWKLv3A)
     - The secret to mastering CSS layouts [Youtube Link](https://youtu.be/vHuSz4fRM88)
     - 5 CSS mistakes that I see way too often [Youtube](https://youtu.be/iHEkRIF7zxI)
-
-- Last but not least : Thanks to my mentor Ronan (Code Institute) for his advices and clear feedback! 
+    - From Design to Code - HTML & CSS from scratch 
+ [Youtube](https://www.youtube.com/watch?v=KqFAs5d3Yl8)
+- Thanks to my mentor Ronan (Code Institute) for his advices and clear feedback 
 
 
 
