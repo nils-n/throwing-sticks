@@ -23,9 +23,13 @@
                 <h1>A short story about a magic number and sticks on a table</h1>
                 <p>Once upon a time, there was a magic number that no one understood. Her name was Pi.
                     One day, she met a group of sticks that played the following game: </p>
+                <!-- this is based on the d3 tutorial how to animate transitions
+                     https://d3-graph-gallery.com/intro_d3js.html
+                     https://d3-graph-gallery.com/graph/interactivity_transition.html -->
                 <div class="diagram">
-                    <button>Click Here</button>
-                    <button>Reset</button>
+                     <div id="main-diagram" style="max-width: 450px; min-height: 200px;" ;></div> 
+                    <button onclick="throwSticks()">Throw!</button>
+                    <button onclick="resetSticks()">Reset</button>
                 </div>
                 <!-- this is based on  https://www.w3schools.com/howto/howto_js_rangeslider.asp -->
                 <div class="slidecontainer">
@@ -98,6 +102,7 @@
     </main>
 
     <!-- load js scripts -->
+    <script src="https://d3js.org/d3.v4.js"></script>
     <script src="/assets/javascript/animate.js"></script>
 </body>
 

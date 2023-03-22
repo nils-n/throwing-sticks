@@ -151,7 +151,10 @@ The website was tested extensively for several apsects , and the results were do
 
 - Github badges from [Shields.io](https://shields.io/)
 - Excel Template for Website Testing [Link to Page](https://www.guru99.com/download-sample-test-case-template-with-explanation-of-important-fields.html)
-
+- Animations based on tutorials 
+    - for getting start with  D3.js library : [d3-graph-gallery](https://d3-graph-gallery.com/intro_d3js.html)
+    - using transitions in D3 : [d3-graph-gallery](https://d3-graph-gallery.com/graph/interactivity_transition.html)
+                      
 ### Content 
 
 - All of the content was written by myself.
