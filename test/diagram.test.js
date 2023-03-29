@@ -18,14 +18,18 @@ describe('diagram objects has correct keys', () => {
     })
 })
 
-console.log(diagram)
 describe('diagram object works properly', () => {
     beforeAll( () => {
+        diagram.initDiagram()
         diagram.sticks.push('something')
         diagram.resetSticks()
     })
     test('resetSticks should empty the sticks array', () => {
         expect( diagram.sticks.length).toBe(0);
     })
-
+    test('button click of "Reset" Button should clear stick array', () => {
+        diagram.sticks.push('something');
+        resetButton = document.getElementById('hero-reset').click();
+        expect(diagram.sticks.length).toEqual(0);
+    })
 })

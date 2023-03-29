@@ -163,6 +163,7 @@ The website was tested extensively for several apsects , and the results were do
 
 ## Acknowledgements
 - Teaching and Support from Code Insitute [Code Insitute](https://codeinstitute.net/)
+    - Lesson "JavaScript Testing with Jest" and the testing approach of its "Simon" codealong Challenge
 - Example Readme from Kera Cudmore [Kera's Github](https://github.com/kera-cudmore/readme-examples/blob/main/milestone1-readme.md)
 - Color Palette Generator from [Mycolor.space](https://mycolor.space/)
 - Font Generator from  [Fontjoy](https://fontjoy.com/)
