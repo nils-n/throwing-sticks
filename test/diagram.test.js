@@ -32,4 +32,9 @@ describe('diagram object works properly', () => {
         resetButton = document.getElementById('hero-reset').click();
         expect(diagram.sticks.length).toEqual(0);
     })
+    test('stick array should be non-zero after "Throw" button press', () => {
+        throwButton = document.getElementById('hero-throw').click();
+        expect(diagram.sticks.length).toEqual(1);
+    })
+
 })
