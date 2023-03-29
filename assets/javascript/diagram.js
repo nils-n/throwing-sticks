@@ -1,12 +1,11 @@
-
-let diagram = {
-    stickCountTotal: 0,
-    stickCountTouching: 0,
-    stickCountNotTouching: 0,
+/**
+ * This object has a single responsibility to draw whatever it finds in the database. 
+ */
+const diagram = {
+    sticks: [],
+    resetSticks: function () {
+       this.sticks = [];
+    }
 }
 
-function resetStickCounters(){
-        diagram.stickCountTotal = 0;
-    }
-
-module.exports = { diagram, resetStickCounters }
+module.exports = { diagram }

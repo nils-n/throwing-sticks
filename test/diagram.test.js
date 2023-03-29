@@ -12,26 +12,20 @@ beforeAll( () => {
     document.close()
 })
 
-
 describe('diagram objects has correct keys', () => {
-    test('stickCountTotal key exists', () => {
-        expect( 'stickCountTotal' in diagram).toBe(true)
-    })
-    test('stickCountTouching key exists', () => {
-        expect( 'stickCountTouching' in diagram).toBe(true)
-    })
-    test('stickCountNotTouching key exists', () => {
-        expect( 'stickCountNotTouching' in diagram).toBe(true)
+    test('sticks key exists', () => {
+        expect('sticks' in diagram).toBe(true);
     })
 })
+
 console.log(diagram)
 describe('diagram object works properly', () => {
     beforeAll( () => {
-        diagram.stickCountTotal = 100;
-        resetStickCounters()
+        diagram.sticks.push('something')
+        diagram.resetSticks()
     })
-    test('resetStickCounters sets stickCountTotal to zero', () => {
-        expect( diagram.stickCountTotal).toBe(0);
+    test('resetSticks should empty the sticks array', () => {
+        expect( diagram.sticks.length).toBe(0);
     })
 
 })
