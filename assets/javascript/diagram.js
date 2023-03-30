@@ -20,8 +20,22 @@ const diagram = {
     },
 }
 
+// from here https://busypeoples.github.io/post/testing-d3-with-jasmine/
+function barChart() {
+    var that = {};
 
+    that.render = function() {
+       var svg = d3.select('#main-diagram').append('svg')
+             .attr('height', '500')
+             .attr('width', '500')
+            .append('g')
+             .attr("transform", "translate(0, 0)");
+
+    };
+
+    return that;
+}
 
 module.exports = {
-    diagram
+    diagram, barChart
 }
