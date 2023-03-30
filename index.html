@@ -12,9 +12,6 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Catamaran:wght@700&family=Mulish:wght@700&family=Roboto+Slab&display=swap"
         rel="stylesheet">
-    <script></script>
-    <!-- <script src="https://d3js.org/d3.v4.js" charset="utf-8"></script> -->
-
 </head>
 
 <body>
@@ -28,11 +25,12 @@
                      https://d3-graph-gallery.com/intro_d3js.html
                      https://d3-graph-gallery.com/graph/interactivity_transition.html -->
                 <div class="diagram">
-                     <div id="main-diagram" style="max-width: 450px; min-height: 200px;" ></div> 
-                     <div class="btn-box">
+                    <div id="main-diagram" style="max-width: 450px; min-height: 200px;"></div>
+                    <p id="output"></p>
+                    <div class="btn-box">
                         <button id="hero-throw">Throw!</button>
                         <button id="hero-reset">Reset</button>
-                     </div>
+                    </div>
                 </div>
                 <!-- this is based on  https://www.w3schools.com/howto/howto_js_rangeslider.asp -->
                 <div class="slidecontainer">
@@ -103,7 +101,15 @@
     </main>
 
     <!-- load js scripts -->
-    <script src="./assets/javascript/diagram.js"  charset="utf-8"></script>
+    <script src="./assets/javascript/diagram.js"></script>
+    <script>
+       const result = saySomething();
+        document.getElementById('output').textContent = result;
+        console.log('well here we are')
+    </script>
+
+
+
 </body>
 
 </html>
