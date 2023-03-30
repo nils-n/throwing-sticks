@@ -1,8 +1,10 @@
 /**
  * @jest-environment jsdom
  */
+const d3 = require('d3');
 
-const { diagram, resetStickCounters }  = require('../assets/javascript/diagram')
+const { diagram }  = require('../assets/javascript/diagram')
+
 
 beforeAll( () => {
     let fs = require('fs')
@@ -36,5 +38,22 @@ describe('diagram object works properly', () => {
         throwButton = document.getElementById('hero-throw').click();
         expect(diagram.sticks.length).toEqual(1);
     })
-
 })
+
+describe("test basic function of d3 library", () => {
+  beforeAll( () => {
+    const svg = d3.select("#main-diagram")
+    .append('svg')
+    .attr('width', 500)
+    .attr('height',300)
+  })
+  test("d3 should exist", () => {
+    expect(d3).toBeDefined();
+  });
+  test("d3 should create an svg element", () => {
+    const div = document.getElementById('main-diagram')
+    expect(div.hasChildNodes()).toBe(true);
+  });
+
+
+});

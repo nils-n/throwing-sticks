@@ -1,3 +1,5 @@
+const d3 = require('d3');
+
 /**
  * This object has a single responsibility to draw whatever it finds in the database. 
  */
@@ -18,4 +20,8 @@ const diagram = {
     },
 }
 
-module.exports = { diagram }
+
+
+module.exports = {
+    diagram
+}

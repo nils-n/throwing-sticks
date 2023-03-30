@@ -142,6 +142,8 @@ The website was tested extensively for several apsects , and the results were do
 - Compatibility and Responsiveness 
 
 ### Solved Bugs 
+- the `d3` library would cause `jest` unit test to fail with a `Reference Error: d3 is not defined`. It was not easy to fix this since documentation about unit testing and d3 is sparse. The solution was not to import `d3.js` via a script but by installing through `npm install d3 --save-dev` and commenting out the web-import
+- This still did not work as it caused a ` SyntaxError: Cannot use import statement outside a module` inside the unit test module . The problem was the line `import * as d3 from "d3";`which were written for older versions of `d3` and not the latest version `d3`. The unit test finally passes with solutions from (Link to [Stackoverflow](https://stackoverflow.com/questions/69226759/jest-unexpected-token-export-when-using-d3)) to map to the minified build of `d3` and (Link to [Stackoverflow](https://stackoverflow.com/questions/9948350/how-to-use-d3-in-node-js-properly))to load the `d3` library using `const d3 = require('d3');`
 
 ---- 
 
