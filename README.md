@@ -180,8 +180,11 @@ The website was tested extensively for several apsects , and the results were do
     - Build a responsive website with HTML & CSS   [Part1 ](https://youtu.be/h3bTwCqX4ns), [Part 2](https://youtu.be/3K6zr1CdZy8), [Part 3](https://youtu.be/Ch_LoWKLv3A)
     - The secret to mastering CSS layouts [Youtube Link](https://youtu.be/vHuSz4fRM88)
     - 5 CSS mistakes that I see way too often [Youtube](https://youtu.be/iHEkRIF7zxI)
-    - From Design to Code - HTML & CSS from scratch 
- [Youtube](https://www.youtube.com/watch?v=KqFAs5d3Yl8)
+    - From Design to Code - HTML & CSS from scratch [Youtube](https://www.youtube.com/watch?v=KqFAs5d3Yl8)
+- Useful articles how to approach unit testing of d3 and TDD :
+    - Tips for Unit Testing D3 [Link](https://eng.wealthfront.com/2016/07/27/tips-for-unit-testing-d3/)
+    - Testing D3.js With Jasmine [Link](https://busypeoples.github.io/post/testing-d3-with-jasmine/)
+    - Leveling Up D3: Test Driven Development [Link](https://www.eventbrite.com/engineering/leveling-up-d3-test-driven-development/)
 - Thanks to my mentor Ronan (Code Institute) for his advices and clear feedback 
 
 
