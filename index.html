@@ -12,6 +12,9 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Catamaran:wght@700&family=Mulish:wght@700&family=Roboto+Slab&display=swap"
         rel="stylesheet">
+    <!-- import js script -->
+    <script type=module src="./src/main.js"></script>
+
 </head>
 
 <body>
@@ -47,13 +50,9 @@
         </div>
 
         <div style="padding: 20px 0; background-color: greenyellow;">
-            <form onsubmit="updateDOMwithAge(event)">
-                <h2>Enter your YOB and click the button!</h2>
-                <input type="number" value="1986">
-                <button type="submit" onclick="updateDOMwithAge(event)">Click me</button>
-                <p class="result"></p>
-
-            </form>
+            <h2>Drumroll........</h2>
+            <button id="button">Click me</button>
+            <p id="result"></p>
         </div>
 
         <div class="container ">
@@ -107,10 +106,7 @@
                 Happily, she sat together with the sticks playing the game, with the feeling that finally someone has
                 understood her. </p>
         </div>
-
     </main>
-    <!-- import js script -->
-    <script type="module" src="./index.js"></script>
 </body>
 
 </html>
