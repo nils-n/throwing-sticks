@@ -149,7 +149,12 @@ The website was tested extensively for several apsects , and the results were do
 - The final clue gave this Youtube Tutorial [15. Install Jest Testing Framework with npm for ES6 module support - JavaScript Testing](https://youtu.be/ZnIv8u2-XrA). The problem above was caused by a conflict of two types of Javascript (commonJS and ES6), where commonJS is required for testing with JEST and ES6 for scripts that run in the browser. The solution to this problem as per this Youtube video was to install `babel`. According to this tutorial, the way to solve this problem was :
     - go to the `babel.js` website > `Setup` 
     - click on `Jest`
-    - create a `.babelrc` file in the root directory and copy the JSON configuration as display on the `babel` website
+    - in gitpod, create a `.babelrc` file in the root directory with content 
+        ```
+        {
+            "presets": ["@babel/preset-env"]
+        }
+        ```
     - install babel preset with `npm install @babel/preset-env --save-dev` (as mentioned on website)
 - This passes now successfully the unit test and allows import/export via the `export function` command into `jest`. But when i tried to add an eventlistener to invoke a function that is being testing with `Jest`, the console would throw an error `Uncaught ReferenceError: buttonClick is not defined`. The solution to that was to **not** import the javascript file that is tested by `jest` into the browser that is being tested. Instead, the way to go was to create a new `main.js` that **imports** the (successfully tested) functions, adds an event listener to the button and calls the imported `buttonClick` function. Heureka!
 
