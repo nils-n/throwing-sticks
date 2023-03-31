@@ -46,6 +46,16 @@
             </div>
         </div>
 
+        <div style="padding: 20px 0; background-color: greenyellow;">
+            <form onsubmit="updateDOMwithAge(event)">
+                <h2>Enter your YOB and click the button!</h2>
+                <input type="number" value="1986">
+                <button type="submit" onclick="updateDOMwithAge(event)">Click me</button>
+                <p class="result"></p>
+
+            </form>
+        </div>
+
         <div class="container ">
             <h2>Can it be true?</h2>
             <p>The magic number wondered: How did the sticks know her? One of the sticks sat next to her and explained:
@@ -99,17 +109,8 @@
         </div>
 
     </main>
-
-    <!-- load js scripts -->
-    <script src="./assets/javascript/diagram.js"></script>
-    <script>
-       const result = saySomething();
-        document.getElementById('output').textContent = result;
-        console.log('well here we are')
-    </script>
-
-
-
+    <!-- import js script -->
+    <script type="module" src="./index.js"></script>
 </body>
 
 </html>
