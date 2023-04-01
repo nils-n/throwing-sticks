@@ -21,3 +21,21 @@ export function getMaxValue(data) {
     const maxValue = d3.max(data);
     return maxValue;
   }
+
+// based on https://busypeoples.github.io/post/testing-d3-with-jasmine/
+export function animateExample() {
+
+    const d3 = require('d3');
+    var that = {};
+    that.render = function () {
+        const height = 200;
+        const width = 300;
+        const svg = d3.select("#main-diagram")
+            .append('svg')
+            .attr('width', width)
+            .attr('height', height)
+        svg.fillStyle = '#2#cc9616';
+    };
+
+    return that;
+}
