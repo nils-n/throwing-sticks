@@ -136,10 +136,19 @@ As a first-time user...
 ### Testing Procedure 
 The website was tested extensively for several apsects , and the results were documented in [TO DO TESTING.md](./TESTING.md) 
 
- - Functionality
- - User Stories
+- Functionality
+- User Stories
 - Usability and Accessibility 
 - Compatibility and Responsiveness 
+
+Also, this website was developed using a `test-driven development` (TDD) approach using the `JEST` framework for javascript. Results of of the unit tests are documented in same document above. The reasons for TDD is to 
+- ... ensure core functionality
+- ... better code re-usability 
+- ... better code readibility by enforcing smaller functions.
+
+(clean code principles).
+
+--- 
 
 ### Solved Bugs 
 - the `d3` library would cause `jest` unit test to fail with a `Reference Error: d3 is not defined`. It was not easy to fix this since documentation about unit testing and d3 is sparse. The solution was not to import `d3.js` via a script but by installing through `npm install d3 --save-dev` and commenting out the web-import
@@ -229,6 +238,7 @@ The website was tested extensively for several apsects , and the results were do
     - [15. Install Jest Testing Framework with npm for ES6 module support - JavaScript Testing](https://youtu.be/ZnIv8u2-XrA)
     - [18. Babel Loader Setup in the Webpack 4 Configuration file for compiling Code - Part 1](https://youtu.be/vGZoGwBC7js) 
     - [19. Babel Loader Setup in the Webpack 4 Configuration file for compiling Code - Part 2 ](https://youtu.be/vGZoGwBC7js) 
+- Very eye-opening talks from Dylan Israel : [Link - Clean Coding](https://youtu.be/YQsU2Zq2Zis) 
 - Thanks to my mentor Ronan (Code Institute) for his advices and clear feedback 
 
 
