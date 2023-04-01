@@ -157,6 +157,8 @@ The website was tested extensively for several apsects , and the results were do
         ```
     - install babel preset with `npm install @babel/preset-env --save-dev` (as mentioned on website)
 - This passes now successfully the unit test and allows import/export via the `export function` command into `jest`. But when i tried to add an eventlistener to invoke a function that is being testing with `Jest`, the console would throw an error `Uncaught ReferenceError: buttonClick is not defined`. The solution to that was to **not** import the javascript file that is tested by `jest` into the browser that is being tested. Instead, the way to go was to create a new `main.js` that **imports** the (successfully tested) functions, adds an event listener to the button and calls the imported `buttonClick` function. Heureka!
+- While functions without `d3` are now running correctly in the browser and can be tested with `jest`, my previous approach to test functions that use `d3` in `jest` failed with an error message (`SyntaxError: Unexpected token 'export'` of the named export. The problem here is now that we are using ES6 syntax in our function (see `diagram.js`) but jest runs in `node.js`. A solution to this problem was hinted here : [Stackoverflow](https://stackoverflow.com/questions/72893900/how-to-import-d3-js-in-a-node-and-typescript-project-err-require-esm) . Thi post recommends (until further notice) to use the last stable build of `d3` that worked under `node.js`. Since this project here does not require any latest features of `d3`, I followed the adivse and used `v6.7.0`. 
+
 
 
 ### open Bugs 
