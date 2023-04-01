@@ -1,10 +1,7 @@
-console.log("hi")
-class Person {
-    constructor(name) {
-        this.name = name;
-    }
-}
+import { keyValue, sayHelloWorld } from './components/variables.js';
 
-let person = new Person ('Donald Duck');
+console.log(keyValue);
 
-console.log(person.name);
+sayHelloWorld();
+
+console.log(keyValue);
