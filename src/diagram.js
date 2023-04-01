@@ -1,3 +1,5 @@
+import * as d3 from 'd3/dist/d3.min.js';
+
 export const diagram = {
     sticks: [],
     resetSticks: function () {
@@ -14,3 +16,8 @@ export const diagram = {
         })
     },
 }
+
+export function getMaxValue(data) {
+    const maxValue = d3.max(data);
+    return maxValue;
+  }
