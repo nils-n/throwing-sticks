@@ -164,22 +164,24 @@ The website was tested extensively for several apsects , and the results were do
     - click on `webpack`
     - install on the terminal via `npm install --save-dev babel-loader @babel/core`
     - create a `webpack.config.js` config file and add
-    ```js
-        module: {
-            rules: [
-            {
-                test: /\.m?js$/,
-                exclude: /node_modules/,
-                use: {
-                loader: "babel-loader",
-                options: {
-                    presets: ['@babel/preset-env']
+        ```js
+            module: {
+                rules: [
+                {
+                    test: /\.m?js$/,
+                    exclude: /node_modules/,
+                    use: {
+                    loader: "babel-loader",
+                    options: {
+                        presets: ['@babel/preset-env']
+                    }
+                    }
                 }
-                }
+                ]
             }
-            ]
-        }
-    ```
+        ```
+    - important : before loading into the browser, you need to compiles your ES6 code into ES5 by `npm run build` (assuming `"build": "webpack"` to the `scripts` of `package.json`)
+
 ### open Bugs 
 
 
