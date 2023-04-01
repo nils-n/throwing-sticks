@@ -2,7 +2,7 @@
  * @jest-environment jsdom
  */
 
-const visual = require('../assets/javascript/diagram');
+import { diagram } from './diagram.js';
 
 beforeAll(() => {
   let fs = require('fs')
@@ -12,17 +12,8 @@ beforeAll(() => {
   document.close()
 })
 
-describe('test if you can call functions', () => {
-  test( 'should return a sting', () => {
-    expect(typeof visual.saySomething()).toBe('string');
-  })
-  test( 'string should say Hello World', () => {
-    expect(visual.saySomething()).toBe('Something');
-  })
-})
-
 describe('diagram objects has correct keys', () => {
   test('sticks key exists', () => {
-    expect('sticks' in visual.diagram).toBe(true);
+    expect('sticks' in diagram).toBe(true);
   })
 })
