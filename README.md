@@ -194,6 +194,19 @@ Also, this website was developed using a `test-driven development` (TDD) approac
     - Being mindful about the scope of this website, there were several options how to address this bug. One option was to simply avoid testing any functions that utilized the `d3` library, and only test functions that calculated pi, for example. However, this was not an ideal solution as it would significantly reduce the coverage of the unit tests.
     - Another option was to use a dedicated front-end framework, such as `vue`, to handle the display in the browser while still being able to use `jest` for testing. However, this would have introduced unnecessary complexity, which was beyond the scope of this project. In the future, when more experience with these tools is gained, this may be an appropriate solution.
     - A third option was to switch to a different unit testing framework, such as `mocha`, as the root of the conflict was between `jest` and `d3`. This seemed like a viable solution.
+- Moving from `jest` to `mocha` raised the simuliar error messages that i had previously with `jest` regarding `ES6` types . The solution was as per previous solution the `webpack` tool to convert the javascript into a compiled version that the browser understands. There was one more complication : the following code section can be used in `jest` but not in `mocha`
+    ```
+    let fs = require('fs')
+    let fileContents = fs.readFileSync('index.html', 'utf-8')
+    document.open()
+    document.write(fileContents)
+    document.close()
+    document.
+    ```
+    -  a solution to this problem was suggested in [Testing with Node, Jest, and JSDOM](https://sparkbox.com/foundry/improve_unit_testing_with_mocha_chai_jsdom) to create a fake DOM element using `jsdom`, which then replaces the `global.document`. This makes it now `d3` functions accessible for manipulaton during the unit test. There are some words of caution about this approach on [the JSDOM github page](https://github.com/jsdom/jsdom) but I think it can be justified for this project : `1)` it only executes script written in this document `2)` it will not be executed on the actual website, only during unit testing. On a later stage, when I am more familiar with `vue` or `react`, this will not be an issue. 
+
+
+
 
 ### open Bugs 
 
