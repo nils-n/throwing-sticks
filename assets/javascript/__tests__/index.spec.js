@@ -1,3 +1,7 @@
+/**
+ * @jest-environment jsdom
+ */
+
 import { doSomething, SomeClass } from "../index";
 
 describe("A unit test", () => {

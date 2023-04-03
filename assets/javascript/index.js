@@ -9,5 +9,12 @@ export class SomeClass {
     }
 }
 
-// currently this will be my quick hack to comment this line out for the unit test. i have no idea how to handle this properly.
-document.getElementById('button').addEventListener('click', doSomething);
+//  https://stackoverflow.com/questions/42595427/jest-testing-of-simple-vanilla-javascript-cannot-read-property-addeventlisten
+// the problem was that the entire DOM has not loaded yet
+document.addEventListener('DOMContentLoaded', function () {
+    console.log('Not part of module.exports but still appearing in terminal, why?');
+    var button = document.getElementById('button');
+    button.addEventListener('click', function(e) {
+      console.log('button was clicked');
+    });
+});
