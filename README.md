@@ -204,7 +204,7 @@ Also, this website was developed using a `test-driven development` (TDD) approac
     document.
     ```
     -  a solution to this problem was suggested in [Testing with Node, Jest, and JSDOM](https://sparkbox.com/foundry/improve_unit_testing_with_mocha_chai_jsdom) to create a fake DOM element using `jsdom`, which then replaces the `global.document`. This makes it now `d3` functions accessible for manipulaton during the unit test. There are some words of caution about this approach on [the JSDOM github page](https://github.com/jsdom/jsdom) but I think it can be justified for this project : `1)` it only executes script written in this document `2)` it will not be executed on the actual website, only during unit testing. On a later stage, when I am more familiar with `vue` or `react`, this will not be an issue. 
-- the `dependabot` spotted a potential security risk of using `jsdom` : `Prototype Pollution in JSON5 via Parse Method`. I start to feel bad about these security risk and will refactor this repository to be more simple. 
+- The `dependabot` spotted another potential security risk of using `jsdom` : `Prototype Pollution in JSON5 via Parse Method`. This function was used in this repository to test changes to the DOM during unit testing. Since i did not want to introduce an unnecesary security risk, the best short-term solution to this problem was to refactor the code and its testing procedure to be more simplistic. This solution was  inspired by [this talk from David Whitney](https://www.youtube.com/watch?v=D7LKslgwxmQ) where he advocates minimalistic testing with only using `jest`, `jest-cli` and `@babel/present-env`.
 
 
 ### open Bugs 
