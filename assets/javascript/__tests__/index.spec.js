@@ -1,4 +1,4 @@
-import { doSomething, SomeClass } from "../javascript";
+import { doSomething, SomeClass } from "../index";
 
 describe("A unit test", () => {
     it("called, no param, returns true", () => {
