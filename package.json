@@ -1,21 +1,32 @@
 {
-  "private": true,
-  "version": "0.0.0",
-  "name": "example-jquery",
-  "devDependencies": {
-    "@babel/core": "^7.11.6",
-    "@babel/preset-env": "^7.1.0",
-    "babel-jest": "workspace:^",
-    "jest": "workspace:^",
-    "jest-environment-jsdom": "workspace:^"
-  },
-  "dependencies": {
-    "jquery": "^3.2.1"
-  },
+  "name": "throwing-sticks",
+  "version": "1.0.0",
+  "description": "The number $\\pi$ is widely used in probably each and every modern technological device. Yet, its understanding is somehow limited - like a car, we can use it without knowing exactly what it does. This website is an attempt to teach the value of this number in an interactive and fun way.",
+  "main": ".babelrc.js",
+  "type": "module",
   "scripts": {
     "test": "jest"
   },
-  "jest": {
-    "testEnvironment": "jsdom"
+  "author": "",
+  "license": "ISC",
+  "babel": {
+    "presets": [
+      [
+        "@babel/preset-env",
+        {
+          "targets": {
+            "node": "current"
+          }
+        }
+      ]
+    ]
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.21.4",
+    "jest": "^29.5.0",
+    "jest-cli": "^29.5.0"
+  },
+  "dependencies": {
+    "jquery": "^3.6.4"
   }
 }
