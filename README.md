@@ -225,7 +225,9 @@ Also, this website was developed using a `test-driven development` (TDD) approac
 - Animations based on tutorials 
     - for getting start with  D3.js library : [d3-graph-gallery](https://d3-graph-gallery.com/intro_d3js.html)
     - using transitions in D3 : [d3-graph-gallery](https://d3-graph-gallery.com/graph/interactivity_transition.html)
-- Example of how to test properties of a D3 object using JEST  : [Link to Website](https://busypeoples.github.io/post/testing-d3-with-jasmine/)                 
+- Unit Testing based on `Simon game` example of the Code Institute Course Material (`Javascript Testing with Jest`), especially how to check DOM changes and how to test for events
+
+
 ### Content 
 
 - All of the content was written by myself.
