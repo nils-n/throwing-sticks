@@ -3,6 +3,7 @@
  */
 
 const Simulation  = module.require('../simulation');
+const Stick  = module.require('../stick');
 
 let model; 
 
@@ -25,5 +26,12 @@ describe( `Class ${Simulation.name}`, () => {
           expect(model.sticks).toBeDefined();
           expect(model.sticks.length).toBe(0);
         });
+    
+    test('can add a new stick', () => {
+        const data = new Stick({ position: "some data", orientation:"some data" ,  length: 'some data' , colour: 'some data' }); 
+
+        model.addNewStick(data);
+
+    })
 
 });

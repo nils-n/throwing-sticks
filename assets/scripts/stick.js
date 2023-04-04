@@ -1,3 +1,7 @@
+
+/**
+ * This class describes a single stick with all relevant properties for calculating Pi
+ */
 class Stick {
     position;
     orientation;
