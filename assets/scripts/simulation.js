@@ -1,5 +1,13 @@
-const simulation = {};
+const Stick = module.require('./stick');
 
-simulation.sticks = []
+class Simulation {
+    
+    sticks;
+    
+    constructor() {
+        this.sticks = [];
+    }
 
-module.exports =  simulation;
+};
+
+module.exports =  Simulation;

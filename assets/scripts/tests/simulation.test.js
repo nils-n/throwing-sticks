@@ -2,7 +2,9 @@
  * @jest-environment jsdom
  */
 
-const simulation = module.require('../simulation');
+const Simulation  = module.require('../simulation');
+
+let model; 
 
 // from : Code Institute - "Builidng with Tests - Getting Started"
 beforeAll( () => {
@@ -10,20 +12,18 @@ beforeAll( () => {
     let fileContents = fs.readFileSync('index.html', 'utf-8')
     document.open()
     document.write(fileContents)
-    document.close()
+    document.close() 
 })  
 
-describe("simulation", () => {
+describe( `Class ${Simulation.name}`, () => {
 
-    test("exists", () => {
-        expect(simulation).toBeDefined();
-    });
-
-    test("contains an empty array of sticks", () => {
-        expect('sticks' in simulation).toBe(true);
-        expect(simulation.sticks.length).toBe(0)
+    beforeEach( () => {
+        model = new Simulation();
     })
 
-
+    test("exists and has empty array of sticks", () => {
+          expect(model.sticks).toBeDefined();
+          expect(model.sticks.length).toBe(0);
+        });
 
 });
