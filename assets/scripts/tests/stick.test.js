@@ -13,8 +13,12 @@ describe( `Class ${Stick.name}`, () => {
         model = new Stick(data);
     })
 
-    test("exists ", () => {
+    test("exists and is initialized with empty values", () => {
           expect(model).toBeDefined();
+          expect(model.position).toBeDefined()
+          expect(model.orientation).toBeDefined()
+          expect(model.length).toBeDefined()
+          expect(model.colour).toBeDefined()
         });
         
 });

@@ -5,7 +5,7 @@
   "type": "module",
   "testEnvironment": "jsdom",
   "scripts": {
-    "test": "jest --verbose"
+    "test": "jest --verbose --watch"
   },
   "author": "",
   "license": "ISC",

@@ -5,7 +5,7 @@
 class Stick {
     position;
     orientation;
-    length;
+    length; 
     colour;
     constructor( data ) {
         this.position = data.position;
