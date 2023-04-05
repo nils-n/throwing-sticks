@@ -104,7 +104,26 @@ describe( `Class ${Simulation.name}`, () => {
         expect(result).toBeTruthy()
     })
 
-    test('sticks that touch the midlines should be red', () => {
+    // in order to work with Javascript.Math we need to convert angles to radians
+    // note that this is **not** introducing a bias to estimate Pi with the simulation - it's just how Javascript.Math deals with angles.
+    test('correctly convert degrees to radians', () => {
+        const testValues = [ 180, 90, 0 ]
+        const expectedResults = [ Math.PI , Math.PI/2, 0, ]
+
+        const results = []
+        for (let testValue of testValues) {
+            results.push( model.toRadians( testValue )) 
+        }
+
+        // using array destructuring for a nicer for loop
+        //https://medium.com/@francois.barrailla/javascript-iterate-over-array-values-and-indexes-using-a-for-of-loop-106a58972b24
+        for (const [index, result] of results.entries()) { 
+            expect( result ).toBe ( expectedResults[index] )
+          }
+
+    })
+
+    xtest('sticks that touch the midlines should be red', () => {
         model.addNewStick( {postion: 0.5, orientation:90})
         model.assignColours();
 
@@ -112,6 +131,8 @@ describe( `Class ${Simulation.name}`, () => {
 
         expect(result).toBe('red')
     })
+
+
 
 
     

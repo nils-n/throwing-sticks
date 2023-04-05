@@ -47,6 +47,11 @@ class Simulation {
 
         }
     }
+
+    // convert angle to radians because Math.cos expects angles in rad 
+    toRadians (angle) {
+        return (Math.PI * angle) / 180.0;
+    }
 };
 
 module.exports =  Simulation;
