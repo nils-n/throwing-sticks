@@ -207,7 +207,7 @@ Also, this website was developed using a `test-driven development` (TDD) approac
 - The `dependabot` spotted another potential security risk of using `jsdom` : `Prototype Pollution in JSON5 via Parse Method`. This function was used in this repository to test changes to the DOM during unit testing. Since i did not want to introduce an unnecesary security risk, the best short-term solution to this problem was to refactor the code and its testing procedure to be more simplistic. This solution was  inspired by [this talk from David Whitney](https://www.youtube.com/watch?v=D7LKslgwxmQ) where he advocates minimalistic testing with only using `jest`, `jest-cli` and `@babel/present-env`:
     ```
     npm init
-    npm install --save-dev @babel/preset-env jest jest-cli
+    npm install --save-dev @babel/preset-env jest jest-cli @types/jest
     ```
 
 

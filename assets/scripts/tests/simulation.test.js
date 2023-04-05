@@ -32,6 +32,7 @@ describe( `Class ${Simulation.name}`, () => {
 
         model.addNewStick(data);
 
+        expect(model.sticks.length).toBeGreaterThan(0);
     })
 
 });
