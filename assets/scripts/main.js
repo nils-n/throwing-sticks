@@ -1,7 +1,22 @@
-var unique = require('uniq');
 
-var data = [1, 2, 2, 3, 4, 5, 5, 5, 6];
+ const Simulation = require('././simulation');
 
-console.log(unique(data));
 
-// example taken from : https://browserify.org/
+console.log('Hello there')
+
+model = new Simulation();
+
+
+console.log(model)
+
+// const testAngles = [
+//     {position: 0.0, orientation: 0 },
+//     {position: 0.0, orientation: 80 },
+//     {position: 0.5, orientation: 90 },
+//     {position: 1.0, orientation: 90 }
+// ]
+// for (let testAngle  of testAngles){ 
+//     model.addNewStick( testAngle)
+// }
+
+// model.assignColours();

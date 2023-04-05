@@ -2,10 +2,10 @@
   "name": "throwing-sticks",
   "version": "1.0.0",
   "description": "The number $\\pi$ is widely used in probably each and every modern technological device. Yet, its understanding is somehow limited - like a car, we can use it without knowing exactly what it does. This website is an attempt to teach the value of this number in an interactive and fun way.",
-  "type": "module",
   "testEnvironment": "jsdom",
   "scripts": {
-    "test": "jest --verbose --watch"
+    "test": "jest --verbose --watch",
+    "build": "webpack --config webpack.config.js"
   },
   "author": "",
   "license": "ISC",
@@ -22,11 +22,15 @@
     ]
   },
   "devDependencies": {
+    "@babel/core": "^7.21.4",
     "@babel/preset-env": "^7.21.4",
     "@types/jest": "^29.5.0",
+    "babel-loader": "^9.1.2",
     "jest": "^26.6.3",
     "jest-cli": "^29.5.0",
-    "jsdom": "^21.1.1"
+    "jsdom": "^21.1.1",
+    "webpack": "^5.78.0",
+    "webpack-cli": "^5.0.1"
   },
   "dependencies": {
     "uniq": "^1.0.1"
