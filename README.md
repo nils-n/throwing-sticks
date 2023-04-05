@@ -213,7 +213,13 @@ Also, this website was developed using a `test-driven development` (TDD) approac
 - There was a bug of a wrongly designed test that created false positive test result. The test was for randomness of the orientation of new stick. It was designed to assert that an array of `100` sticks had unique orientations. This approach was inspired by a hint from [Stackoverflow](https://stackoverflow.com/questions/57001262/jest-expect-only-unique-elements-in-an-array)
   to test that the `Array` length equals the lenght of the array converted to a `Set` (if there was a duplicate, the `size of Set <  Array Length`)). However, in my implementation of the `for` loop i switched the the second and third entry, which casuses the loop to run exaclty `1 times` - with the consequence that `Array Length` is always equal to `Set Size`!
     - The solution was to correct the order of loop header in the `simulation.test.js`, and now the test failed as expected. 
-
+- For debugging, i wanted to test the Simulation classes also in the browser. However, `main.js` could not be loaded in the browser and fails with a `ReferenceError: module is not defined`. A hint to the solution was found in this article  [How To Fix ReferenceError require is not defined in JavaScript](https://isotropic.co/how-to-fix-referenceerror-require-is-not-defined-in-javascript/) that suggests to use `browserify`:
+    -  Following the docmentation of [browserify](https://browserify.org/), the problem is fixed by bundling into a `bundle.js` and then importing this bundled file as `<script>` into the `index.html` :
+        ```bash
+        npm install -g browserify
+        npm install uniq
+        browserify main.js -o bundle.js
+        ```
 ### open Bugs 
 
 

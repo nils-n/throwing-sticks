@@ -1,17 +1,7 @@
-const Simulation = module.require('./simulation');
+var unique = require('uniq');
 
-console.log('Hello there')
+var data = [1, 2, 2, 3, 4, 5, 5, 5, 6];
 
-// model = new Simulation();
+console.log(unique(data));
 
-// const testAngles = [
-//     {position: 0.0, orientation: 0 },
-//     {position: 0.0, orientation: 80 },
-//     {position: 0.5, orientation: 90 },
-//     {position: 1.0, orientation: 90 }
-// ]
-// for (let testAngle  of testAngles){ 
-//     model.addNewStick( testAngle)
-// }
-
-// model.assignColours();
+// example taken from : https://browserify.org/
