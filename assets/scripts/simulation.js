@@ -21,6 +21,17 @@ class Simulation {
         this.sticks = [];
     }
 
+    //add a stick with a random location and orientation
+    // the stick has a random position between 0 and  1
+    addNewRandomStick(  ) {
+
+        // create a random position 
+        const randomPosition =  Math.random() ;
+
+        const data = { position:randomPosition }
+        this.sticks.push( new Stick( data ) )
+    }
+
 };
 
 module.exports =  Simulation;

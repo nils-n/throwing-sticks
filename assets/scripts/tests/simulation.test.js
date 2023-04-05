@@ -2,6 +2,15 @@
  * @jest-environment jsdom
  */
 
+/**
+ * All tests are laid out in the form 
+ * 
+ *  A rrange 
+ *  A ct 
+ *  A ssert 
+ * 
+ */
+
 const Simulation  = module.require('../simulation');
 const Stick  = module.require('../stick');
 
@@ -17,6 +26,9 @@ beforeAll( () => {
     document.close() 
 })  
 
+/** 
+ * These test assert the properties and methods of the Simulation Class 
+ */
 describe( `Class ${Simulation.name}`, () => {
 
     beforeEach( () => {
@@ -27,9 +39,9 @@ describe( `Class ${Simulation.name}`, () => {
     test("exists and has empty array of sticks", () => {
           expect(model.sticks).toBeDefined();
           expect(model.sticks.length).toBe(0);
-        });
+    });
     
-    test('can add a new stick', () => {
+    test('can add a new stick given data', () => {
         model.addNewStick(data);
 
         expect(model.sticks.length).toBeGreaterThan(0);
@@ -42,5 +54,15 @@ describe( `Class ${Simulation.name}`, () => {
 
         expect(model.sticks.length).toBe(0);
     })
+
+    test('can add new stick with position between 0 and 1', () => {
+        model.addNewRandomStick();
+
+        const result =  model.sticks[0].position
+
+        expect( result ).toBeGreaterThan(0);
+        expect( result ).toBeLessThan(1);
+    })
+
 
 });
