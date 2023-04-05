@@ -61,7 +61,8 @@ class Simulation {
             }
 
             // the stick will touch the line under this condition for the orientation 
-            const stickTouchesMidline = 2 * this.toRadians( stick.orientation ) < this.position;
+            const stickTouchesMidline =  Math.cos( this.toRadians( stick.orientation ) ) > stick.position;
+            //qconsole.log(` ->  angle is ${stick.orientation},  position is ${stick.position} -> touches midline? ${stickTouchesMidline}` )
 
             // set the color to red if the stick touches - green otherwise 
             stick.colour = stickTouchesMidline ? "red" : 'green'
@@ -84,7 +85,7 @@ class Simulation {
         if ( !this.stickCounter['red'] ) {
             return 0;
         }
-        const result = 2 * ( this.stickCounter['total']) / this.stickCounter['red']
+        const result =  ( this.stickCounter['total']) / this.stickCounter['red']
 
         this.estimatedValueOfPi =  result ;
 

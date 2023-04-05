@@ -15,7 +15,7 @@
   \********************************/
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-eval("var Simulation = __webpack_require__(/*! ././simulation */ \"./assets/scripts/simulation.js\");\nconsole.log('Hello there');\nmodel = new Simulation();\nconsole.log(model);\n\n// const testAngles = [\n//     {position: 0.0, orientation: 0 },\n//     {position: 0.0, orientation: 80 },\n//     {position: 0.5, orientation: 90 },\n//     {position: 1.0, orientation: 90 }\n// ]\n// for (let testAngle  of testAngles){ \n//     model.addNewStick( testAngle)\n// }\n\n// model.assignColours();\n\n//# sourceURL=webpack://throwing-sticks/./assets/scripts/main.js?");
+eval("var Simulation = __webpack_require__(/*! ././simulation */ \"./assets/scripts/simulation.js\");\nconsole.log('Hello there');\nmodel = new Simulation();\nconsole.log(model);\nvar testAngles = [{\n  position: 0.0,\n  orientation: 0\n}, {\n  position: 0.0,\n  orientation: 80\n}, {\n  position: 0.5,\n  orientation: 90\n}, {\n  position: 1.0,\n  orientation: 90\n}];\nfor (var _i = 0, _testAngles = testAngles; _i < _testAngles.length; _i++) {\n  var testAngle = _testAngles[_i];\n  model.addNewStick(testAngle);\n}\nmodel.assignColours();\n\n//# sourceURL=webpack://throwing-sticks/./assets/scripts/main.js?");
 
 /***/ }),
 

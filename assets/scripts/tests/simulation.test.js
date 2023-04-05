@@ -133,9 +133,9 @@ describe( `Class ${Simulation.name}`, () => {
         // add random sticks that touch the midline
         const testAngles = [
             {position: 0.0, orientation: 0 },
-            {position: 0.0, orientation: 80 },
-            {position: 0.5, orientation: 90 },
-            {position: 1.0, orientation: 90 }
+            {position: 0.0, orientation: 10 },
+            {position: 0.5, orientation: 20 },
+            {position: 0.5, orientation: 30 }
         ]
         for (let testAngle  of testAngles){ 
             model.addNewStick( testAngle)
@@ -192,7 +192,7 @@ describe( `Class ${Simulation.name}`, () => {
         expect(model.stickCounter['green']).toBe(randomNumberGreenSticks);
     })
 
-    xtest('estimated value of Pi should be somehow close to actual value', () => {
+    test('estimated value of Pi should be somehow close to actual value', () => {
         const numberOfRepetitions = 10000;
         for (let i = 0; i < numberOfRepetitions ; i++) {
             model.addNewRandomStick()
