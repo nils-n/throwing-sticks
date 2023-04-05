@@ -6,6 +6,7 @@ const Simulation  = module.require('../simulation');
 const Stick  = module.require('../stick');
 
 let model; 
+let data;
 
 // from : Code Institute - "Builidng with Tests - Getting Started"
 beforeAll( () => {
@@ -20,6 +21,7 @@ describe( `Class ${Simulation.name}`, () => {
 
     beforeEach( () => {
         model = new Simulation();
+        data = new Stick({ position: "some data", orientation:"some data" ,  length: 'some data' , colour: 'some data' }); 
     })
 
     test("exists and has empty array of sticks", () => {
@@ -28,11 +30,17 @@ describe( `Class ${Simulation.name}`, () => {
         });
     
     test('can add a new stick', () => {
-        const data = new Stick({ position: "some data", orientation:"some data" ,  length: 'some data' , colour: 'some data' }); 
-
         model.addNewStick(data);
 
         expect(model.sticks.length).toBeGreaterThan(0);
+    })
+
+    test('can remove all sticks', () => {
+        model.addNewStick(data);
+
+        model.removeAllSticks();
+
+        expect(model.sticks.length).toBe(0);
     })
 
 });

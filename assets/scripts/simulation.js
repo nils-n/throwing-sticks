@@ -16,6 +16,11 @@ class Simulation {
         this.sticks.push( new Stick( data ) )
     }
 
+    //clear stick array
+    removeAllSticks() {
+        this.sticks = [];
+    }
+
 };
 
 module.exports =  Simulation;
