@@ -22,13 +22,17 @@ class Simulation {
     }
 
     //add a stick with a random location and orientation
-    // the stick has a random position between 0 and  1
+    // the stick has a position between 0 and  1
     addNewRandomStick(  ) {
+
+        // to ensure angle is between 0 and 180
+        const maxAngle = 180;
 
         // create a random position 
         const randomPosition =  Math.random() ;
+        const randomOrientation = maxAngle * Math.random();
 
-        const data = { position:randomPosition }
+        const data = { position:randomPosition, orientation:randomOrientation}
         this.sticks.push( new Stick( data ) )
     }
 

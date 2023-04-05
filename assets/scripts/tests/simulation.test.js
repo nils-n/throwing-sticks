@@ -64,5 +64,17 @@ describe( `Class ${Simulation.name}`, () => {
         expect( result ).toBeLessThan(1);
     })
 
+    test('new stick has orientation between 0 and 180 degrees', () => {
+        model.addNewRandomStick();
+
+        const result = model.sticks[0].orientation
+
+        expect( result ).toBeGreaterThan(0)
+        expect( result ).toBeLessThan(180)
+        
+        
+    })
+    
+
 
 });
