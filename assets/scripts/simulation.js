@@ -49,7 +49,7 @@ class Simulation {
         this.addNewStick( data )
     }
 
-    // the stick touches the line if x * cos(x) < 2. if it touches , color is red, otherwise color is green. 
+    // assigns a color to the stick wheter it touches the midlines.
     assignColours ( ) {
         // loop over sticks and assign color
         for (let stick of this.sticks)
@@ -60,15 +60,11 @@ class Simulation {
                 continue;
             }
 
-            // to avoid division by zero for angles close to 90 degrees
-            if (  Math.abs(stick.orientation - 90) < 0.00001) {
-                stick.colour = 'red'
-                this.stickCounter['red'] += 1;
-                continue;
-            }
+            // the stick will touch the line under this condition for the orientation 
+            const stickTouchesMidline = 2 * this.toRadians( stick.orientation ) < this.position;
 
-            const result = stick.position / Math.cos( this.toRadians( stick.orientation )) ;
-            stick.colour = result < 2? "red" : 'green'
+            // set the color to red if the stick touches - green otherwise 
+            stick.colour = stickTouchesMidline ? "red" : 'green'
 
             // update the stick count too
             this.stickCounter[stick.colour] += 1;
