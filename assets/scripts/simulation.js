@@ -36,6 +36,17 @@ class Simulation {
         this.sticks.push( new Stick( data ) )
     }
 
+    // the stick touches the line if x * cos(x) < 2. if it touches , color is red, otherwise color is green. 
+    assignColours ( ) {
+        // loop over sticks and assign color
+        for (let stick of this.sticks)
+        {
+            const result = true
+            stick.colour = result ? "green" : 'red'
+            console.log(stick.colour)
+
+        }
+    }
 };
 
 module.exports =  Simulation;

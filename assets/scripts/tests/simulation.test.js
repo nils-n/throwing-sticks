@@ -103,6 +103,17 @@ describe( `Class ${Simulation.name}`, () => {
 
         expect(result).toBeTruthy()
     })
+
+    test('sticks that touch the midlines should be red', () => {
+        model.addNewStick( {postion: 0.5, orientation:90})
+        model.assignColours();
+
+        const result = model.sticks[0].colour;
+
+        expect(result).toBe('red')
+    })
+
+
     
 
 

@@ -9,7 +9,7 @@ let model;
 describe( `Class ${Stick.name}`, () => {
 
     beforeEach( () => {
-        const data = { position: "some data", orientation:"some data" ,  length: 'some data' , colour: 'some data' }; 
+        const data = { position: '', orientation:'' ,  length: '' , colour: '' }; 
         model = new Stick(data);
     })
 
