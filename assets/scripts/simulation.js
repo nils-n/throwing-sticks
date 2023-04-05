@@ -41,10 +41,14 @@ class Simulation {
         // loop over sticks and assign color
         for (let stick of this.sticks)
         {
-            const result = true
-            stick.colour = result ? "green" : 'red'
-            console.log(stick.colour)
+            // to avoid division by zero for angles close to 90 degrees
+            if (  Math.abs(stick.orientation - 90) < 0.00001) {
+                stick.colour = 'red'
+                continue;
+            }
 
+            const result = stick.position / Math.cos( this.toRadians( stick.orientation )) ;
+            stick.colour = result < 2? "red" : 'green'
         }
     }
 

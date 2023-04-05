@@ -123,13 +123,50 @@ describe( `Class ${Simulation.name}`, () => {
 
     })
 
-    xtest('sticks that touch the midlines should be red', () => {
-        model.addNewStick( {postion: 0.5, orientation:90})
+   test('sticks that touch the midlines should be red', () => {
+        // add random sticks that touch the midline
+        const testAngles = [
+            {position: 0.0, orientation: 0 },
+            {position: 0.0, orientation: 80 },
+            {position: 0.5, orientation: 90 },
+            {position: 1.0, orientation: 90 }
+        ]
+        for (let testAngle  of testAngles){ 
+            model.addNewStick( testAngle)
+        }
+
         model.assignColours();
+        const results = []
+        for (let stick of model.sticks) {
+            results.push( stick.colour ) 
+        }
 
-        const result = model.sticks[0].colour;
+        for (const [index, result] of results.entries()) { 
+            expect( result ).toBe ( 'red')
+        }
+    })
 
-        expect(result).toBe('red')
+    test(`sticks that don't touch the midlines should be green`, () => {
+        // add random sticks that dont' touch the midline
+        const testAngles = [
+            {position: 0.7, orientation: 80 },
+            {position: 1.0, orientation: 89 },
+            {position: 1.0, orientation: 80 },
+            {position: 0.7, orientation: 70 }
+        ]
+        for (let testAngle  of testAngles){ 
+            model.addNewStick( testAngle)
+        }
+
+        model.assignColours();
+        const results = []
+        for (let stick of model.sticks) {
+            results.push( stick.colour ) 
+        }
+
+        for (const [index, result] of results.entries()) { 
+            expect( result ).toBe ( 'green')
+        }
     })
 
 
