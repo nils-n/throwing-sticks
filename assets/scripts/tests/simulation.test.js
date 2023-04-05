@@ -77,18 +77,34 @@ describe( `Class ${Simulation.name}`, () => {
     test('new position is random', () => {
         const numberOfRepetitions = 10;
         const randomPositions = [];
-        for ( let i=0; i++; i<numberOfRepetitions) {
+        for ( let i=0; i<numberOfRepetitions; i++ ) {
             model.addNewRandomStick();
             randomPositions.push( model.sticks[i].position)
         }
 
         // solution from stackoverflow to test an array for uniqueness 
         // https://stackoverflow.com/questions/57001262/jest-expect-only-unique-elements-in-an-array
-        const result = randomPositions => Array.isArray(randomPositions) && new Set(randomPositions).size === randomPositions.length; 
+        const result = new Set(randomPositions).size === randomPositions.length; 
 
         expect(result).toBeTruthy()
     })
     
+    test('new orientation is random', () => {
+        const numberOfRepetitions = 10;
+        const randomOrientations= [];
+        for ( let i=0;  i<numberOfRepetitions; i++ ) {
+            model.addNewRandomStick();
+            randomOrientations.push( model.sticks[i].orientation)
+        }
+
+        // solution from stackoverflow to test an array for uniqueness 
+        // https://stackoverflow.com/questions/57001262/jest-expect-only-unique-elements-in-an-array
+        const result = new Set(randomOrientations).size === randomOrientations.length; 
+
+        expect(result).toBeTruthy()
+    })
+    
+
 
 
 });
