@@ -190,6 +190,20 @@ describe( `Class ${Simulation.name}`, () => {
         expect(model.stickCounter['green']).toBe(randomNumberGreenSticks);
     })
 
+    test('estimated value of Pi should be somehow close to actual value', () => {
+        const numberOfRepetitions = 10000;
+        for (let i = 0; i < numberOfRepetitions ; i++) {
+            model.addNewRandomStick()
+        }
+
+        model.assignColours()
+        model.estimatePi();
+
+        expect(model.estimatedValueOfPi).toBeGreaterThan(Math.PI - 1);
+        expect(model.estimatedValueOfPi).toBeLessThan(Math.PI + 1 );
+
+    })
+
 
 
 

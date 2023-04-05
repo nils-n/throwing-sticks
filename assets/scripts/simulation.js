@@ -7,12 +7,14 @@ class Simulation {
     
     sticks;
     stickCounter ;
+    estimatedValueOfPi;
 
     numberGreenSticks;
     
     constructor() {
         this.sticks = [];
         this.stickCounter = { 'red': 0, 'green': 0, 'total': 0};
+        this.estimatedValueOfPi = 42;
     }
 
     // adds a new stick
@@ -76,6 +78,22 @@ class Simulation {
     // convert angle to radians because Math.cos expects angles in rad 
     toRadians (angle) {
         return (Math.PI * angle) / 180.0;
+    }
+
+    estimatePi () {
+
+        console.log(` -> red sticks ${this.stickCounter['red']} - green sticks ${this.stickCounter['green']}  - total #  ${this.stickCounter['total']}  `)
+
+        // ensure that this.stickCounter['red'] is not zero 
+        if ( !this.stickCounter['red'] ) {
+            return 0;
+        }
+        const result = 2 * ( this.stickCounter['total']) / this.stickCounter['red']
+
+        this.estimatedValueOfPi =  result ;
+
+        console.log(` -> estimated value of Pi  ${result} `)
+
     }
 };
 
