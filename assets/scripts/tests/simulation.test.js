@@ -70,9 +70,23 @@ describe( `Class ${Simulation.name}`, () => {
         const result = model.sticks[0].orientation
 
         expect( result ).toBeGreaterThan(0)
-        expect( result ).toBeLessThan(180)
-        
-        
+        expect( result ).toBeLessThan(180)    
+    })
+
+    // i'm not so sure how to test for randomness. I'll just add 10 sticks and confirm that all locations are different 
+    test('new position is random', () => {
+        const numberOfRepetitions = 10;
+        const randomPositions = [];
+        for ( let i=0; i++; i<numberOfRepetitions) {
+            model.addNewRandomStick();
+            randomPositions.push( model.sticks[i].position)
+        }
+
+        // solution from stackoverflow to test an array for uniqueness 
+        // https://stackoverflow.com/questions/57001262/jest-expect-only-unique-elements-in-an-array
+        const result = randomPositions => Array.isArray(randomPositions) && new Set(randomPositions).size === randomPositions.length; 
+
+        expect(result).toBeTruthy()
     })
     
 
