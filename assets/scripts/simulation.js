@@ -6,19 +6,30 @@ const Stick = module.require('./stick');
 class Simulation {
     
     sticks;
+    stickCounter ;
+
+    numberGreenSticks;
     
     constructor() {
         this.sticks = [];
+        this.stickCounter = { 'red': 0, 'green': 0, 'total': 0};
     }
 
     // adds a new stick
     addNewStick( data ){
         this.sticks.push( new Stick( data ) )
+        this.stickCounter['total'] += 1;
+
+        // if color has been defined, move to the next
+        if (data.colour) {
+            this.stickCounter[data.colour] +=1;
+        }
     }
 
     //clear stick array
     removeAllSticks() {
         this.sticks = [];
+        this.stickCounter = { 'red': 0, 'green': 0, 'total': 0};
     }
 
     //add a stick with a random location and orientation
@@ -31,9 +42,9 @@ class Simulation {
         // create a random position 
         const randomPosition =  Math.random() ;
         const randomOrientation = maxAngle * Math.random();
-
         const data = { position:randomPosition, orientation:randomOrientation}
-        this.sticks.push( new Stick( data ) )
+
+        this.addNewStick( data )
     }
 
     // the stick touches the line if x * cos(x) < 2. if it touches , color is red, otherwise color is green. 
@@ -41,14 +52,24 @@ class Simulation {
         // loop over sticks and assign color
         for (let stick of this.sticks)
         {
+            // if color has been defined, move to the next
+            if (stick.colour) {
+                console.log('color has been defined already!')
+                continue;
+            }
+
             // to avoid division by zero for angles close to 90 degrees
             if (  Math.abs(stick.orientation - 90) < 0.00001) {
                 stick.colour = 'red'
+                this.stickCounter['red'] += 1;
                 continue;
             }
 
             const result = stick.position / Math.cos( this.toRadians( stick.orientation )) ;
             stick.colour = result < 2? "red" : 'green'
+
+            // update the stick count too
+            this.stickCounter[stick.colour] += 1;
         }
     }
 

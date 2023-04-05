@@ -38,6 +38,7 @@ describe( `Class ${Simulation.name}`, () => {
 
     test("exists and has empty array of sticks", () => {
           expect(model.sticks).toBeDefined();
+          expect(model.stickCounter).toBeDefined();
           expect(model.sticks.length).toBe(0);
     });
     
@@ -45,6 +46,7 @@ describe( `Class ${Simulation.name}`, () => {
         model.addNewStick(data);
 
         expect(model.sticks.length).toBeGreaterThan(0);
+        expect(model.stickCounter['total']).toBe(1);
     })
 
     test('can remove all sticks', () => {
@@ -53,6 +55,10 @@ describe( `Class ${Simulation.name}`, () => {
         model.removeAllSticks();
 
         expect(model.sticks.length).toBe(0);
+        expect(model.stickCounter["red"]).toBe(0);
+        expect(model.stickCounter["green"]).toBe(0);
+        expect(model.stickCounter["total"]).toBe(0);
+        
     })
 
     test('can add new stick with position between 0 and 1', () => {
@@ -167,6 +173,21 @@ describe( `Class ${Simulation.name}`, () => {
         for (const [index, result] of results.entries()) { 
             expect( result ).toBe ( 'green')
         }
+    })
+
+    test("stick counter keeps track of sticks", () => {
+        const randomNumberGreenSticks = 4;
+        const randomNumberRedSticks = 3;
+
+        for (let i = 0; i < randomNumberGreenSticks; i++){
+            model.addNewStick( {colour: 'green' });
+        }
+        for (let i = 0; i < randomNumberRedSticks; i++){
+            model.addNewStick( {colour: 'red' } );
+        }
+
+        expect(model.stickCounter['red']).toBe(randomNumberRedSticks);
+        expect(model.stickCounter['green']).toBe(randomNumberGreenSticks);
     })
 
 
