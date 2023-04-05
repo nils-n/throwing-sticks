@@ -220,6 +220,11 @@ Also, this website was developed using a `test-driven development` (TDD) approac
         npm install uniq
         browserify main.js -o bundle.js
         ```
+- This bundling works for individual files with files that use `require` - but it failed with same `Reference error - require not defined` with scripts that have  nested imports such as the `Simulation` class from `simulation.js`. The solution was to check out a solution in this README from a previous bugfix (see above) to use `webpack` instead to create a compiled version of the vanilla javascript file. The small downside is, now we have to manually compile the javascript files before using them in the browser - but this is acceptable since it does not affect the final website, only the development workflow.
+    ```bash
+    npm run build
+    ``` 
+
 ### open Bugs 
 
 
