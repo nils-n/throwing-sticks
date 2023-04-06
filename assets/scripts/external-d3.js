@@ -66,8 +66,10 @@ function drawEmptyDiagram( width , height) {
        console.log( ` lenght of the stick is ${stickLengthOnScreen}`)
 
        // create a scale for the input data 
+       // twoTimesRadius : comes from he way we do the simulation ( simulating half the circle )
+       const twoTimesRadius =  2 
        const xScale = d3.scaleLinear() 
-       .domain([ 0, 2 ])
+       .domain([ 0, twoTimesRadius ])
        .range([ 0, ( width - 16)  / ( numberOfMidlines - 1) ])
 
     // now create a circle and move its position 

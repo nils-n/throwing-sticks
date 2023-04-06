@@ -53,6 +53,15 @@ document.getElementById('hero-throw').addEventListener( "click", function() {
 
 })
 
+// listener to the clear button to remove the elements of the sticks array
+ document.getElementById('hero-reset').addEventListener( 'click', function() { 
+
+    console.log('Reset Button pushed - Removing all elements from Display')
+    sticks = [];
+    svg = drawEmptyDiagram( width, height )
+    drawMidlines( svg , width, height )
+
+ })
 
 
 
