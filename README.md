@@ -54,6 +54,8 @@ As a first-time user...
 | Entertain the users                    | 5      | 5           | 
 | Animate the calulation of Pi using thrown sticks in JS  | 5      | 5           | 
 | Animate the explanations using JS      | 5      | 5          | 
+| Implement Simulation in Javascript with  TDD         | 3      | 3          | 
+| ~~Implement Display with D3.js with TDD~~   | 4      |   1         | 
 | ~~Do large-scale simulation (> 10e6 sticks)~~  | 2   | 1    | 
 | **Sum**                          | **20**   | **20**     | 
 
@@ -62,7 +64,8 @@ As a first-time user...
 - The sum of Impact/Feasibility is balanced after discarding the entry "Do large-scale simulation (> 10e6 sticks)".
 -  This had to be discarded because it is currently not feasible without using dedicated simulation software (i.e. [Processing](https://processing.org/)) or running the simulation on a backend server - which is beyond the scope of this project. 
 - I figured that for educational purposes, an animation of ~1000 sticks the simulation can be handled by most browsers using d3.js and would still lead to a sufficient approximation of &pi; .
-
+- It was conciously chosen to develop the Javascript using a `test-driven development` (TDD) approach. While it is not strictly necessary to do this, in my opinion this approach enforces clean coding, small functions, and less likelihood for errors - which greatly enhances readibility and maintainability of the code. It came with a small risk since i just started programming with Javascript, but in retrospective it turned out extremly valuable. 
+- During the implementation, I have come to realize that implementing a `test-driven` approach for front-end display of the simulation is better suited within a framework such as `React` (history of my struggle with `d3` and `jest` see in Resolved Bugs). I leave this up for future extension as this would be beyond the current scope of the project. As consequence, unit testing of all front-end elements using `d3.js` are reduced to checking correct inputs (and not the rendering inside the DOM). 
 
 
 ----- 
