@@ -16,7 +16,7 @@ const width = diagram.clientWidth;
 // now call the functions to draw the elements 
 console.log(sticks)
 svg = drawEmptyDiagram( width, height )
-drawMidlines( svg )
+drawMidlines( svg , width, height )
 drawSticks( svg,  sticks )
 
 
@@ -27,10 +27,10 @@ function drawEmptyDiagram( width , height) {
 
     // also hard coded for now - this should evenutally become variable, too.
     const margin = {
-        top: 20,
-        right: 20,
-        bottom: 50,
-        left: 20
+        top: 0,
+        right: 0,
+        bottom: 0,
+        left: 0,
     }
 
     // create empty svg
@@ -95,8 +95,36 @@ function drawEmptyDiagram( width , height) {
 /**
  * this is a function to visualize the parallel midlines.
  */
-function drawMidlines() {
+function drawMidlines( svg, width, height ) {
 
     console.log('entering function : drawMidlines ')
 
+    // create a scale for the input data 
+    const xScale = d3.scaleLinear() 
+    .domain([0,1])
+    .range([0, width])
+
+    // Again i will hard-code this parameter - for now. 
+    const numberOfMidlines = 5;
+
+    // takes care that the lines at the border of the SVG are drawn fully
+    const spaceAtBorder = 16; 
+    let distanceBetweenMidlines = ( width - spaceAtBorder)  / (numberOfMidlines - 1);
+   
+    // scale the position of the midlines 
+    let positionOfMidline = spaceAtBorder /2;
+    for (let i=0; i < numberOfMidlines; i++) {
+        
+    // draw the midlines one by one
+        svg.append('line')
+            .style('stroke', 'black')
+            .style('stroke-width', 8)
+            .attr('x1', positionOfMidline)
+            .attr('y1', 0)
+            .attr('x2', positionOfMidline)
+            .attr('y1', height)
+
+        // this is where we want to draw the line 
+        positionOfMidline  += distanceBetweenMidlines 
+    }
 }
