@@ -65,6 +65,12 @@ document.getElementById('hero-throw').addEventListener( "click", function() {
     drawMidlines( svg , width, height )
     drawSticks( svg,  sticks, stickLengthOnScreen )
 
+    //  display the updated Pi estimate 
+    const span = document.getElementById('pi-estimate');
+    span.innerHTML = `<bold> ${simulation.estimatedValueOfPi.toFixed(6)} </bold>`
+    
+
+
 })
 
 // listener to the clear button to remove the elements of the sticks array

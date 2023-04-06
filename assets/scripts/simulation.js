@@ -84,7 +84,7 @@ class Simulation {
         if ( !this.stickCounter['red'] ) {
             return 0;
         }
-        const result =  ( this.stickCounter['total']) / this.stickCounter['red']
+        const result =  2 * ( this.stickCounter['total']) / this.stickCounter['red']
 
         this.estimatedValueOfPi =  result ;
 
