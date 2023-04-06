@@ -7,18 +7,25 @@ const sticks = [
     { "position": 0.15, "orientation": 45 } ,
  ];
 
-
 // this will be variable too later but for testing I will hard-code it.
 const diagram = document.getElementById('main-diagram')
 const height = diagram.clientHeight;
 const width = diagram.clientWidth;
 
+// takes care that the lines at the border of the SVG are drawn fully
+const numberOfMidlines = 5;
+const spaceAtBorder = 16; 
+let distanceBetweenMidlines = ( width - spaceAtBorder)  / (numberOfMidlines - 1);
+
+//  stick length needs to be half the distance between midlines for this to be accurate.
+const midlineStrokeWidth = 8;
+let stickLengthOnScreen =  distanceBetweenMidlines / 2 - midlineStrokeWidth / 2;
+
 // now call the functions to draw the elements 
 console.log(sticks)
 svg = drawEmptyDiagram( width, height )
 drawMidlines( svg , width, height )
-drawSticks( svg,  sticks )
-
+drawSticks( svg,  sticks, stickLengthOnScreen )
 
 /**
  * This function draws an empty svg element on the DOM, returns d3 SVG element
@@ -50,9 +57,10 @@ function drawEmptyDiagram( width , height) {
 /**
  *  This function will eventually draw all the sticks on the canvas 
  */
-
- function drawSticks( svg, sticks ) {
+ function drawSticks( svg, sticks, stickLengthOnScreen ) {
    
+       console.log( ` lenght of the stick is ${stickLengthOnScreen}`)
+
        // create a scale for the input data 
        const xScale = d3.scaleLinear() 
        .domain([0,1])
@@ -78,7 +86,7 @@ function drawEmptyDiagram( width , height) {
     svg.selectAll("test-sticks")
         .data(dataset)
         .enter()
-        .append('circle')
+        .append('ellipse')
         .attr('cx', function (d) {
              console.log(` x is ${d.x} but scaled it is ${xScale(d.x)}`)
             return xScale(d.x)
@@ -86,7 +94,8 @@ function drawEmptyDiagram( width , height) {
         .attr('cy', function (d) {
             return d.y
         })
-        .attr("r", 40)
+        .attr("rx", stickLengthOnScreen )
+        .attr("ry", stickLengthOnScreen / 4)
         .attr('fill', function (d) {
             return d.color
         })
@@ -103,13 +112,6 @@ function drawMidlines( svg, width, height ) {
     const xScale = d3.scaleLinear() 
     .domain([0,1])
     .range([0, width])
-
-    // Again i will hard-code this parameter - for now. 
-    const numberOfMidlines = 5;
-
-    // takes care that the lines at the border of the SVG are drawn fully
-    const spaceAtBorder = 16; 
-    let distanceBetweenMidlines = ( width - spaceAtBorder)  / (numberOfMidlines - 1);
    
     // scale the position of the midlines 
     let positionOfMidline = spaceAtBorder /2;
