@@ -29,8 +29,11 @@ const testDisplay =  new Display();
 // run a simulation - in the next step this will be contolled via events 
 simulation = new Simulation();
 
-// store all the current sticks in this data structure
-sticks = []
+// start with an empty diagram
+sticks = [];
+simulation.sticks = [];
+svg = drawEmptyDiagram( width, height )
+drawMidlines( svg , width, height )
 
 // add an event listener to throw button 
 document.getElementById('hero-throw').addEventListener( "click", function() {
@@ -42,10 +45,21 @@ document.getElementById('hero-throw').addEventListener( "click", function() {
     simulation.assignColours()
     simulation.estimatePi();
 
-    // for now, lets just assign the sticks to the result of the simulation 
-    sticks = sticks.concat( simulation.sticks);
+    const totalNumberOfSticks = simulation.sticks.length;
+    const newPosition = simulation.sticks[totalNumberOfSticks-1].position;
+    const newOrientation = simulation.sticks[totalNumberOfSticks-1].orientation;
+    const newColour = simulation.sticks[totalNumberOfSticks-1].colour;
+    console.log( `(x : ${newPosition.toFixed(3)} ) , ( angle : ${newOrientation.toFixed(3)} ) ->  ( color :  ${newColour}) ,  with ${totalNumberOfSticks} sticks in total` )
 
-    console.log( sticks)
+    // adding a random offset  just for a nicer display. the actual calculation is done within the first vertical lines 
+    // but do this randomization just once.
+    // same for height - this has no effect on calculating pi 
+    // this will require some though - maybe add a tag if random offset has been calculated
+    //const randomOffset =   Math.floor(numberOfMidlines * Math.random()) 
+    //const randomHeight =  height * ( Math.random() - 0.5) 
+
+    // for now, lets just assign the sticks to the result of the simulation 
+    sticks = simulation.sticks;
 
     svg = drawEmptyDiagram( width, height )
     drawMidlines( svg , width, height )
@@ -58,6 +72,7 @@ document.getElementById('hero-throw').addEventListener( "click", function() {
 
     console.log('Reset Button pushed - Removing all elements from Display')
     sticks = [];
+    simulation.sticks = [];
     svg = drawEmptyDiagram( width, height )
     drawMidlines( svg , width, height )
 

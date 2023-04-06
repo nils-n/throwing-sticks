@@ -63,26 +63,19 @@ function drawEmptyDiagram( width , height) {
  */
  function drawSticks( svg, sticks, stickLengthOnScreen ) {
    
-       console.log( ` lenght of the stick is ${stickLengthOnScreen}`)
-
        // create a scale for the input data 
        // twoTimesRadius : comes from he way we do the simulation ( simulating half the circle )
        const twoTimesRadius =  2 
        const xScale = d3.scaleLinear() 
        .domain([ 0, twoTimesRadius ])
-       .range([ 0, ( width - 16)  / ( numberOfMidlines - 1) ])
+       .range([ 0, width / ( numberOfMidlines - 1) ])
 
     // now create a circle and move its position 
     let dataset = [];
     for (let i in sticks) {
-        // adding a random offset just for a nicer display. the actual calculation is done within the first vertical lines 
-        // same for height - this has no effect on calculating pi 
-        const randomOffset =  0 //( numberOfMidlines * Math.random() ) 
-        const randomHeight =  height * ( Math.random() - 0.5) 
-
         dataset.push( { 
-            x: sticks[i].position + randomOffset,  
-            y: 100 + randomHeight,
+            x: sticks[i].position ,  
+            y: 100,
             color: sticks[i].colour,
             orientation: sticks[i].orientation 
          } )
@@ -93,7 +86,6 @@ function drawEmptyDiagram( width , height) {
         .enter()
         .append('ellipse')
         .attr('cx', function (d) {
-             console.log(` x is ${d.x} but scaled it is ${xScale(d.x)}`)
             return xScale(d.x)
         })
         .attr('cy', function (d) {
@@ -122,8 +114,6 @@ function drawEmptyDiagram( width , height) {
  * this is a function to visualize the parallel midlines.
  */
 function drawMidlines( svg, width, height ) {
-
-    console.log('entering function : drawMidlines ')
 
     // create a scale for the input data 
     const xScale = d3.scaleLinear() 

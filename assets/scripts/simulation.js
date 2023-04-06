@@ -56,12 +56,11 @@ class Simulation {
         {
             // if color has been defined, move to the next
             if (stick.colour) {
-                console.log('color has been defined already!')
                 continue;
             }
 
             // the stick will touch the line under this condition for the orientation 
-            const stickTouchesMidline =  Math.cos( this.toRadians( stick.orientation ) ) > stick.position;
+            const stickTouchesMidline =  Math.abs( Math.cos( this.toRadians( stick.orientation ) ))  > stick.position;
             //qconsole.log(` ->  angle is ${stick.orientation},  position is ${stick.position} -> touches midline? ${stickTouchesMidline}` )
 
             // set the color to red if the stick touches - green otherwise 
