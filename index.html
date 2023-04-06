@@ -14,7 +14,6 @@
         rel="stylesheet">
     <!-- import js  -->
     <script src="https://d3js.org/d3.v7.min.js"></script>
-    <script src="./dist/main.js"></script>
 </head>
 
 <body>
@@ -53,6 +52,11 @@
             <span id="username"></span>
             <button id="button">Click Me</button>
         </div>
+
+        <!-- Add a svg shape. Note that the 'target' class is attributed to the circle -->
+        <svg> 
+            <circle class="target" style="fill: #69b3a2;" stroke="black" cx=50 cy=50 r=40></circle>
+        </svg>
 
         <div class="container ">
             <h2>Can it be true?</h2>
@@ -106,6 +110,9 @@
                 understood her. </p>
         </div>
     </main>
+
+    <!-- import js files -->
+<script src="./dist/main.js"></script>
 
 </body>
 
