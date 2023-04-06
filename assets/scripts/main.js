@@ -25,25 +25,35 @@ console.log(`-> trying to draw a diagram now.`)
 
 const testDisplay =  new Display();
 
+
 // run a simulation - in the next step this will be contolled via events 
- simulation = new Simulation();
- const numberOfRepetitions = 15 ;
- for (let i = 0; i < numberOfRepetitions ; i++) {
-    simulation.addNewRandomStick()
- }
- simulation.assignColours()
- simulation.estimatePi();
+simulation = new Simulation();
 
- // for now, lets just assign the sticks to the result of the simulation 
- sticks = simulation.sticks;
+// store all the current sticks in this data structure
+sticks = []
 
- console.log('are the sticks available here ? ')
+// add an event listener to throw button 
+document.getElementById('hero-throw').addEventListener( "click", function() {
+   
+    const numberOfRepetitions = 1  ;
+    for (let i = 0; i < numberOfRepetitions ; i++) {
+       simulation.addNewRandomStick()
+    }
+    simulation.assignColours()
+    simulation.estimatePi();
 
- console.log(sticks)
+    // for now, lets just assign the sticks to the result of the simulation 
+    sticks = sticks.concat( simulation.sticks);
 
-svg = drawEmptyDiagram( width, height )
-drawMidlines( svg , width, height )
-drawSticks( svg,  sticks, stickLengthOnScreen )
+    console.log( sticks)
+
+    svg = drawEmptyDiagram( width, height )
+    drawMidlines( svg , width, height )
+    drawSticks( svg,  sticks, stickLengthOnScreen )
+
+})
+
+
 
 
 

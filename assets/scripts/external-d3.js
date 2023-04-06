@@ -42,6 +42,7 @@ function drawEmptyDiagram( width , height) {
     }
 
     // create empty svg
+    d3.select("svg").remove();
     const svg = d3.select("#main-diagram")
     .append('svg')
     .attr('width', width + margin.left + margin.right)
@@ -66,17 +67,22 @@ function drawEmptyDiagram( width , height) {
 
        // create a scale for the input data 
        const xScale = d3.scaleLinear() 
-       .domain([0,1])
-       .range([0, width / numberOfMidlines])
+       .domain([ 0, 2 ])
+       .range([ 0, ( width - 16)  / ( numberOfMidlines - 1) ])
 
     // now create a circle and move its position 
     let dataset = [];
     for (let i in sticks) {
+        // adding a random offset just for a nicer display. the actual calculation is done within the first vertical lines 
+        // same for height - this has no effect on calculating pi 
+        const randomOffset =  0 //( numberOfMidlines * Math.random() ) 
+        const randomHeight =  height * ( Math.random() - 0.5) 
+
         dataset.push( { 
-            x: sticks[i].position,
-            y: 100,
+            x: sticks[i].position + randomOffset,  
+            y: 100 + randomHeight,
             color: sticks[i].colour,
-            orientation: sticks[i].orientation
+            orientation: sticks[i].orientation 
          } )
     }
 
@@ -103,8 +109,8 @@ function drawEmptyDiagram( width , height) {
         .attr("stroke", function (d) {
             return d.color
         })
-        .attr("fill-opacity","0.5")
-        .attr("stroke-opacity","0.4")
+        .attr("fill-opacity","0.3")
+        .attr("stroke-opacity","0.2")
 
 
         
