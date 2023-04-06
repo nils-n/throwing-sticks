@@ -2,9 +2,9 @@ console.log(`->OK now let's test some D3.`)
 
 // let's fake some input of some sticks to display. 
 const sticks = [ 
-    { "position": 0.85, "orientation": 90} ,
-    { "position": 0.5, "orientation": 60} ,
-    { "position": 0.15, "orientation": 45 } ,
+    { "position": 0.85, "orientation": 90, "colour":'red' } ,
+    { "position": 0.5, "orientation": 60,  "colour":'red' } ,
+    { "position": 0.15, "orientation": 0 , "colour":'green' } ,
  ];
 
 // this will be variable too later but for testing I will hard-code it.
@@ -70,15 +70,15 @@ function drawEmptyDiagram( width , height) {
     const dataset = [{
         x: sticks[0].position,
         y: 100,
-        color: "blue"
+        color: sticks[0].colour
     }, {
         x: sticks[1].position,
         y: 100,
-        color: "lightblue"
+        color: sticks[1].colour
     }, {
         x: sticks[2].position,
         y: 100,
-        color: "yellowgreen"
+        color: sticks[2].colour
     }]
 
     console.log(dataset)
