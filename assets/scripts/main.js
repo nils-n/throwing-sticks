@@ -38,7 +38,10 @@ drawMidlines( svg , width, height )
 // add an event listener to throw button 
 document.getElementById('hero-throw').addEventListener( "click", function() {
    
-    const numberOfRepetitions = 1  ;
+    // use here the actual slider for the number of sticks per throw
+    slider = document.getElementsByClassName('slider')[0];
+
+    const numberOfRepetitions = slider.value  ;
     for (let i = 0; i < numberOfRepetitions ; i++) {
        simulation.addNewRandomStick()
     }
@@ -69,15 +72,18 @@ document.getElementById('hero-throw').addEventListener( "click", function() {
     let span = document.getElementById('pi-estimate');
     span.innerHTML = `<bold> ${simulation.estimatedValueOfPi.toFixed(6)} </bold>`
 
+    //display total number of sticks used in the simulation
+    span = document.getElementById('number-sticks');
+    span.innerHTML = `<bold> ${simulation.sticks.length} </bold>`
 
-    if (totalNumberOfSticks > 0) { 
-        span = document.getElementById('number-sticks');
-        span.innerHTML = `<bold> ${simulation.sticks.length} </bold>`
-    } else {
-        span = document.getElementById('number-sticks');
-        span.innerHTML = `<bold> 0 </bold>`
-    }
+})
 
+// listener when the slider value changes 
+document.getElementsByClassName('slider')[0].addEventListener( 'change', function(){
+
+    // update also the slider count 
+    const span = document.getElementById('slider-count')
+    span.innerHTML = `<bold> ${this.value} </bold>`
 })
 
 // listener to the clear button to remove the elements of the sticks array
