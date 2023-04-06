@@ -18,7 +18,7 @@ class Display {
         width=450
 
         // Create data
-        var data = [ {x:10, y:20}, {x:40, y:90}, {x:80, y:50} ]
+        var data = [ {x:10, y:100}, {x:40, y:100}, {x:80, y:100} ]
 
         // X scale and Axis
         var x = d3.scaleLinear()
