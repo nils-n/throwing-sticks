@@ -24,3 +24,26 @@ console.log(`Hey, d3 works in the browser! 40 + 2 = ${result}`)
 console.log(`-> trying to draw a diagram now.`)
 
 const testDisplay =  new Display();
+
+// run a simulation - in the next step this will be contolled via events 
+ simulation = new Simulation();
+ const numberOfRepetitions = 15 ;
+ for (let i = 0; i < numberOfRepetitions ; i++) {
+    simulation.addNewRandomStick()
+ }
+ simulation.assignColours()
+ simulation.estimatePi();
+
+ // for now, lets just assign the sticks to the result of the simulation 
+ sticks = simulation.sticks;
+
+ console.log('are the sticks available here ? ')
+
+ console.log(sticks)
+
+svg = drawEmptyDiagram( width, height )
+drawMidlines( svg , width, height )
+drawSticks( svg,  sticks, stickLengthOnScreen )
+
+
+

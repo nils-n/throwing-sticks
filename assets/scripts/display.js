@@ -14,8 +14,8 @@ class Display {
         console.log('entering function : drawSomething. This should now modify the svg element')
 
         var svg = d3.select("#dataviz_area")
-        height=200 
-        width=450
+        var height=200 
+        var width=450
 
         // Create data
         var data = [ {x:10, y:100}, {x:40, y:100}, {x:80, y:100} ]

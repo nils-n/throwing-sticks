@@ -1,16 +1,17 @@
 console.log(`->OK now let's test some D3.`)
 
 // let's fake some input of some sticks to display. 
-const sticks = [ 
+let sticks = [ 
     { "position": 0.85, "orientation": 90, "colour":'green' } ,
     { "position": 0.5, "orientation": 60,  "colour":'red' } ,
     { "position": 0.15, "orientation": 0 , "colour":'red' } ,
  ];
 
+
 // this will be variable too later but for testing I will hard-code it.
 const diagram = document.getElementById('main-diagram')
-const height = diagram.clientHeight;
-const width = diagram.clientWidth;
+var height = diagram.clientHeight;
+var width = diagram.clientWidth;
 
 // takes care that the lines at the border of the SVG are drawn fully
 const numberOfMidlines = 5;
@@ -66,27 +67,18 @@ function drawEmptyDiagram( width , height) {
        // create a scale for the input data 
        const xScale = d3.scaleLinear() 
        .domain([0,1])
-       .range([0, width])
+       .range([0, width / numberOfMidlines])
 
     // now create a circle and move its position 
-    const dataset = [{
-        x: sticks[0].position,
-        y: 100,
-        color: sticks[0].colour,
-        orientation: sticks[0].orientation
-    }, {
-        x: sticks[1].position,
-        y: 100,
-        color: sticks[1].colour,
-        orientation: sticks[1].orientation
-    }, {
-        x: sticks[2].position,
-        y: 100,
-        color: sticks[2].colour,
-        orientation: sticks[2].orientation
-    }]
-
-    console.log(dataset)
+    let dataset = [];
+    for (let i in sticks) {
+        dataset.push( { 
+            x: sticks[i].position,
+            y: 100,
+            color: sticks[i].colour,
+            orientation: sticks[i].orientation
+         } )
+    }
 
     svg.selectAll("test-sticks")
         .data(dataset)
@@ -107,6 +99,14 @@ function drawEmptyDiagram( width , height) {
         .attr('transform', function(d) {
             return`rotate (${d.orientation} , ${xScale(d.x)} , ${d.y} )`
         })
+        .attr("stroke-width", "3px")
+        .attr("stroke", function (d) {
+            return d.color
+        })
+        .attr("fill-opacity","0.5")
+        .attr("stroke-opacity","0.4")
+
+
         
  }
  
@@ -120,7 +120,7 @@ function drawMidlines( svg, width, height ) {
     // create a scale for the input data 
     const xScale = d3.scaleLinear() 
     .domain([0,1])
-    .range([0, width])
+    .range([0, width ])
    
     // scale the position of the midlines 
     let positionOfMidline = spaceAtBorder /2;
