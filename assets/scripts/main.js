@@ -66,10 +66,17 @@ document.getElementById('hero-throw').addEventListener( "click", function() {
     drawSticks( svg,  sticks, stickLengthOnScreen )
 
     //  display the updated Pi estimate 
-    const span = document.getElementById('pi-estimate');
+    let span = document.getElementById('pi-estimate');
     span.innerHTML = `<bold> ${simulation.estimatedValueOfPi.toFixed(6)} </bold>`
-    
 
+
+    if (totalNumberOfSticks > 0) { 
+        span = document.getElementById('number-sticks');
+        span.innerHTML = `<bold> ${simulation.sticks.length} </bold>`
+    } else {
+        span = document.getElementById('number-sticks');
+        span.innerHTML = `<bold> 0 </bold>`
+    }
 
 })
 
