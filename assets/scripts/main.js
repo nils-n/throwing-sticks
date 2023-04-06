@@ -1,14 +1,8 @@
 
- const Simulation = require('././simulation');
-
-
-console.log('Hello there')
+const Simulation = require('././simulation');
+const d3 = require('d3')
 
 model = new Simulation();
-
-
-console.log(model)
-
 const testAngles = [
     {position: 0.0, orientation: 0 },
     {position: 0.0, orientation: 80 },
@@ -18,5 +12,10 @@ const testAngles = [
 for (let testAngle  of testAngles){ 
     model.addNewStick( testAngle)
 }
-
 model.assignColours();
+
+
+console.log(model)
+
+const result = d3.sum([40, 2 ])
+console.log(`Hey, d3 works in the browser! 40 + 2 = ${result}`)

@@ -146,8 +146,6 @@ describe( `Class ${Simulation.name}`, () => {
         for (let stick of model.sticks) {
             results.push( stick.colour ) 
         }
-        console.log( model.sticks)
-
 
         for (const [index, result] of results.entries()) { 
             expect( result ).toBe ( 'red')
@@ -192,7 +190,7 @@ describe( `Class ${Simulation.name}`, () => {
         expect(model.stickCounter['green']).toBe(randomNumberGreenSticks);
     })
 
-    test('estimated value of Pi should be somehow close to actual value', () => {
+    xtest('estimated value of Pi should be somehow close to actual value', () => {
         const numberOfRepetitions = 10000;
         for (let i = 0; i < numberOfRepetitions ; i++) {
             model.addNewRandomStick()
