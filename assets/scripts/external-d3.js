@@ -2,9 +2,9 @@ console.log(`->OK now let's test some D3.`)
 
 // let's fake some input of some sticks to display. 
 const sticks = [ 
-    { "position": 0.85, "orientation": 90, "colour":'red' } ,
+    { "position": 0.85, "orientation": 90, "colour":'green' } ,
     { "position": 0.5, "orientation": 60,  "colour":'red' } ,
-    { "position": 0.15, "orientation": 0 , "colour":'green' } ,
+    { "position": 0.15, "orientation": 0 , "colour":'red' } ,
  ];
 
 // this will be variable too later but for testing I will hard-code it.
@@ -56,6 +56,8 @@ function drawEmptyDiagram( width , height) {
 
 /**
  *  This function will eventually draw all the sticks on the canvas 
+ * Rotation and Translation based from : 
+ * https://www.tutorialspoint.com/d3js/d3js_svg_transformation.htm
  */
  function drawSticks( svg, sticks, stickLengthOnScreen ) {
    
@@ -70,15 +72,18 @@ function drawEmptyDiagram( width , height) {
     const dataset = [{
         x: sticks[0].position,
         y: 100,
-        color: sticks[0].colour
+        color: sticks[0].colour,
+        orientation: sticks[0].orientation
     }, {
         x: sticks[1].position,
         y: 100,
-        color: sticks[1].colour
+        color: sticks[1].colour,
+        orientation: sticks[1].orientation
     }, {
         x: sticks[2].position,
         y: 100,
-        color: sticks[2].colour
+        color: sticks[2].colour,
+        orientation: sticks[2].orientation
     }]
 
     console.log(dataset)
@@ -99,6 +104,10 @@ function drawEmptyDiagram( width , height) {
         .attr('fill', function (d) {
             return d.color
         })
+        .attr('transform', function(d) {
+            return`rotate (${d.orientation} , ${xScale(d.x)} , ${d.y} )`
+        })
+        
  }
  
 /**
