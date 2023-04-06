@@ -2,9 +2,9 @@ console.log(`->OK now let's test some D3.`)
 
 // let's fake some input of some sticks to display. 
 const sticks = [ 
-    { "position": 0.5, "orientation": 90} ,
-    { "position": 0.25, "orientation": 60} ,
-    { "position": 0.0, "orientation": 45 } ,
+    { "position": 0.85, "orientation": 90} ,
+    { "position": 0.5, "orientation": 60} ,
+    { "position": 0.15, "orientation": 45 } ,
  ];
 
  console.log(sticks)
@@ -26,7 +26,7 @@ const margin = {
 const xScale = d3.scaleLinear() 
 .domain([0,1])
 .range([0, width])
-
+ 
 // now create a circle and move its position 
 const dataset = [{
     x: sticks[0].position,
@@ -57,7 +57,7 @@ svg.selectAll("test-sticks")
     .enter()
     .append('circle')
     .attr('cx', function (d) {
-        return d.x
+        return xScale(d.x)
     })
     .attr('cy', function (d) {
         return d.y
