@@ -1,10 +1,9 @@
-
 /**
  * This class organizes functions for data visualization in the browser
  */
 class Display {
     numberSticksOnCanvas;
-    constructor( ) {
+    constructor() {
         console.log('entering constructor of Display')
         this.numberSticksOnCanvas = 0;
         this.drawSomething();
@@ -15,14 +14,40 @@ class Display {
         console.log('entering function : drawSomething. This should now modify the svg element')
 
         var svg = d3.select("#dataviz_area")
-        svg.append("circle")
-          .attr("cx", 2).attr("cy", 2).attr("r", 40).style("fill", "blue");
-        svg.append("circle")
-          .attr("cx", 140).attr("cy", 70).attr("r", 40).style("fill", "red");
-        svg.append("circle")
-          .attr("cx", 300).attr("cy", 100).attr("r", 40).style("fill", "green");
+        height=200 
+        width=450
+
+        // Create data
+        var data = [ {x:10, y:20}, {x:40, y:90}, {x:80, y:50} ]
+
+        // X scale and Axis
+        var x = d3.scaleLinear()
+            .domain([0, 100])         // This is the min and the max of the data: 0 to 100 if percentages
+            .range([0, width]);       // This is the corresponding value I want in Pixel
+        svg
+        .append('g')
+        .attr("transform", "translate(0," + height + ")")
+        .call(d3.axisBottom(x));
+
+        // X scale and Axis
+        var y = d3.scaleLinear()
+            .domain([0, 100])         // This is the min and the max of the data: 0 to 100 if percentages
+            .range([height, 0]);       // This is the corresponding value I want in Pixel
+        svg
+        .append('g')
+        .call(d3.axisLeft(y));
+
+        // Add 3 dots for 0, 50 and 100%
+        svg
+        .selectAll("whatever")
+        .data(data)
+        .enter()
+        .append("circle")
+            .attr("cx", function(d){ return x(d.x) })
+            .attr("cy", function(d){ return y(d.y) })
+            .attr("r", 7)
     }
 
 };
 
-module.exports =  Display;
+module.exports = Display;
