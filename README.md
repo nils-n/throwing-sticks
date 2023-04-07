@@ -247,7 +247,8 @@ Also, this website was developed using a `test-driven development` (TDD) approac
     - for getting start with  D3.js library : [d3-graph-gallery](https://d3-graph-gallery.com/intro_d3js.html)
     - using transitions in D3 : [d3-graph-gallery](https://d3-graph-gallery.com/graph/interactivity_transition.html)
 - Unit Testing based on `Simon game` example of the Code Institute Course Material (`Javascript Testing with Jest`), especially how to check DOM changes and how to test for events
-- D3.js Tutorial about Translation and Rotation of Elements [Link](https://www.tutorialspoint.com/d3js/d3js_svg_transformation.htm)
+- D3.js Tutorial about general D3.Js aspects including Translation and Rotation of Elements : [Link](https://www.tutorialspoint.com/d3js/d3js_svg_transformation.htm) 
+- General Tutorial for d3.js : [Link](ttps://d3-graph-gallery.com/intro_d3js.html)
 
 ### Content 
 
@@ -277,10 +278,15 @@ Also, this website was developed using a `test-driven development` (TDD) approac
     - Tips for Unit Testing D3 [Link](https://eng.wealthfront.com/2016/07/27/tips-for-unit-testing-d3/)
     - Testing D3.js With Jasmine [Link](https://busypeoples.github.io/post/testing-d3-with-jasmine/)
     - Leveling Up D3: Test Driven Development [Link](https://www.eventbrite.com/engineering/leveling-up-d3-test-driven-development/)
-- A great tutorial on using Jest for JavaScript unit testing while maintaining browser compatibility especilly :
+- A great tutorial on using with Jest while maintaining browser compatibility. This was the only source that explained in great detail how to use webpack. These advices in these talks solved many of the conflicts between ES6 and commonJS in this project.
     - [15. Install Jest Testing Framework with npm for ES6 module support - JavaScript Testing](https://youtu.be/ZnIv8u2-XrA)
     - [18. Babel Loader Setup in the Webpack 4 Configuration file for compiling Code - Part 1](https://youtu.be/vGZoGwBC7js) 
     - [19. Babel Loader Setup in the Webpack 4 Configuration file for compiling Code - Part 2 ](https://youtu.be/vGZoGwBC7js) 
+- Scrimba Courses and Tutorials to deepend knowledge: [Scrimba Page](https://scrimba.com/)
+    -  Learn Javascript (Per Harald Borgen)
+    -  Introduction to Unit Testing (Dylan Israel) 
+    -  Introduction to Clean Code (Dylan Israel) 
+    -  Introduction to D3 (Sohaib Nehal) 
 - Very eye-opening talks from Dylan Israel : [Link - Clean Coding](https://youtu.be/YQsU2Zq2Zis) 
 - Thanks to my mentor Ronan (Code Institute) for his advices and clear feedback 
 
