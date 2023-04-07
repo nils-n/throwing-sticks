@@ -88,8 +88,6 @@ class Simulation {
 
     estimatePi () {
 
-        console.log(` -> red sticks ${this.stickCounter['red']} - green sticks ${this.stickCounter['green']}  - total #  ${this.stickCounter['total']}  `)
-
         // ensure that this.stickCounter['red'] is not zero 
         if ( !this.stickCounter['red'] ) {
             return 0;
@@ -97,8 +95,6 @@ class Simulation {
         const result =  2 * ( this.stickCounter['total']) / this.stickCounter['red']
 
         this.estimatedValueOfPi =  result ;
-
-        console.log(` -> estimated value of Pi  ${result} `)
 
     }
 };

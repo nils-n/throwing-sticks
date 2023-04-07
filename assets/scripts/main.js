@@ -35,7 +35,7 @@ document.getElementById('hero-throw').addEventListener( "click", function() {
     for (let i = 0; i < numberOfRepetitions ; i++) {
        simulation.addNewRandomStick()
     }
-    simulation.assignRandomSectorOnDisplay( displayConfiguration.numberOfMidlines + 1  )
+    simulation.assignRandomSectorOnDisplay( displayConfiguration.numberOfMidlines  )
     simulation.assignColours()
     simulation.estimatePi();
 
@@ -44,7 +44,9 @@ document.getElementById('hero-throw').addEventListener( "click", function() {
     const newOrientation = simulation.sticks[totalNumberOfSticks-1].orientation;
     const newColour = simulation.sticks[totalNumberOfSticks-1].colour;
     const newSector = simulation.sticks[totalNumberOfSticks-1].sector;
-    console.log( `(x : ${newPosition.toFixed(2)} ) , ( angle : ${newOrientation.toFixed(2)} ) , in sector : ${newSector} ->  ( color :  ${newColour}) ,  with ${totalNumberOfSticks} sticks in total` )
+   
+    console.log(` new x is ${newPosition.toFixed(2)}, sector ${newSector}` )
+   // console.log( `(x : ${newPosition.toFixed(2)} ) , ( angle : ${newOrientation.toFixed(2)} ) , in sector : ${newSector} ->  ( color :  ${newColour}) ,  with ${totalNumberOfSticks} sticks in total` )
 
     // adding a random offset  just for a nicer display. the actual calculation is done within the first vertical lines 
     // but do this randomization just once.

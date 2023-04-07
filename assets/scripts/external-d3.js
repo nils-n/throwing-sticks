@@ -82,11 +82,12 @@ function drawEmptyDiagram( displayConfiguration ) {
    
        // create a scale for the input data 
        // twoTimesRadius : comes from he way we do the simulation ( simulating half the circle )
-       const twoTimesRadius =  2 
        const xScale = d3.scaleLinear() 
-       .domain([ 0, twoTimesRadius ])
-       .range([ 0, width / ( displayConfiguration.numberOfMidlines - 1) ])
+       .domain([ 0, 1 ])
+       .range([ 0, width / ( displayConfiguration.numberOfMidlines - 1 ) / 2])
 
+    //console.log(`-> scaling debug. width is ${width}, numberOfMidlines is ${ displayConfiguration.numberOfMidlines}`)
+    
     // now create a circle and move its position 
     let dataset = [];
     for (let i in sticks) {
@@ -104,25 +105,32 @@ function drawEmptyDiagram( displayConfiguration ) {
         .enter()
         .append('ellipse')
         .attr('cx', function (d) {
-            return xScale(d.x + (d.sector + 1))
+            //return xScale(d.x + (d.sector + 1))
+            return xScale(d.x)
         })
         .attr('cy', function (d) {
             return d.y
         })
-        .attr("rx", displayConfiguration.stickLengthOnScreen )
-        .attr("ry", displayConfiguration.stickLengthOnScreen / 2 / 4)
+        .attr("rx", displayConfiguration.stickLengthOnScreen / 8)
+        .attr("ry", displayConfiguration.stickLengthOnScreen / 8)
         .attr('fill', function (d) {
             return d.color
         })
-        .attr('transform', function(d) {
-            return`rotate (${d.orientation} , ${xScale(d.x + (d.sector + 1))} , ${d.y} )`
-        })
+        .attr( 'transform', function(d) {
+            return `translate( ${d.sector * xScale(2)} )`   // the simulated data is scaled in half the circle - xScale(2) is the distance between two sectors
+       })
+        // .attr('transform', function(d) {
+        //     //return`rotate (${d.orientation} , ${xScale(d.x + (d.sector + 1))} , ${d.y} )`
+        //    // return`rotate (${d.orientation} , ${xScale(d.x)} , ${d.y} )`
+        //     return`translate(${xScale(0.5)}) )`
+        //     //return`translate(${xScale(0.5)}) rotate (${d.orientation} , ${xScale(d.x)} , ${d.y} )`
+        // })
         .attr("stroke-width", "3px")
         .attr("stroke", function (d) {
             return d.color
         })
         .attr("fill-opacity","0.3")
-        .attr("stroke-opacity","0.2")    
+        //.attr("stroke-opacity","0.2")    
  }
  
 /**
@@ -135,7 +143,7 @@ function drawMidlines( svg, displayConfiguration ) {
 
     // create a scale for the input data 
     const xScale = d3.scaleLinear() 
-    .domain([0,1])
+    .domain([0,0.5])
     .range([0, width ])
    
     // scale the position of the midlines 
