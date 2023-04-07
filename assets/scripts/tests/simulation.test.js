@@ -148,6 +148,28 @@ describe( `Class ${Simulation.name}`, () => {
         }
     })
 
+    // this is a test for the visualization to wiggle the sticks vertically a bit. In principle this is not necessary because the simulation does not depennd on the vertical position.
+    // It just is nicer to look this way. 
+    test('sticks use the entire height of the canvas ', () => {
+        const numberOfRepetitions = 100;
+        const maxWiggleToTop = 0.5
+        const maxWiggleToBottom= - 0.5
+
+        for (let i = 0; i < numberOfRepetitions ; i++) {
+            model.addNewRandomStick()
+        }
+
+        model.assignRandomVerticalOffsetOnDisplay() ;
+        
+        for (let stick of model.sticks) {
+            const verticalOffsetOnScreen = stick.verticalOffsetOnScreen;
+            expect(verticalOffsetOnScreen).toBeLessThanOrEqual( maxWiggleToTop )
+            expect(verticalOffsetOnScreen).toBeGreaterThanOrEqual( maxWiggleToBottom )
+        }
+    })
+
+    
+
    test('sticks that touch the midlines should be red', () => {
         // add random sticks that touch the midline
         const testAngles = [

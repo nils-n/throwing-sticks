@@ -29,6 +29,7 @@ describe( `Class ${Stick.name}`, () => {
           expect(model.length).toBeDefined()
           expect(model.colour).toBeDefined()
           expect(model.sector).toBeNull()
+          expect(model.verticalOffsetOnScreen).toBeNull()
         });
         
 });

@@ -60,6 +60,17 @@ class Simulation {
         }
     } 
 
+    // only for display : assign a small vertical offset to the stick
+    // this is just to wiggle the sticks vertically on the screen - has only on optical effect, does not affect estimation of pi.
+    assignRandomVerticalOffsetOnDisplay( ) {
+        for (let stick of this.sticks){
+            if (!stick.drawnOnScreen){
+                stick.verticalOffsetOnScreen = 42;
+                stick.drawnOnScreen = true;
+            }
+        }
+    }
+
     // assigns a color to the stick wheter it touches the midlines.
     assignColours ( ) {
         // loop over sticks and assign color
