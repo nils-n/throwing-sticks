@@ -7,9 +7,9 @@ console.log(`->OK now let's test some D3.`)
 
 // let's fake some input of some sticks to display. 
 let sticks = [ 
-    { "position": 0.85, "orientation": 90, "colour":'green' } ,
-    { "position": 0.5, "orientation": 60,  "colour":'red' } ,
-    { "position": 0.15, "orientation": 0 , "colour":'red' } ,
+    { "position": 0.85, "orientation": 90, "colour":'green', 'sector': 0 } ,
+    { "position": 0.5, "orientation": 60,  "colour":'red', 'sector': 1 } ,
+    { "position": 0.15, "orientation": 0 , "colour":'red', 'sector': 2 } ,
  ];
 
 
@@ -94,7 +94,8 @@ function drawEmptyDiagram( displayConfiguration ) {
             x: sticks[i].position ,  
             y: 100,
             color: sticks[i].colour,
-            orientation: sticks[i].orientation 
+            orientation: sticks[i].orientation,
+            sector: sticks[i].sector
          } )
     }
 
@@ -103,18 +104,18 @@ function drawEmptyDiagram( displayConfiguration ) {
         .enter()
         .append('ellipse')
         .attr('cx', function (d) {
-            return xScale(d.x)
+            return xScale(d.x + (d.sector + 1))
         })
         .attr('cy', function (d) {
             return d.y
         })
         .attr("rx", displayConfiguration.stickLengthOnScreen )
-        .attr("ry", displayConfiguration.stickLengthOnScreen / 4)
+        .attr("ry", displayConfiguration.stickLengthOnScreen / 2 / 4)
         .attr('fill', function (d) {
             return d.color
         })
         .attr('transform', function(d) {
-            return`rotate (${d.orientation} , ${xScale(d.x)} , ${d.y} )`
+            return`rotate (${d.orientation} , ${xScale(d.x + (d.sector + 1))} , ${d.y} )`
         })
         .attr("stroke-width", "3px")
         .attr("stroke", function (d) {
@@ -128,11 +129,10 @@ function drawEmptyDiagram( displayConfiguration ) {
  * this is a function to visualize the parallel midlines.
  */
 function drawMidlines( svg, displayConfiguration ) {
-    console.log('entering drawMidlines' )
 
     //  extract the height from the mock configuration
     const { width , height, distanceBetweenMidlines } = displayConfiguration;
-    console.log(distanceBetweenMidlines )
+
     // create a scale for the input data 
     const xScale = d3.scaleLinear() 
     .domain([0,1])

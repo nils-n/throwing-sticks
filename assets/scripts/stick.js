@@ -13,7 +13,8 @@ class Stick {
         this.orientation = data.orientation;
         this.length = data.length;
         this.colour = data.colour;
-        this.sector = 0;
+        this.sector = null;
+        this.drawnOnScreen = false;
     }
 };
 

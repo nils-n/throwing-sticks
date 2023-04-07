@@ -53,7 +53,10 @@ class Simulation {
     // otherwise, all sticks would be placed between the first and second midline on the screen 
     assignRandomSectorOnDisplay( numberOfSectors ) {
         for (let stick of this.sticks){
-            stick.sector =  Math.floor( numberOfSectors * Math.random() );
+            if (!stick.drawnOnScreen){
+                stick.sector =  Math.floor( numberOfSectors * Math.random() );
+                stick.drawnOnScreen = true;
+            }
         }
     } 
 

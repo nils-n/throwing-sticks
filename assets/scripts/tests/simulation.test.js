@@ -154,7 +154,9 @@ describe( `Class ${Simulation.name}`, () => {
             {position: 0.0, orientation: 0 },
             {position: 0.0, orientation: 10 },
             {position: 0.5, orientation: 20 },
-            {position: 0.5, orientation: 30 }
+            {position: 0.5, orientation: 30 }, 
+            {position: 1.0, orientation: 124.46 },   // orientation should be red but is displayed as green
+
         ]
         for (let testAngle  of testAngles){ 
             model.addNewStick( testAngle)
