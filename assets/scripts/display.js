@@ -2,7 +2,7 @@
  * This class organizes the input for d3.js 
  * // based on https://d3-graph-gallery.com/intro_d3js.html
  */
-class Display {
+class DisplayConfiguration {
 
     numberSticksOnCanvas;
     width;
@@ -29,4 +29,4 @@ class Display {
 
 };
 
-module.exports =  Display 
+module.exports =  DisplayConfiguration 

@@ -1,38 +1,18 @@
 
 const Simulation = require('././simulation');
-const Display = require('././display');
+const DisplayConfiguration = require('././display');
 const d3 = require('d3')
 
-const model = new Simulation();
-const testAngles = [
-    {position: 0.0, orientation: 0 },
-    {position: 0.0, orientation: 80 },
-    {position: 0.5, orientation: 90 },
-    {position: 1.0, orientation: 90 }
-]
-for (let testAngle  of testAngles){ 
-    model.addNewStick( testAngle)
-}
-model.assignColours();
+// object that will handle input to d3.js 
+let displayConfiguration =  new DisplayConfiguration();
 
-
-console.log(model)
-
-const result = d3.sum([40, 2 ])
-console.log(`Hey, d3 works in the browser! 40 + 2 = ${result}`)
-
-console.log(`-> trying to draw a diagram now.`)
-
-const testDisplay =  new Display();
-
-
-// run a simulation - in the next step this will be contolled via events 
-simulation = new Simulation();
+// start a simulation. Its behaviour will be contolled via events. 
+const simulation = new Simulation();
 
 // start with an empty diagram
 sticks = [];
 simulation.sticks = [];
-svg = drawEmptyDiagram( width, height )
+svg = drawEmptyDiagram( displayConfiguration )
 drawMidlines( svg , width, height )
 
 // add an event listener to throw button 
@@ -64,7 +44,7 @@ document.getElementById('hero-throw').addEventListener( "click", function() {
     // for now, lets just assign the sticks to the result of the simulation 
     sticks = simulation.sticks;
 
-    svg = drawEmptyDiagram( width, height )
+    svg = drawEmptyDiagram( displayConfiguration )
     drawMidlines( svg , width, height )
     drawSticks( svg,  sticks, stickLengthOnScreen )
 
@@ -92,7 +72,7 @@ document.getElementsByClassName('slider')[0].addEventListener( 'change', functio
     console.log('Reset Button pushed - Removing all elements from Display')
     sticks = [];
     simulation.sticks = [];
-    svg = drawEmptyDiagram( width, height )
+    svg = drawEmptyDiagram( displayConfiguration )
     drawMidlines( svg , width, height )
 
  })

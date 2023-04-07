@@ -2,14 +2,14 @@
  * @jest-environment jsdom
  */
 
-const Display  = module.require('../display');
+const DisplayConfiguration  = module.require('../display');
 
 let model; 
 
-describe( `Class ${Display.name}`, () => {
+describe( `Class ${DisplayConfiguration.name}`, () => {
 
     beforeEach( () => {
-        model = new Display();
+        model = new DisplayConfiguration();
     })
 
     test("exists and is initialized with empty values", () => {

@@ -228,6 +228,7 @@ Also, this website was developed using a `test-driven development` (TDD) approac
     ```bash
     npm run build
     ``` 
+- Functions related to drawing the `d3.js` outputs of the simulation such as`drawEmptyDisplay` or `drawMidlines` would either draw at wrong locations or log errors such as `Error: <svg> attribute width: Expected length, "NaN".` This was caused when calling it with a previous version of this function that would occasionaly use different global parameter such as `width` or `height` that would be overwritten at various points in the code. The soltuion was to refactor the code into a `DisplayConfiguration` class that handles the sizing and positioning of the elements on the screen (without actually drawing them). In this way, the `TDD` approach of implementing functions that use `d3.js` was still at least partially achieved.
 
 ### open Bugs 
 
