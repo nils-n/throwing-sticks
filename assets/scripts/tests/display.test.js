@@ -56,10 +56,10 @@ describe( `Class ${DisplayConfiguration.name}`, () => {
     });
 
     test('correct displayed stick length on the screen', () => {
-        const expectedStickLengths= [ 50, 100 ];
-        const widths = [ 100, 200] ;
         model.numberOfMidlines = 2;
-
+        const widths = [ 100, 200] ;
+        const expectedStickLengths = [ 50, 100];
+        
         const calculatedStickLengths = []
         for (let i in expectedStickLengths) {
             model.width = widths[i]
