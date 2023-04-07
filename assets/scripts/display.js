@@ -32,7 +32,7 @@ class DisplayConfiguration {
 
     // calculate how much space needed for display
     calculateDistanceBetweenMidLines() {
-        this.distanceBetweenMidlines = 42;
+        this.distanceBetweenMidlines =  this.width  / ( this.numberOfMidlines - 1);
     }
   
 

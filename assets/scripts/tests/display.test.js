@@ -25,13 +25,20 @@ describe( `Class ${DisplayConfiguration.name}`, () => {
         });
 
     test("distance between midlines calculated correctly", () => {
-        const expectedDistance = 100;
+        const expectedDistances = [ 100, 200 ];
+        const widths = [ 100, 200] ;
         model.numberOfMidlines = 2;
-        model.width = 100;
 
-        model.calculateDistanceBetweenMidLines()
+        const calculatedDistances = []
+        for (let i in expectedDistances) {
+            model.width = widths[i]
+            model.calculateDistanceBetweenMidLines();
+            calculatedDistances.push( model.distanceBetweenMidlines )
+        }
 
-        expect(model.distanceBetweenMidlines).toBe( expectedDistance );
+        for (let i in expectedDistances) {
+            expect( calculatedDistances[i] ).toBe( expectedDistances[i] );
+        }
     });
 
 
