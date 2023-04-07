@@ -128,17 +128,18 @@ function drawEmptyDiagram( displayConfiguration ) {
  * this is a function to visualize the parallel midlines.
  */
 function drawMidlines( svg, displayConfiguration ) {
+    console.log('entering drawMidlines' )
 
     //  extract the height from the mock configuration
     const { width , height, distanceBetweenMidlines } = displayConfiguration;
-
+    console.log(distanceBetweenMidlines )
     // create a scale for the input data 
     const xScale = d3.scaleLinear() 
     .domain([0,1])
     .range([0, width ])
    
     // scale the position of the midlines 
-    let positionOfMidline = spaceAtBorder /2;
+    let positionOfMidline =  0;
     for (let i=0; i < numberOfMidlines; i++) {
         
     // draw the midlines one by one

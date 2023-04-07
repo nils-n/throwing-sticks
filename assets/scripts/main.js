@@ -6,7 +6,13 @@ const d3 = require('d3')
 // object that will handle input to d3.js 
 let displayConfiguration =  new DisplayConfiguration();
 
-//calculate distance between midlines and stick lenghts
+
+// should but tested but currently cannot test for DOM changes - would need react for that (but is beyond scope of this project).
+const diagram = document.getElementById('main-diagram')
+displayConfiguration.height = diagram.clientHeight;
+displayConfiguration.width = diagram.clientWidth;
+
+// update distance between midlines and stick lenghts. This probably should have a listener to observe if browser window changes
 displayConfiguration.calculateDistanceBetweenMidLines()
 displayConfiguration.calculateStickLengthOnScreen()
 

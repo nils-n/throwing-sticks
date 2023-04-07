@@ -232,6 +232,8 @@ Also, this website was developed using a `test-driven development` (TDD) approac
 
 ### open Bugs 
 
+- There is a bug that the width of the `SVG` would not match the size of the parent division. 
+- From a user perspective, this simulation seems odd because the sticks would only jump between the first two lines
 
 ---- 
 
