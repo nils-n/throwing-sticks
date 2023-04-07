@@ -6,6 +6,9 @@ const d3 = require('d3')
 // object that will handle input to d3.js 
 let displayConfiguration =  new DisplayConfiguration();
 
+//calculate distance between midlines
+displayConfiguration.calculateDistanceBetweenMidLines()
+
 // start a simulation. Its behaviour will be contolled via events. 
 const simulation = new Simulation();
 

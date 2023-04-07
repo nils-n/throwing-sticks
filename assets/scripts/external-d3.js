@@ -24,7 +24,7 @@ let stickLengthOnScreen =  distanceBetweenMidlines / 2 - midlineStrokeWidth / 2;
 
 // now call the functions to draw the elements 
 // using a mock display configuration as it is written in commonJS syntax to be testable with Jest. 
-const mockConfiguration = { width:width, height: height };
+const mockConfiguration = { width:width, height: height, distanceBetweenMidlines:distanceBetweenMidlines };
 console.log(mockConfiguration)
 console.log(sticks)
 svg = drawEmptyDiagram( mockConfiguration )
@@ -122,7 +122,7 @@ function drawEmptyDiagram( displayConfiguration ) {
 function drawMidlines( svg, displayConfiguration ) {
 
     //  extract the height from the mock configuration
-    const { width , height } = displayConfiguration;
+    const { width , height, distanceBetweenMidlines } = displayConfiguration;
 
     // create a scale for the input data 
     const xScale = d3.scaleLinear() 
