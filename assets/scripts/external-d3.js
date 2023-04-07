@@ -28,7 +28,7 @@ const mockConfiguration = { width:width, height: height };
 console.log(mockConfiguration)
 console.log(sticks)
 svg = drawEmptyDiagram( mockConfiguration )
-drawMidlines( svg , width, height )
+drawMidlines( svg , mockConfiguration )
 drawSticks( svg,  sticks, stickLengthOnScreen )
 
 /**
@@ -38,7 +38,7 @@ function drawEmptyDiagram( displayConfiguration ) {
     
     // for now just extract the height from the mock configuration
     const { width , height } = displayConfiguration;
-    console.log( `entering draw empry diagram`)
+
     // also hard coded for now - this should evenutally become variable, too.
     const margin = {
         top: 0,
@@ -119,7 +119,10 @@ function drawEmptyDiagram( displayConfiguration ) {
 /**
  * this is a function to visualize the parallel midlines.
  */
-function drawMidlines( svg, width, height ) {
+function drawMidlines( svg, displayConfiguration ) {
+
+    //  extract the height from the mock configuration
+    const { width , height } = displayConfiguration;
 
     // create a scale for the input data 
     const xScale = d3.scaleLinear() 

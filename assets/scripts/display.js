@@ -9,6 +9,11 @@ class DisplayConfiguration {
     height;
     margin; 
     backgroundColor;
+    numberOfMidlines;
+    spaceAtBorder;
+    distanceBetweenMidlines;
+    midlineStrokeWidth;
+    stickLengthOnScreen;
 
     constructor() {
         console.log('entering constructor of Display')
@@ -20,10 +25,14 @@ class DisplayConfiguration {
             left: 0,
         }
         this.backgroundColor = "#FF0000";
+        this.width = 300;  //update with clientWidth in the browser
+        this.height = 200;  //update with clientHeight in the browser
+        this.numberOfMidlines = 5; 
+    }
 
-        // to make it responsive, update with clientWidth and clientHeight in the browser
-        this.width = 300;
-        this.height = 200;
+    // calculate how much space needed for display
+    calculateDistanceBetweenMidLines() {
+        this.distanceBetweenMidlines = 42;
     }
   
 

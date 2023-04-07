@@ -13,7 +13,7 @@ const simulation = new Simulation();
 sticks = [];
 simulation.sticks = [];
 svg = drawEmptyDiagram( displayConfiguration )
-drawMidlines( svg , width, height )
+drawMidlines( svg, displayConfiguration )
 
 // add an event listener to throw button 
 document.getElementById('hero-throw').addEventListener( "click", function() {
@@ -45,7 +45,7 @@ document.getElementById('hero-throw').addEventListener( "click", function() {
     sticks = simulation.sticks;
 
     svg = drawEmptyDiagram( displayConfiguration )
-    drawMidlines( svg , width, height )
+    drawMidlines( svg , displayConfiguration  )
     drawSticks( svg,  sticks, stickLengthOnScreen )
 
     //  display the updated Pi estimate 
@@ -73,7 +73,7 @@ document.getElementsByClassName('slider')[0].addEventListener( 'change', functio
     sticks = [];
     simulation.sticks = [];
     svg = drawEmptyDiagram( displayConfiguration )
-    drawMidlines( svg , width, height )
+    drawMidlines( svg , displayConfiguration )
 
  })
 
