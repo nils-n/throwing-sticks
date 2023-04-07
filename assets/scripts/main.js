@@ -6,8 +6,9 @@ const d3 = require('d3')
 // object that will handle input to d3.js 
 let displayConfiguration =  new DisplayConfiguration();
 
-//calculate distance between midlines
+//calculate distance between midlines and stick lenghts
 displayConfiguration.calculateDistanceBetweenMidLines()
+displayConfiguration.calculateStickLengthOnScreen()
 
 // start a simulation. Its behaviour will be contolled via events. 
 const simulation = new Simulation();
@@ -49,7 +50,7 @@ document.getElementById('hero-throw').addEventListener( "click", function() {
 
     svg = drawEmptyDiagram( displayConfiguration )
     drawMidlines( svg , displayConfiguration  )
-    drawSticks( svg,  sticks, stickLengthOnScreen )
+    drawSticks( svg,  sticks, displayConfiguration )
 
     //  display the updated Pi estimate 
     let span = document.getElementById('pi-estimate');

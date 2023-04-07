@@ -20,7 +20,7 @@ let distanceBetweenMidlines = ( width - spaceAtBorder)  / (numberOfMidlines - 1)
 
 //  stick length needs to be half the distance between midlines for this to be accurate.
 const midlineStrokeWidth = 8;
-let stickLengthOnScreen =  distanceBetweenMidlines / 2 - midlineStrokeWidth / 2;
+let stickLengthOnScreen =  distanceBetweenMidlines / 2 ;
 
 // now call the functions to draw the elements 
 // using a mock display configuration as it is written in commonJS syntax to be testable with Jest. 
@@ -31,12 +31,13 @@ const mockConfiguration = {
                         numberOfMidlines: numberOfMidlines,
                         spaceAtBorder: spaceAtBorder,
                         midlineStrokeWidth: midlineStrokeWidth,
+                        stickLengthOnScreen: stickLengthOnScreen
                      };
 console.log(mockConfiguration)
 console.log(sticks)
 svg = drawEmptyDiagram( mockConfiguration )
 drawMidlines( svg , mockConfiguration )
-drawSticks( svg,  sticks, stickLengthOnScreen )
+drawSticks( svg,  sticks, mockConfiguration )
 
 /**
  * This function draws an empty svg element on the DOM, returns d3 SVG element
@@ -74,14 +75,14 @@ function drawEmptyDiagram( displayConfiguration ) {
  * Rotation and Translation based from : 
  * https://www.tutorialspoint.com/d3js/d3js_svg_transformation.htm
  */
- function drawSticks( svg, sticks, stickLengthOnScreen ) {
+ function drawSticks( svg, sticks, displayConfiguration ) {
    
        // create a scale for the input data 
        // twoTimesRadius : comes from he way we do the simulation ( simulating half the circle )
        const twoTimesRadius =  2 
        const xScale = d3.scaleLinear() 
        .domain([ 0, twoTimesRadius ])
-       .range([ 0, width / ( numberOfMidlines - 1) ])
+       .range([ 0, width / ( displayConfiguration.numberOfMidlines - 1) ])
 
     // now create a circle and move its position 
     let dataset = [];
@@ -104,8 +105,8 @@ function drawEmptyDiagram( displayConfiguration ) {
         .attr('cy', function (d) {
             return d.y
         })
-        .attr("rx", stickLengthOnScreen )
-        .attr("ry", stickLengthOnScreen / 4)
+        .attr("rx", displayConfiguration.stickLengthOnScreen )
+        .attr("ry", displayConfiguration.stickLengthOnScreen / 4)
         .attr('fill', function (d) {
             return d.color
         })
