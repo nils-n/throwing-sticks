@@ -105,26 +105,19 @@ function drawEmptyDiagram( displayConfiguration ) {
         .enter()
         .append('ellipse')
         .attr('cx', function (d) {
-            //return xScale(d.x + (d.sector + 1))
             return xScale(d.x)
         })
         .attr('cy', function (d) {
             return d.y
         })
-        .attr("rx", displayConfiguration.stickLengthOnScreen / 8)
-        .attr("ry", displayConfiguration.stickLengthOnScreen / 8)
+        .attr("rx", displayConfiguration.stickLengthOnScreen / 2 )
+        .attr("ry", displayConfiguration.stickLengthOnScreen / 8 / 2)
         .attr('fill', function (d) {
             return d.color
         })
-        .attr( 'transform', function(d) {
-            return `translate( ${d.sector * xScale(2)} )`   // the simulated data is scaled in half the circle - xScale(2) is the distance between two sectors
-       })
-        // .attr('transform', function(d) {
-        //     //return`rotate (${d.orientation} , ${xScale(d.x + (d.sector + 1))} , ${d.y} )`
-        //    // return`rotate (${d.orientation} , ${xScale(d.x)} , ${d.y} )`
-        //     return`translate(${xScale(0.5)}) )`
-        //     //return`translate(${xScale(0.5)}) rotate (${d.orientation} , ${xScale(d.x)} , ${d.y} )`
-        // })
+       .attr('transform', function(d) {
+            return`translate( ${d.sector * xScale(2)} ) rotate (${d.orientation} , ${xScale(d.x)} , ${d.y} )`
+         })
         .attr("stroke-width", "3px")
         .attr("stroke", function (d) {
             return d.color
