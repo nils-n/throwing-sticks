@@ -51,7 +51,6 @@ class DisplayConfiguration {
 
     // cacluate the displayed lenght of a stick 
     calculateStickLengthOnScreen () {
-        console.log('calculating the stick length now')
         this.calculateDistanceBetweenMidLines()
         this.stickLengthOnScreen = ( this.distanceBetweenMidlines ) / 2;
     } 

@@ -45,8 +45,7 @@ const mockConfiguration = {
                             left: 0,
                         }
                      };
-console.log(mockConfiguration)
-console.log(sticks)
+                     
 svg = drawEmptyDiagram( mockConfiguration )
 drawMidlines( svg , mockConfiguration )
 drawSticks( svg,  sticks, mockConfiguration )
@@ -84,7 +83,7 @@ function drawEmptyDiagram( displayConfiguration ) {
  */
  function drawSticks( svg, sticks, displayConfiguration ) {
    
-        const { stickLengthOnScreen , displaySelector , numberOfMidlines} = displayConfiguration;
+        const { stickLengthOnScreen , displaySelector , numberOfMidlines, width, height} = displayConfiguration;
 
        // create a scale for the input data 
        // twoTimesRadius : comes from he way we do the simulation ( simulating half the circle )
@@ -143,10 +142,6 @@ function drawMidlines( svg, displayConfiguration ) {
 
     //  extract the height from the mock configuration
     const { width , height, distanceBetweenMidlines , numberOfMidlines } = displayConfiguration;
-
-    console.log('drawMidlines : called ')
-    console.log(displayConfiguration)
-    console.log(`number of mid lines is ${numberOfMidlines}`)
 
     // create a scale for the input data 
     const xScale = d3.scaleLinear() 

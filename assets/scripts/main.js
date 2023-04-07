@@ -86,13 +86,12 @@ document.getElementsByClassName('slider')[0].addEventListener( 'change', functio
 
  })
 
-
- //listener to the button on the second diagrm 
+ //listener to the slider on the second diagrm 
 document.getElementById('explain-rotate').addEventListener( 'change', function() {
   
     //create a new stick based on the current slider position 
     const stick = new Stick(  {  
-                "position": 0.5, 
+                "position": document.getElementById('explain-move').value / 100, 
                 "orientation": this.value, 
                 "colour": 'green', 
                 'sector': 0 ,
@@ -123,15 +122,49 @@ document.getElementById('explain-rotate').addEventListener( 'change', function()
 
     // draw empty diagram and add a stick
     const svgExplain  = drawEmptyDiagram( tempDisplayConfiguration )
-
-
-    console.log('right before calling drawMidlines in the slider event function')
-    console.log( tempDisplayConfiguration)
-    console.log( `freaking number of midlines is ${tempDisplayConfiguration.numberOfMidlines} `)
     drawMidlines( svgExplain , tempDisplayConfiguration  )
     drawSticks( svgExplain,  explain_sticks, tempDisplayConfiguration )
 
-    console.log( tempDisplayConfiguration)
  });
 
+ // listener to the second slider on the second diagrm 
+ document.getElementById('explain-move').addEventListener( 'change', function() {
+  
+    //create a new stick based on the current slider position 
+    const stick = new Stick(  {  
+                "position": this.value / 100, 
+                "orientation":  document.getElementById('explain-rotate').value, 
+                "colour": 'green', 
+                'sector': 0 ,
+                'verticalOffsetOnScreen':0 } )
 
+     // the stick will touch the line under this condition for the orientation 
+     const stickTouchesMidline =  Math.abs( Math.cos( simulation.toRadians( stick.orientation ) ))  > stick.position;
+           
+     // set the color to red if the stick touches - green otherwise 
+     stick.colour = stickTouchesMidline ? "red" : 'green'
+
+    // create a temp configurator for this diagram 
+    const tempDisplayConfiguration = DisplayConfiguration.from( displayConfiguration )
+    const diagram = document.getElementById('explain-diagram')
+
+     //set display propertoes of the diagram
+     tempDisplayConfiguration.displaySelector = '#explain-diagram'
+     tempDisplayConfiguration.height = diagram.clientHeight;
+     tempDisplayConfiguration.width = diagram.clientWidth;
+     tempDisplayConfiguration.numberOfMidlines = displayConfiguration.numberOfMidlines;
+     tempDisplayConfiguration.stickLengthOnScreen = displayConfiguration.stickLengthOnScreen ;
+     tempDisplayConfiguration.distanceBetweenMidlines = displayConfiguration.distanceBetweenMidlines ;
+     tempDisplayConfiguration.numberSticksOnCanvas = 1 ;
+
+     // for now, lets just assign the sticks to the result of the simulation 
+    explain_sticks = []
+    explain_sticks.push( stick);
+
+    // draw empty diagram and add a stick
+    const svgExplain  = drawEmptyDiagram( tempDisplayConfiguration )
+
+    drawMidlines( svgExplain , tempDisplayConfiguration  )
+    drawSticks( svgExplain,  explain_sticks, tempDisplayConfiguration )
+
+ });
