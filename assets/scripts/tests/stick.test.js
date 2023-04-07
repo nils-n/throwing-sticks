@@ -28,6 +28,7 @@ describe( `Class ${Stick.name}`, () => {
           expect(model.orientation).toBeDefined()
           expect(model.length).toBeDefined()
           expect(model.colour).toBeDefined()
+          expect(model.sector).toBeDefined()
         });
         
 });

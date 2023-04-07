@@ -7,11 +7,13 @@ class Stick {
     orientation;
     length; 
     colour;
+    sector;
     constructor( data ) {
         this.position = data.position;
         this.orientation = data.orientation;
         this.length = data.length;
         this.colour = data.colour;
+        this.sector = 0;
     }
 };
 

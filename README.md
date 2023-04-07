@@ -248,7 +248,7 @@ Also, this website was developed using a `test-driven development` (TDD) approac
     - using transitions in D3 : [d3-graph-gallery](https://d3-graph-gallery.com/graph/interactivity_transition.html)
 - Unit Testing based on `Simon game` example of the Code Institute Course Material (`Javascript Testing with Jest`), especially how to check DOM changes and how to test for events
 - D3.js Tutorial about general D3.Js aspects including Translation and Rotation of Elements : [Link](https://www.tutorialspoint.com/d3js/d3js_svg_transformation.htm) 
-- General Tutorial for d3.js : [Link](ttps://d3-graph-gallery.com/intro_d3js.html)
+- General Tutorial for d3.js : [Link](https://d3-graph-gallery.com/intro_d3js.html)
 
 ### Content 
 
@@ -282,7 +282,7 @@ Also, this website was developed using a `test-driven development` (TDD) approac
     - [15. Install Jest Testing Framework with npm for ES6 module support - JavaScript Testing](https://youtu.be/ZnIv8u2-XrA)
     - [18. Babel Loader Setup in the Webpack 4 Configuration file for compiling Code - Part 1](https://youtu.be/vGZoGwBC7js) 
     - [19. Babel Loader Setup in the Webpack 4 Configuration file for compiling Code - Part 2 ](https://youtu.be/vGZoGwBC7js) 
-- Scrimba Courses and Tutorials to deepend knowledge: [Scrimba Page](https://scrimba.com/)
+- Scrimba Courses and Tutorials for a better understanding: [Scrimba Page](https://scrimba.com/)
     -  Learn Javascript (Per Harald Borgen)
     -  Introduction to Unit Testing (Dylan Israel) 
     -  Introduction to Clean Code (Dylan Israel) 

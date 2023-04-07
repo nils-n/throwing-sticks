@@ -9,7 +9,7 @@ class Simulation {
     stickCounter ;
     estimatedValueOfPi;
 
-    numberGreenSticks;
+    numberGreenSticks;  
     
     constructor() {
         this.sticks = [];
@@ -48,6 +48,14 @@ class Simulation {
 
         this.addNewStick( data )
     }
+
+    // only for display : assign a random sector to the sticks
+    // otherwise, all sticks would be placed between the first and second midline on the screen 
+    assignRandomSectorOnDisplay( numberOfSectors ) {
+        for (let stick of this.sticks){
+            stick.sector =  Math.floor( numberOfSectors * Math.random() );
+        }
+    } 
 
     // assigns a color to the stick wheter it touches the midlines.
     assignColours ( ) {

@@ -129,6 +129,25 @@ describe( `Class ${Simulation.name}`, () => {
 
     })
 
+    // this is a test for the visualization. In principle this is not necessary because the simulation 
+    //is done with values between 0 and 1. However, to make it appear nicer, assign them random 
+    // sectors between midlines to fall down 
+    test('sticks use the entire width of the canvas ', () => {
+        const numSectorsOnDisplay = 5;
+        const numberOfRepetitions = 100;
+        for (let i = 0; i < numberOfRepetitions ; i++) {
+            model.addNewRandomStick()
+        }
+
+        model.assignRandomSectorOnDisplay( numSectorsOnDisplay ) ;
+        
+        for (let stick of model.sticks) {
+            const sector = stick.sector;
+            expect(sector).toBeLessThanOrEqual( numSectorsOnDisplay - 1)
+            expect(sector).toBeGreaterThanOrEqual( 0)
+        }
+    })
+
    test('sticks that touch the midlines should be red', () => {
         // add random sticks that touch the midline
         const testAngles = [
