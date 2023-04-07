@@ -36,6 +36,7 @@ document.getElementById('hero-throw').addEventListener( "click", function() {
        simulation.addNewRandomStick()
     }
     simulation.assignRandomSectorOnDisplay( displayConfiguration.numberOfMidlines  )
+    simulation.assignRandomVerticalOffsetOnDisplay()
     simulation.assignColours()
     simulation.estimatePi();
 
@@ -44,16 +45,9 @@ document.getElementById('hero-throw').addEventListener( "click", function() {
     const newOrientation = simulation.sticks[totalNumberOfSticks-1].orientation;
     const newColour = simulation.sticks[totalNumberOfSticks-1].colour;
     const newSector = simulation.sticks[totalNumberOfSticks-1].sector;
+    const newVerticalOffset= simulation.sticks[totalNumberOfSticks-1].verticalOffsetOnScreen;
    
-    console.log(` new x is ${newPosition.toFixed(2)}, angle ${newOrientation}, sector ${newSector}` )
-   // console.log( `(x : ${newPosition.toFixed(2)} ) , ( angle : ${newOrientation.toFixed(2)} ) , in sector : ${newSector} ->  ( color :  ${newColour}) ,  with ${totalNumberOfSticks} sticks in total` )
-
-    // adding a random offset  just for a nicer display. the actual calculation is done within the first vertical lines 
-    // but do this randomization just once.
-    // same for height - this has no effect on calculating pi 
-    // this will require some though - maybe add a tag if random offset has been calculated
-    //const randomOffset =   Math.floor(numberOfMidlines * Math.random()) 
-    //const randomHeight =  height * ( Math.random() - 0.5) 
+    // console.log(` new x is ${newPosition.toFixed(2)}, angle ${newOrientation}, sector ${newSector}, vertical offset ${newVerticalOffset.toFixed(2)}` )
 
     // for now, lets just assign the sticks to the result of the simulation 
     sticks = simulation.sticks;

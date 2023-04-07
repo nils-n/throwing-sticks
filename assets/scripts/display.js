@@ -41,8 +41,7 @@ class DisplayConfiguration {
         console.log('calculating the stick length now')
         this.calculateDistanceBetweenMidLines()
         this.stickLengthOnScreen = ( this.distanceBetweenMidlines ) / 2;
-    }
-  
+    } 
 
 };
 

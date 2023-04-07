@@ -86,14 +86,18 @@ function drawEmptyDiagram( displayConfiguration ) {
        .domain([ 0, 1 ])
        .range([ 0, width / ( displayConfiguration.numberOfMidlines - 1 ) / 2])
 
-    //console.log(`-> scaling debug. width is ${width}, numberOfMidlines is ${ displayConfiguration.numberOfMidlines}`)
-    
+       // add a scaling also for the vertical position of the sticks
+       const yScale = d3.scaleLinear()
+                .domain([ 0,1])
+                .range( [0, height])
+
     // now create a circle and move its position 
     let dataset = [];
+    const centerHeight = 0.5
     for (let i in sticks) {
         dataset.push( { 
             x: sticks[i].position ,  
-            y: 100,
+            y: yScale( centerHeight * ( 1 + sticks[i].verticalOffsetOnScreen)  ),
             color: sticks[i].colour,
             orientation: sticks[i].orientation,
             sector: sticks[i].sector

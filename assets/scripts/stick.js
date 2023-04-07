@@ -17,6 +17,7 @@ class Stick {
         this.sector = null;
         this.verticalOffsetOnScreen = null; 
         this.drawnOnScreen = false;
+        this.verticallyWiggledOnScreen = false;
     }
 };
 
