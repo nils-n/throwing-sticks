@@ -155,7 +155,6 @@ describe( `Class ${Simulation.name}`, () => {
             {position: 0.0, orientation: 10 },
             {position: 0.5, orientation: 20 },
             {position: 0.5, orientation: 30 }, 
-            {position: 1.0, orientation: 124.46 },   // orientation should be red but is displayed as green
 
         ]
         for (let testAngle  of testAngles){ 
@@ -179,7 +178,9 @@ describe( `Class ${Simulation.name}`, () => {
             {position: 0.7, orientation: 80 },
             {position: 1.0, orientation: 89 },
             {position: 1.0, orientation: 80 },
-            {position: 0.7, orientation: 70 }
+            {position: 0.7, orientation: 70 },
+            {position: 1.0, orientation: 124.46 }   // i fooled myself. this stick is definitley green. It's at location 1.0 so only an exact 90 degree angle would touch the midline. 
+
         ]
         for (let testAngle  of testAngles){ 
             model.addNewStick( testAngle)
