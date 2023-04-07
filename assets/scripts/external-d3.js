@@ -31,7 +31,13 @@ const mockConfiguration = {
                         numberOfMidlines: numberOfMidlines,
                         spaceAtBorder: spaceAtBorder,
                         midlineStrokeWidth: midlineStrokeWidth,
-                        stickLengthOnScreen: stickLengthOnScreen
+                        stickLengthOnScreen: stickLengthOnScreen, 
+                        margin: {
+                            top: 0,
+                            right: 0,
+                            bottom: 0,
+                            left: 0,
+                        }
                      };
 console.log(mockConfiguration)
 console.log(sticks)
@@ -45,15 +51,7 @@ drawSticks( svg,  sticks, mockConfiguration )
 function drawEmptyDiagram( displayConfiguration ) {
     
     // for now just extract the height from the mock configuration
-    const { width , height } = displayConfiguration;
-
-    // also hard coded for now - this should evenutally become variable, too.
-    const margin = {
-        top: 0,
-        right: 0,
-        bottom: 0,
-        left: 0,
-    }
+    const { width , height, margin } = displayConfiguration;
 
     // create empty svg
     d3.select("svg").remove();
@@ -118,10 +116,7 @@ function drawEmptyDiagram( displayConfiguration ) {
             return d.color
         })
         .attr("fill-opacity","0.3")
-        .attr("stroke-opacity","0.2")
-
-
-        
+        .attr("stroke-opacity","0.2")    
  }
  
 /**
