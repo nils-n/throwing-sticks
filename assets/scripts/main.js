@@ -1,16 +1,18 @@
 
 const Simulation = require('././simulation');
 const DisplayConfiguration = require('././display');
+const Stick = require('././stick');
+
 const d3 = require('d3')
 
 // object that will handle input to d3.js 
 let displayConfiguration =  new DisplayConfiguration();
 
-
 // should but tested but currently cannot test for DOM changes - would need react for that (but is beyond scope of this project).
 const diagram = document.getElementById('main-diagram')
 displayConfiguration.height = diagram.clientHeight;
 displayConfiguration.width = diagram.clientWidth;
+displayConfiguration.displaySelector = '#main-diagram';
 
 // update distance between midlines and stick lenghts. This probably should have a listener to observe if browser window changes
 displayConfiguration.calculateDistanceBetweenMidLines()
@@ -51,7 +53,6 @@ document.getElementById('hero-throw').addEventListener( "click", function() {
 
     // for now, lets just assign the sticks to the result of the simulation 
     sticks = simulation.sticks;
-
     svg = drawEmptyDiagram( displayConfiguration )
     drawMidlines( svg , displayConfiguration  )
     drawSticks( svg,  sticks, displayConfiguration )
@@ -86,5 +87,51 @@ document.getElementsByClassName('slider')[0].addEventListener( 'change', functio
  })
 
 
+ //listener to the button on the second diagrm 
+document.getElementById('explain-rotate').addEventListener( 'change', function() {
+  
+    //create a new stick based on the current slider position 
+    const stick = new Stick(  {  
+                "position": 0.5, 
+                "orientation": this.value, 
+                "colour": 'green', 
+                'sector': 0 ,
+                'verticalOffsetOnScreen':0 } )
+
+     // the stick will touch the line under this condition for the orientation 
+     const stickTouchesMidline =  Math.abs( Math.cos( simulation.toRadians( stick.orientation ) ))  > stick.position;
+           
+     // set the color to red if the stick touches - green otherwise 
+     stick.colour = stickTouchesMidline ? "red" : 'green'
+
+    // create a temp configurator for this diagram 
+    const tempDisplayConfiguration = DisplayConfiguration.from( displayConfiguration )
+    const diagram = document.getElementById('explain-diagram')
+
+     //set display propertoes of the diagram
+     tempDisplayConfiguration.displaySelector = '#explain-diagram'
+     tempDisplayConfiguration.height = diagram.clientHeight;
+     tempDisplayConfiguration.width = diagram.clientWidth;
+     tempDisplayConfiguration.numberOfMidlines = displayConfiguration.numberOfMidlines;
+     tempDisplayConfiguration.stickLengthOnScreen = displayConfiguration.stickLengthOnScreen ;
+     tempDisplayConfiguration.distanceBetweenMidlines = displayConfiguration.distanceBetweenMidlines ;
+     tempDisplayConfiguration.numberSticksOnCanvas = 1 ;
+
+     // for now, lets just assign the sticks to the result of the simulation 
+    explain_sticks = []
+    explain_sticks.push( stick);
+
+    // draw empty diagram and add a stick
+    const svgExplain  = drawEmptyDiagram( tempDisplayConfiguration )
+
+
+    console.log('right before calling drawMidlines in the slider event function')
+    console.log( tempDisplayConfiguration)
+    console.log( `freaking number of midlines is ${tempDisplayConfiguration.numberOfMidlines} `)
+    drawMidlines( svgExplain , tempDisplayConfiguration  )
+    drawSticks( svgExplain,  explain_sticks, tempDisplayConfiguration )
+
+    console.log( tempDisplayConfiguration)
+ });
 
 

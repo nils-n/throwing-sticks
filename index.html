@@ -37,7 +37,7 @@
                 </div>
                 <!-- this is based on  https://www.w3schools.com/howto/howto_js_rangeslider.asp -->
                 <div class="slidecontainer">
-                    <input type="range" min="1" max="100" value="1" class="slider" id="myRange">
+                    <input type="range" min="1" max="10" value="1" class="slider" id="myRange">
                     <p><span id="slider-count"> 1 </span> per Throw</p>
                 </div>
                 <p>The sticks jumped on a table with black marks with their eyes closed.
@@ -62,8 +62,14 @@
                 “When we fall on the ground, we can point in any direction we want. But only a few directions will us to
                 touch a line!”</p>
             <div class="diagram placeholder-background">
-                <button>Click Here</button>
-                <button>Reset</button>
+                <div id="explain-diagram" style="max-width: 450px; min-height: 200px;"> </div>
+                    <div class="btn-box">    
+                        <span> Rotate</span>                   
+                        <input type="range" min="0" max="180" value="90" class="slider" id="explain-rotate">
+                        <span> Move</span>                         
+                        <input type="range" min="0" max="100" value="50" class="slider" id="explain-move">
+                    </div>
+                   
             </div>
         </div>
 

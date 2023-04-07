@@ -31,6 +31,19 @@ class DisplayConfiguration {
         this.midlineStrokeWidth = 8;
     }
 
+    // also have a copy constructor 
+    static from(other) {
+        return new DisplayConfiguration(
+            other.numberSticksOnCanvas,
+            other.margin,
+            other.backgroundColor, 
+            other.width, 
+            other.height, 
+            other.numberOfMidlines, 
+            other.spaceAtBorder,
+            other.midlineStrokeWidth
+        ); }
+
     // calculate how much space needed for display
     calculateDistanceBetweenMidLines() {
         this.distanceBetweenMidlines =  this.width  / ( this.numberOfMidlines - 1);
