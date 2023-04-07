@@ -28,11 +28,18 @@ class DisplayConfiguration {
         this.width = 300;  //update with clientWidth in the browser
         this.height = 200;  //update with clientHeight in the browser
         this.numberOfMidlines = 5; 
+        this.spaceAtBorder = 16; 
+        this.midlineStrokeWidth = 8;
     }
 
     // calculate how much space needed for display
     calculateDistanceBetweenMidLines() {
         this.distanceBetweenMidlines =  this.width  / ( this.numberOfMidlines - 1);
+    }
+
+    // cacluate the displayed lenght of a stick 
+    calculateStickLengthOnScreen () {
+        return 42;
     }
   
 

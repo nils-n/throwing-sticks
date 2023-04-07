@@ -2,6 +2,15 @@
  * @jest-environment jsdom
  */
 
+/**
+ * All tests are laid out in the form 
+ * 
+ *  A rrange 
+ *  A ct 
+ *  A ssert 
+ * 
+ */
+
 const Stick  = module.require('../stick');
 
 let model; 
