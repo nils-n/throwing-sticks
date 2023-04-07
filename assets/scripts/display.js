@@ -16,7 +16,6 @@ class DisplayConfiguration {
     stickLengthOnScreen;
 
     constructor() {
-        console.log('entering constructor of Display')
         this.numberSticksOnCanvas = 0;
         this.margin = {
             top: 0,
@@ -39,7 +38,8 @@ class DisplayConfiguration {
 
     // cacluate the displayed lenght of a stick 
     calculateStickLengthOnScreen () {
-        return 42;
+        console.log('calculating the stick length now')
+        this.stickLengthOnScreen = 42;
     }
   
 
