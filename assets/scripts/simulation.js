@@ -65,7 +65,7 @@ class Simulation {
     assignRandomVerticalOffsetOnDisplay( ) {
         for (let stick of this.sticks){
             if (!stick.drawnOnScreen){
-                stick.verticalOffsetOnScreen = 42;
+                stick.verticalOffsetOnScreen = Math.random() - 0.5;
                 stick.drawnOnScreen = true;
             }
         }
