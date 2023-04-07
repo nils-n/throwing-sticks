@@ -87,7 +87,7 @@ document.getElementsByClassName('slider')[0].addEventListener( 'change', functio
  })
 
  //listener to the slider on the second diagrm 
-document.getElementById('explain-rotate').addEventListener( 'change', function() {
+document.getElementById('explain-rotate').addEventListener( 'input', function() {
   
     //create a new stick based on the current slider position 
     const stick = new Stick(  {  
@@ -128,7 +128,7 @@ document.getElementById('explain-rotate').addEventListener( 'change', function()
  });
 
  // listener to the second slider on the second diagrm 
- document.getElementById('explain-move').addEventListener( 'change', function() {
+ document.getElementById('explain-move').addEventListener( 'input', function() {
   
     //create a new stick based on the current slider position 
     const stick = new Stick(  {  

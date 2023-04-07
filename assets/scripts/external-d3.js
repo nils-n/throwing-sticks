@@ -45,7 +45,7 @@ const mockConfiguration = {
                             left: 0,
                         }
                      };
-                     
+
 svg = drawEmptyDiagram( mockConfiguration )
 drawMidlines( svg , mockConfiguration )
 drawSticks( svg,  sticks, mockConfiguration )
@@ -165,3 +165,7 @@ function drawMidlines( svg, displayConfiguration ) {
         positionOfMidline  += distanceBetweenMidlines 
     }
 }
+
+/**
+ * if there is time left, try to add zoom from here om https://www.d3indepth.com/zoom-and-pan/
+ */
