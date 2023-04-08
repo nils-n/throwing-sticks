@@ -97,8 +97,11 @@ document.getElementById('explain-rotate').addEventListener( 'input', function() 
                 'sector': 0 ,
                 'verticalOffsetOnScreen':0 } )
 
+      //map the position into the sector between the first and second midline
+      const mappedPosition = stick.mapPositionIntoFirstSector( stick.position ); 
+
      // the stick will touch the line under this condition for the orientation 
-     const stickTouchesMidline =  Math.abs( Math.cos( simulation.toRadians( stick.orientation ) ))  > stick.position;
+     const stickTouchesMidline =  Math.abs( Math.cos( simulation.toRadians( stick.orientation ) ))  > mappedPosition;
            
      // set the color to red if the stick touches - green otherwise 
      stick.colour = stickTouchesMidline ? "red" : 'green'
@@ -139,11 +142,11 @@ document.getElementById('explain-rotate').addEventListener( 'input', function() 
                 'verticalOffsetOnScreen':0 } )
 
       //map the position into the sector between the first and second midline
-     // const position = positionInsideFirstSector( stick.position ); 
+     const mappedPosition = stick.mapPositionIntoFirstSector( stick.position ); 
      
      // the stick will touch the line under this condition for the orientation 
-     const stickTouchesMidline =  Math.abs( Math.cos( simulation.toRadians( stick.orientation ) ))  > stick.position;
-           
+     const stickTouchesMidline =  Math.abs( Math.cos( simulation.toRadians( stick.orientation ) )) > mappedPosition
+          
      // set the color to red if the stick touches - green otherwise 
      stick.colour = stickTouchesMidline ? "red" : 'green'
 
