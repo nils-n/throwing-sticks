@@ -65,6 +65,25 @@ document.getElementById('hero-throw').addEventListener( "click", function() {
     span = document.getElementById('number-sticks');
     span.innerHTML = `<bold> ${simulation.sticks.length} </bold>`
 
+    // now make the text be a bit playful too 
+    // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/switch
+    switch ( totalNumberOfSticks )
+     {
+        case 0:     
+            console.log(`We have 0 = ${totalNumberOfSticks} sticks.`)
+            break;
+        case 1: 
+            console.log(`We have 1 = ${totalNumberOfSticks} sticks.`)
+            break;
+        case 2: 
+            console.log(`We have 2 = ${totalNumberOfSticks} sticks.`)
+            break;  
+        default: 
+        console.log(`We have more than 3 =<  ${totalNumberOfSticks} sticks.`)
+        break;  
+    }
+  
+
 })
 
 // listener when the slider value changes 
