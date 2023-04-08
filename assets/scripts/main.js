@@ -130,14 +130,17 @@ document.getElementById('explain-rotate').addEventListener( 'input', function() 
  // listener to the second slider on the second diagrm 
  document.getElementById('explain-move').addEventListener( 'input', function() {
   
-    //create a new stick based on the current slider position 
-    const stick = new Stick(  {  
+     //create a new stick based on the current slider position 
+      const stick = new Stick(  {  
                 "position": this.value / 100, 
                 "orientation":  document.getElementById('explain-rotate').value, 
                 "colour": 'green', 
                 'sector': 0 ,
                 'verticalOffsetOnScreen':0 } )
 
+      //map the position into the sector between the first and second midline
+     // const position = positionInsideFirstSector( stick.position ); 
+     
      // the stick will touch the line under this condition for the orientation 
      const stickTouchesMidline =  Math.abs( Math.cos( simulation.toRadians( stick.orientation ) ))  > stick.position;
            

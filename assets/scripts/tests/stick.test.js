@@ -31,5 +31,20 @@ describe( `Class ${Stick.name}`, () => {
           expect(model.sector).toBeNull()
           expect(model.verticalOffsetOnScreen).toBeNull()
         });
+
+    test('maps a position from other sectors correctly into the first sector', () => {
+       // random stick in the 4th sector 
+       const randomPosition = 4.5
+       const minAllowedPosition = 1.0;
+       const maxAllowedPosition = 1.0;
+       
+       const result =  model.mapPositionIntoFirstSector( randomPosition );
+
+       expect(  result ).toBeLessThanOrEqual( maxAllowedPosition );
+       expect(  result ).toBeGreaterThanOrEqual( minAllowedPosition);
+    }) 
+
+  
+    
         
 });
