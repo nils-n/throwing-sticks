@@ -143,11 +143,18 @@ p {
 
 .btn-box {
     display: flex;
-    gap: 2rem;
+    gap: 1rem;
     justify-content: center;
     flex-wrap: wrap;
-    padding-top: 2rem;
 }
+
+@media (min-width: 800px) {
+    .middle-panel {
+    gap: 2rem;
+    padding-top: 2rem;
+    }
+}
+
 
 
 .slidecontainer {
