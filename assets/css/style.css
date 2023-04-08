@@ -161,6 +161,12 @@ p {
     background-color: beige;
 }
 
+.important {
+    color: var(--color-dark-bluegreen);
+    font-weight: var(--fw-black);
+    text-decoration: underline;
+}
+
 /* ************** 
     classes
    ************** 
