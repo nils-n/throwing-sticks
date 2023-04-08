@@ -146,6 +146,7 @@ p {
     gap: 2rem;
     justify-content: center;
     flex-wrap: wrap;
+    padding-top: 2rem;
 }
 
 
