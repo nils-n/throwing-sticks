@@ -4,6 +4,7 @@
  */
 class Stick {
     position;
+    mappedPosition;
     orientation;
     length; 
     colour;
@@ -11,6 +12,7 @@ class Stick {
     verticalOffsetOnScreen;
     constructor( data ) {
         this.position = data.position;
+        this.mappedPosition = null;
         this.orientation = data.orientation;
         this.length = data.length;
         this.colour = data.colour;

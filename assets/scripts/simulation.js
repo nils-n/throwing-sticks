@@ -84,6 +84,9 @@ class Simulation {
 
             //map the position into the sector between the first and second midline
             const mappedPosition = stick.mapPositionIntoFirstSector( stick.position ); 
+
+            // store also the mapped positon for the scatter plot
+            stick.mappedPosition = mappedPosition;
             
             // the stick will touch the line under this condition for the orientation 
             const stickTouchesMidline =  Math.abs( Math.cos( this.toRadians( stick.orientation ) ))  > mappedPosition;

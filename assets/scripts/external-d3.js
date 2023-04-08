@@ -58,6 +58,9 @@ function drawEmptyDiagram( displayConfiguration ) {
     // for now just extract the height from the mock configuration
     const { width , height, margin, displaySelector, spaceAtBorder } = displayConfiguration;
 
+    console.log('enter drawEmptyDiagram now')
+    console.log(displaySelector)
+
     // create empty svg
     d3.select( displaySelector)
         .select('svg')
@@ -169,6 +172,102 @@ function drawMidlines( svg, displayConfiguration ) {
         positionOfMidline  += distanceBetweenMidlines 
     }
 }
+
+/**
+ * This is a function to visualize the sticks that were generated in the simulaion for the first panel using a scatterplot
+ * based on https://d3-graph-gallery.com/graph/scatter_basic.html
+ */
+function drawScatterDiagram ( sticks, svgScatter, tempDisplayConfiguration ) {
+    
+    const { height, width,  displaySelector } = tempDisplayConfiguration;
+
+    console.log('enterScatterDiagram . This is the displaySelector')
+    console.log(displaySelector)
+
+    // prepare the data to be plotted
+    // we will just look at the angles between 0 and 90 for this visualization. The other half of 90 to 180 degrees is just mirrored.
+    let dataset = [];
+    for (let i in sticks) {
+        if ( (sticks[i].orientation > 0) && ( sticks[i].orientation < 90))  {
+            dataset.push( { 
+                x:  sticks[i].mappedPosition ,  
+                color: sticks[i].colour,
+                orientation: sticks[i].orientation,
+             } )
+        }
+       
+    }
+
+    const margin = {
+        top: 0,
+        left: 40,
+    }
+
+    // add scales to the axes  
+    const xScale = d3.scaleLinear()
+            .domain( [ 0, 90 ])
+            .range([ width, 0 ])
+
+    const yScale = d3.scaleLinear()
+            .domain( [ 0, 1 ])
+            .range([ height, 0 ])   
+
+    svgScatter
+            .attr('width', width )
+            .attr('height', height)
+    
+    svgScatter
+        .append('g')
+        .attr("transform", `translate(0, ${height} )`)
+        .call(d3.axisBottom( xScale ));
+
+    svgScatter
+        .append('g')
+        .attr('transform', `translate( ${margin.left} )` )
+        .call(d3.axisLeft( yScale ));
+ 
+    svgScatter.selectAll("scatter-sticks")
+        .data(dataset)
+        .enter()
+            .append('circle')
+            .attr('cx', function (d) {
+                return xScale(d.orientation)
+            })
+            .attr('cy', function (d) {
+                return yScale(d.x)
+            })
+            .attr("r", 1.5  )
+            .attr('fill', function (d) {
+                return d.color
+            })
+            .attr('transform', `translate( ${ - margin.left} )` )
+
+
+
+        //    .attr('transform', function(d) {
+        //         return`translate( ${d.sector * xScale(2)} ) rotate (${d.orientation} , ${xScale(d.x)} , ${d.y} )`
+        //      })
+            .attr("stroke-width", "3px")
+            .attr("stroke", function (d) {
+                return d.color
+            })
+            .attr("fill-opacity","0.3")
+
+// // Add dots
+// svg.append('g')
+// .selectAll("dot")
+// .data(data)
+// .enter()
+// .append("circle")
+//   .attr("cx", function (d) { return x(d.GrLivArea); } )
+//   .attr("cy", function (d) { return y(d.SalePrice); } )
+//   .attr("r", 1.5)
+//   .style("fill", "#69b3a2")
+
+}
+   
+
+
 
 /**
  * if there is time left, try to add zoom from here om https://www.d3indepth.com/zoom-and-pan/

@@ -73,6 +73,13 @@ document.getElementById('hero-throw').addEventListener( "click", function() {
             Wait a moment! Is that no me? , wondered Pi.       `
             span.innerHTML = innerHTML
     }
+
+    //  update the scatter plot on the third panel 
+    const tempDisplayConfiguration = DisplayConfiguration.from( displayConfiguration )
+    tempDisplayConfiguration.displaySelector = '#scatter-diagram'
+    svgScatter = drawEmptyDiagram( tempDisplayConfiguration )
+    drawScatterDiagram( sticks, svgScatter, tempDisplayConfiguration )
+
 })
 
 // listener when the slider value changes 
