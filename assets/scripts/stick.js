@@ -32,10 +32,7 @@ class Stick {
         const mappedPosition =  position % maxNumberInFirstSector;
         return mappedPosition < 1 ?  mappedPosition : ( 2 - mappedPosition );
     }
-
-     
-
-
+    
 };
 
 module.exports =  Stick;

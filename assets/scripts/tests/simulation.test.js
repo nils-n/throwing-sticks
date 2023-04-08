@@ -63,11 +63,12 @@ describe( `Class ${Simulation.name}`, () => {
 
     test('can add new stick with position between 0 and 1', () => {
         model.addNewRandomStick();
+        const maxPosition = 2
 
         const result =  model.sticks[0].position
 
         expect( result ).toBeGreaterThan(0);
-        expect( result ).toBeLessThan(1);
+        expect( result ).toBeLessThan( maxPosition );
     })
 
     test('new stick has orientation between 0 and 180 degrees', () => {

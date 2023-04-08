@@ -38,11 +38,12 @@ class Simulation {
     // the stick has a position between 0 and  1
     addNewRandomStick(  ) {
 
-        // to ensure angle is between 0 and 180
+        // to ensure angle is between 0 and 180 and position between 0 and 2 ( space between two midlines equals to two sticks)
         const maxAngle = 180;
+        const maxPosition = 2;
 
         // create a random position 
-        const randomPosition =  Math.random() ;
+        const randomPosition =  maxPosition * Math.random() ;
         const randomOrientation = maxAngle * Math.random();
         const data = { position:randomPosition, orientation:randomOrientation}
 
@@ -81,8 +82,11 @@ class Simulation {
                 continue;
             }
 
+            //map the position into the sector between the first and second midline
+            const mappedPosition = stick.mapPositionIntoFirstSector( stick.position ); 
+            
             // the stick will touch the line under this condition for the orientation 
-            const stickTouchesMidline =  Math.abs( Math.cos( this.toRadians( stick.orientation ) ))  > stick.position;
+            const stickTouchesMidline =  Math.abs( Math.cos( this.toRadians( stick.orientation ) ))  > mappedPosition;
            
             // set the color to red if the stick touches - green otherwise 
             stick.colour = stickTouchesMidline ? "red" : 'green'
