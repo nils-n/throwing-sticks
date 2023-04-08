@@ -97,36 +97,8 @@ document.getElementById('explain-rotate').addEventListener( 'input', function() 
                 'sector': 0 ,
                 'verticalOffsetOnScreen':0 } )
 
-      //map the position into the sector between the first and second midline
-      const mappedPosition = stick.mapPositionIntoFirstSector( stick.position ); 
-
-     // the stick will touch the line under this condition for the orientation 
-     const stickTouchesMidline =  Math.abs( Math.cos( simulation.toRadians( stick.orientation ) ))  > mappedPosition;
-           
-     // set the color to red if the stick touches - green otherwise 
-     stick.colour = stickTouchesMidline ? "red" : 'green'
-
-    // create a temp configurator for this diagram 
-    const tempDisplayConfiguration = DisplayConfiguration.from( displayConfiguration )
-    const diagram = document.getElementById('explain-diagram')
-
-     //set display propertoes of the diagram
-     tempDisplayConfiguration.displaySelector = '#explain-diagram'
-     tempDisplayConfiguration.height = diagram.clientHeight;
-     tempDisplayConfiguration.width = diagram.clientWidth;
-     tempDisplayConfiguration.numberOfMidlines = displayConfiguration.numberOfMidlines;
-     tempDisplayConfiguration.stickLengthOnScreen = displayConfiguration.stickLengthOnScreen ;
-     tempDisplayConfiguration.distanceBetweenMidlines = displayConfiguration.distanceBetweenMidlines ;
-     tempDisplayConfiguration.numberSticksOnCanvas = 1 ;
-
-     // for now, lets just assign the sticks to the result of the simulation 
-    explain_sticks = []
-    explain_sticks.push( stick);
-
-    // draw empty diagram and add a stick
-    const svgExplain  = drawEmptyDiagram( tempDisplayConfiguration )
-    drawMidlines( svgExplain , tempDisplayConfiguration  )
-    drawSticks( svgExplain,  explain_sticks, tempDisplayConfiguration )
+      // draw this stick on the panel of the second diagram
+      drawSecondDiagram( stick)
 
  });
 
@@ -141,36 +113,47 @@ document.getElementById('explain-rotate').addEventListener( 'input', function() 
                 'sector': 0 ,
                 'verticalOffsetOnScreen':0 } )
 
-      //map the position into the sector between the first and second midline
-     const mappedPosition = stick.mapPositionIntoFirstSector( stick.position ); 
-     
-     // the stick will touch the line under this condition for the orientation 
-     const stickTouchesMidline =  Math.abs( Math.cos( simulation.toRadians( stick.orientation ) )) > mappedPosition
-          
-     // set the color to red if the stick touches - green otherwise 
-     stick.colour = stickTouchesMidline ? "red" : 'green'
-
-    // create a temp configurator for this diagram 
-    const tempDisplayConfiguration = DisplayConfiguration.from( displayConfiguration )
-    const diagram = document.getElementById('explain-diagram')
-
-     //set display propertoes of the diagram
-     tempDisplayConfiguration.displaySelector = '#explain-diagram'
-     tempDisplayConfiguration.height = diagram.clientHeight;
-     tempDisplayConfiguration.width = diagram.clientWidth;
-     tempDisplayConfiguration.numberOfMidlines = displayConfiguration.numberOfMidlines;
-     tempDisplayConfiguration.stickLengthOnScreen = displayConfiguration.stickLengthOnScreen ;
-     tempDisplayConfiguration.distanceBetweenMidlines = displayConfiguration.distanceBetweenMidlines ;
-     tempDisplayConfiguration.numberSticksOnCanvas = 1 ;
-
-     // for now, lets just assign the sticks to the result of the simulation 
-    explain_sticks = []
-    explain_sticks.push( stick);
-
-    // draw empty diagram and add a stick
-    const svgExplain  = drawEmptyDiagram( tempDisplayConfiguration )
-
-    drawMidlines( svgExplain , tempDisplayConfiguration  )
-    drawSticks( svgExplain,  explain_sticks, tempDisplayConfiguration )
+      // draw this stick on the panel of the second diagram
+      drawSecondDiagram( stick)
 
  });
+
+// refactor code to remove duplicated code 
+function drawSecondDiagram( stick ) {
+
+      //map the position into the sector between the first and second midline
+      const mappedPosition = stick.mapPositionIntoFirstSector( stick.position ); 
+     
+      // the stick will touch the line under this condition for the orientation 
+      const stickTouchesMidline =  Math.abs( Math.cos( simulation.toRadians( stick.orientation ) )) > mappedPosition
+           
+      // set the color to red if the stick touches - green otherwise 
+      stick.colour = stickTouchesMidline ? "red" : 'green'
+ 
+     // create a temp configurator for this diagram 
+     const tempDisplayConfiguration = DisplayConfiguration.from( displayConfiguration )
+     const diagram = document.getElementById('explain-diagram')
+ 
+      //set display propertoes of the diagram
+      tempDisplayConfiguration.displaySelector = '#explain-diagram'
+      tempDisplayConfiguration.height = diagram.clientHeight;
+      tempDisplayConfiguration.width = diagram.clientWidth;
+      tempDisplayConfiguration.numberOfMidlines = displayConfiguration.numberOfMidlines;
+      tempDisplayConfiguration.stickLengthOnScreen = displayConfiguration.stickLengthOnScreen ;
+      tempDisplayConfiguration.distanceBetweenMidlines = displayConfiguration.distanceBetweenMidlines ;
+      tempDisplayConfiguration.numberSticksOnCanvas = 1 ;
+ 
+      // for now, lets just assign the sticks to the result of the simulation 
+     explain_sticks = []
+     explain_sticks.push( stick);
+ 
+     // draw empty diagram and add a stick
+     const svgExplain  = drawEmptyDiagram( tempDisplayConfiguration )
+ 
+     drawMidlines( svgExplain , tempDisplayConfiguration  )
+     drawSticks( svgExplain,  explain_sticks, tempDisplayConfiguration )
+}
+
+ // TO DO add a stick to the second diagram directly when the DOM has loadded. 
+ //Otherwise, the sticks would only be painted if the slider is moved. 
+ //document.addEventListener( )
