@@ -101,7 +101,7 @@ document.getElementsByClassName('slider')[0].addEventListener( 'change', functio
     span.innerHTML = `<bold> ${simulation.stickCounter['green']}  </bold>`
 
     // reset also second text
-    document.getElementById('more-than-3').innerHTML = " ";
+    document.getElementById('more-than-3').innerHTML = " <br><br>";
 
  })
 
@@ -155,6 +155,10 @@ document.getElementById('explain-rotate').addEventListener( 'input', function() 
 
       // draw this stick on the panel of the second diagram
       drawSecondDiagram( stick)
+
+    // reset also second text
+    document.getElementById('more-than-3').innerHTML = " <br><br>";
+
 
  });
 
