@@ -63,9 +63,6 @@ function drawEmptyDiagram( displayConfiguration ) {
         .select('svg')
         .remove();
 
-    console.log(`creating empty diagram with margin ${margin}`)
-    console.log(margin)
-
     // fix overflow bug to make svg fit into the parent div
     // https://chartio.com/resources/tutorials/how-to-resize-an-svg-when-the-window-is-resized-in-d3-js/
     const svg = d3.select(displaySelector)
