@@ -56,17 +56,23 @@ drawSticks( svg,  sticks, mockConfiguration )
 function drawEmptyDiagram( displayConfiguration ) {
     
     // for now just extract the height from the mock configuration
-    const { width , height, margin, displaySelector } = displayConfiguration;
+    const { width , height, margin, displaySelector, spaceAtBorder } = displayConfiguration;
 
     // create empty svg
     d3.select( displaySelector)
         .select('svg')
         .remove();
 
+    console.log(`creating empty diagram with margin ${margin}`)
+    console.log(margin)
+
+    // fix overflow bug to make svg fit into the parent div
+    // https://chartio.com/resources/tutorials/how-to-resize-an-svg-when-the-window-is-resized-in-d3-js/
     const svg = d3.select(displaySelector)
     .append('svg')
     .attr('width', width + margin.left + margin.right)
     .attr('height', height + margin.bottom + margin.top)
+    .attr('viewBox', `0 0 ${width+spaceAtBorder} ${height}`)
     .append('g')
     .attr('transform', `translate( ${margin.left} , ${margin.top} )`)
 
