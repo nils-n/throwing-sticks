@@ -22,7 +22,7 @@ describe( `Class ${DisplayConfiguration.name}`, () => {
     })
 
     test("exists and is initialized with empty values", () => {
-          const initialSizeValues = [ 300, 200];
+          const initialSizeValues = [ 300, 350];
           const initialBGColor = "#FF0000";
           const pixelsAtBorder = 16;
           const numberMidlines = 5;
