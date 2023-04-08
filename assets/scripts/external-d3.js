@@ -267,11 +267,7 @@ function drawScatterDiagram ( sticks, svgScatter, tempDisplayConfiguration ) {
         .attr('fill', function (d) {
             return d.color
         })
-        //.attr('transform', `translate( ${ - margin.left} )` )
         .attr('transform', `translate( ${margin.left} )` )
-        //    .attr('transform', function(d) {
-        //         return`translate( ${d.sector * xScale(2)} ) rotate (${d.orientation} , ${xScale(d.x)} , ${d.y} )`
-        //      })
         .attr("stroke-width", "3px")
         .attr("stroke", function (d) {
             return d.color
@@ -316,7 +312,6 @@ function drawScatterDiagram ( sticks, svgScatter, tempDisplayConfiguration ) {
     .style("stroke-width", "2");
 
 }
-   
 
 /**
  * if there is time left, try to add zoom from here om https://www.d3indepth.com/zoom-and-pan/

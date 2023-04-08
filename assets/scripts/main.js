@@ -49,8 +49,6 @@ document.getElementById('hero-throw').addEventListener( "click", function() {
     const newSector = simulation.sticks[totalNumberOfSticks-1].sector;
     const newVerticalOffset= simulation.sticks[totalNumberOfSticks-1].verticalOffsetOnScreen;
    
-    // console.log(` new x is ${newPosition.toFixed(2)}, angle ${newOrientation}, sector ${newSector}, vertical offset ${newVerticalOffset.toFixed(2)}` )
-
     // for now, lets just assign the sticks to the result of the simulation 
     sticks = simulation.sticks;
     svg = drawEmptyDiagram( displayConfiguration )
@@ -85,9 +83,8 @@ document.getElementById('hero-throw').addEventListener( "click", function() {
     svgScatter = drawEmptyDiagram( tempDisplayConfiguration )
     drawScatterDiagram( sticks, svgScatter, tempDisplayConfiguration )
 
-    //reset for last diagragm
+    // add to last diagragm
     document.getElementById('total-sticks').innerHTML = `${totalNumberOfSticks}`;
-
 
 })
 
@@ -108,6 +105,11 @@ document.getElementsByClassName('slider')[0].addEventListener( 'change', functio
     svg = drawEmptyDiagram( displayConfiguration )
     drawMidlines( svg , displayConfiguration )
 
+    // reset also the scatter plot 
+    d3.select( '#scatter-plot')
+        .select('svg')
+        .remove();
+
     // reset also the text on the first diagram 
     span = document.getElementById('red-sticks');
     span.innerHTML = `<bold> ${simulation.stickCounter['red']}  </bold>`
@@ -121,6 +123,16 @@ document.getElementsByClassName('slider')[0].addEventListener( 'change', functio
 
     //reset for last diagragm
     document.getElementById('total-sticks').innerHTML = "";
+
+     //  update the scatter plot on the third panel 
+     const tempDisplayConfiguration = DisplayConfiguration.from( displayConfiguration )
+     const scatterDiagram = document.getElementById('scatter-diagram')
+ 
+     tempDisplayConfiguration.height = scatterDiagram.clientHeight ;
+     tempDisplayConfiguration.width = scatterDiagram.clientWidth;
+     tempDisplayConfiguration.displaySelector = '#scatter-diagram'
+ 
+     svgScatter = drawEmptyDiagram( tempDisplayConfiguration )
 
  })
 
