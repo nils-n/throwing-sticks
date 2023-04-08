@@ -76,7 +76,12 @@ document.getElementById('hero-throw').addEventListener( "click", function() {
 
     //  update the scatter plot on the third panel 
     const tempDisplayConfiguration = DisplayConfiguration.from( displayConfiguration )
+    const scatterDiagram = document.getElementById('scatter-diagram')
+
+    tempDisplayConfiguration.height = scatterDiagram.clientHeight ;
+    tempDisplayConfiguration.width = scatterDiagram.clientWidth;
     tempDisplayConfiguration.displaySelector = '#scatter-diagram'
+
     svgScatter = drawEmptyDiagram( tempDisplayConfiguration )
     drawScatterDiagram( sticks, svgScatter, tempDisplayConfiguration )
 
@@ -165,6 +170,8 @@ document.getElementById('explain-rotate').addEventListener( 'input', function() 
 
     // reset also second text
     document.getElementById('more-than-3').innerHTML = " <br><br>";
+
+    displayConfiguration
 
 
  });

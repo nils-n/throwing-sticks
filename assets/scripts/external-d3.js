@@ -58,7 +58,8 @@ function drawEmptyDiagram( displayConfiguration ) {
     // for now just extract the height from the mock configuration
     const { width , height, margin, displaySelector, spaceAtBorder } = displayConfiguration;
 
-    console.log('enter drawEmptyDiagram now')
+    console.log(`enter drawEmptyDiagram now, height is ${height}, width is ${width}`)
+
     console.log(displaySelector)
 
     // create empty svg
@@ -72,7 +73,7 @@ function drawEmptyDiagram( displayConfiguration ) {
     .append('svg')
     .attr('width', width + margin.left + margin.right)
     .attr('height', height + margin.bottom + margin.top)
-    .attr('viewBox', `0 0 ${width+spaceAtBorder} ${height}`)
+    .attr('viewBox', `0 0 ${width+spaceAtBorder} ${height-2*spaceAtBorder}`)
     .attr('preserveAspectRatio', 'xMidYMid meet')
     .append('g')
     .attr('transform', `translate( ${margin.left} , ${margin.top} )`)
@@ -179,9 +180,14 @@ function drawMidlines( svg, displayConfiguration ) {
  */
 function drawScatterDiagram ( sticks, svgScatter, tempDisplayConfiguration ) {
     
-    const { height, width,  displaySelector } = tempDisplayConfiguration;
+    let { height, width,  displaySelector } = tempDisplayConfiguration;
+
+    // reduce the height to make room for axes 
+    height -= 50
+    width  -= 50
 
     console.log('enterScatterDiagram . This is the displaySelector')
+    console.log(height)
     console.log(displaySelector)
 
     // prepare the data to be plotted
@@ -205,53 +211,52 @@ function drawScatterDiagram ( sticks, svgScatter, tempDisplayConfiguration ) {
 
     // add scales to the axes  
     const xScale = d3.scaleLinear()
-            .domain( [ 0, 90 ])
-            .range([ width, 0 ])
+    .domain( [ 0, 90 ])
+    .range([ 0, width ])
 
     const yScale = d3.scaleLinear()
             .domain( [ 0, 1 ])
             .range([ height, 0 ])   
 
     svgScatter
-            .attr('width', width )
-            .attr('height', height)
+    .append('g')
+    .attr('width', width )
+    .attr('height', height)
     
     svgScatter
-        .append('g')
-        .attr("transform", `translate(0, ${height} )`)
-        .call(d3.axisBottom( xScale ));
+    .append('g')
+    .attr("transform", `translate( ${margin.left } , ${height} )`)
+    .call(d3.axisBottom( xScale ));
 
     svgScatter
-        .append('g')
-        .attr('transform', `translate( ${margin.left} )` )
-        .call(d3.axisLeft( yScale ));
+    .append('g')
+    .attr('transform', `translate( ${margin.left} )` )
+    .call(d3.axisLeft( yScale ));
  
     svgScatter.selectAll("scatter-sticks")
-        .data(dataset)
-        .enter()
-            .append('circle')
-            .attr('cx', function (d) {
-                return xScale(d.orientation)
-            })
-            .attr('cy', function (d) {
-                return yScale(d.x)
-            })
-            .attr("r", 1.5  )
-            .attr('fill', function (d) {
-                return d.color
-            })
-            .attr('transform', `translate( ${ - margin.left} )` )
-
-
-
+    .data(dataset)
+    .enter()
+        .append('circle')
+        .attr('cx', function (d) {
+            return xScale(d.orientation)
+        })
+        .attr('cy', function (d) {
+            return yScale(d.x)
+        })
+        .attr("r", 1.5  )
+        .attr('fill', function (d) {
+            return d.color
+        })
+        //.attr('transform', `translate( ${ - margin.left} )` )
+        .attr('transform', `translate( ${margin.left} )` )
         //    .attr('transform', function(d) {
         //         return`translate( ${d.sector * xScale(2)} ) rotate (${d.orientation} , ${xScale(d.x)} , ${d.y} )`
         //      })
-            .attr("stroke-width", "3px")
-            .attr("stroke", function (d) {
-                return d.color
-            })
-            .attr("fill-opacity","0.3")
+        .attr("stroke-width", "3px")
+        .attr("stroke", function (d) {
+            return d.color
+        })
+        .attr("fill-opacity","0.3")
 
 // // Add dots
 // svg.append('g')

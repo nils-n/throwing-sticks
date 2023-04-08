@@ -25,7 +25,7 @@ class DisplayConfiguration {
         }
         this.backgroundColor = "#FF0000";
         this.width = 300;  //update with clientWidth in the browser
-        this.height = 200;  //update with clientHeight in the browser
+        this.height = 350;  //update with clientHeight in the browser
         this.numberOfMidlines = 5; 
         this.spaceAtBorder = 8; 
         this.midlineStrokeWidth = 8;
