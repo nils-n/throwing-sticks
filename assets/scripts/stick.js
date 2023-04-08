@@ -29,7 +29,8 @@ class Stick {
      */
     mapPositionIntoFirstSector ( position  ) {
         const maxNumberInFirstSector = 2;
-        return position % maxNumberInFirstSector;
+        const mappedPosition =  position % maxNumberInFirstSector;
+        return mappedPosition < 1 ?  mappedPosition : ( 2 - mappedPosition );
     }
 
      
