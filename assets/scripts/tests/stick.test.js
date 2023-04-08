@@ -19,6 +19,8 @@ describe( `Class ${Stick.name}`, () => {
 
     beforeEach( () => {
         const data = { position: '', orientation:'' ,  length: '' , colour: '' }; 
+        const minAllowedPosition = 0.0;
+        const maxAllowedPosition = 1.0;
         model = new Stick(data);
     })
 
@@ -32,17 +34,25 @@ describe( `Class ${Stick.name}`, () => {
           expect(model.verticalOffsetOnScreen).toBeNull()
         });
 
-    test('maps a position from other sectors correctly into the first sector', () => {
+    xtest('maps a position from other sectors correctly into the first sector', () => {
        // random stick in the 4th sector 
        const randomPosition = 4.5
-       const minAllowedPosition = 0.0;
-       const maxAllowedPosition = 1.0;
-       
+  
        const result =  model.mapPositionIntoFirstSector( randomPosition );
 
        expect(  result ).toBeLessThanOrEqual( maxAllowedPosition );
        expect(  result ).toBeGreaterThanOrEqual( minAllowedPosition);
     }) 
+
+    test('handles correctly the case that mapped number is between 0 and 1', () => {
+        // stick in the 4th sector that is mapped betweeon 0 and 1
+        const inputPosition = 4.5;
+        const mappedPosition = 0.5;
+
+        const result =  model.mapPositionIntoFirstSector( inputPosition );
+
+        expect(  result ).toBe( mappedPosition );
+    })
 
   
     
