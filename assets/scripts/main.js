@@ -118,6 +118,28 @@ document.getElementById('explain-rotate').addEventListener( 'input', function() 
 
  });
 
+ // listener to even that DOM has loaded. add a stick to the second diagram directly.
+ //Otherwise, the sticks would only be painted only after the slider has been moved -
+ // could have been called outside a listener but I find it easier to read this way. 
+ // https://developer.mozilla.org/en-US/docs/Web/API/Window/DOMContentLoaded_event
+ window.addEventListener( 'DOMContentLoaded', function() {
+
+      console.log("DOM fully loaded and parsed");
+
+      //create an display of a stick based on the initial slider position 
+      const stick = new Stick(  {  
+                "position": document.getElementById('explain-move').value / 100, 
+                "orientation":  document.getElementById('explain-rotate').value, 
+                "colour": 'green', 
+                'sector': 0 ,
+                'verticalOffsetOnScreen':0 } )
+
+      // draw this stick on the panel of the second diagram
+      drawSecondDiagram( stick)
+
+ });
+
+
 // refactor code to remove duplicated code 
 function drawSecondDiagram( stick ) {
 
@@ -154,6 +176,3 @@ function drawSecondDiagram( stick ) {
      drawSticks( svgExplain,  explain_sticks, tempDisplayConfiguration )
 }
 
- // TO DO add a stick to the second diagram directly when the DOM has loadded. 
- //Otherwise, the sticks would only be painted if the slider is moved. 
- //document.addEventListener( )
