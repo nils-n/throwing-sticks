@@ -119,7 +119,7 @@ function drawEmptyDiagram( displayConfiguration ) {
         .attr('cy', function (d) {
             return d.y
         })
-        .attr("rx", stickLengthOnScreen / 2 )
+        .attr("rx", stickLengthOnScreen  )
         .attr("ry", stickLengthOnScreen / 8 / 2)
         .attr('fill', function (d) {
             return d.color
