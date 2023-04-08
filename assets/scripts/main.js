@@ -92,6 +92,17 @@ document.getElementsByClassName('slider')[0].addEventListener( 'change', functio
     svg = drawEmptyDiagram( displayConfiguration )
     drawMidlines( svg , displayConfiguration )
 
+    // reset also the text on the first diagram 
+    span = document.getElementById('red-sticks');
+    span.innerHTML = `<bold> ${simulation.stickCounter['red']}  </bold>`
+
+    //display total number of sticks used in the simulation
+    span = document.getElementById('green-sticks');
+    span.innerHTML = `<bold> ${simulation.stickCounter['green']}  </bold>`
+
+    // reset also second text
+    document.getElementById('more-than-3').innerHTML = " ";
+
  })
 
  //listener to the slider on the second diagrm 
