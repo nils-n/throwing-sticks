@@ -73,6 +73,7 @@ function drawEmptyDiagram( displayConfiguration ) {
     .attr('width', width + margin.left + margin.right)
     .attr('height', height + margin.bottom + margin.top)
     .attr('viewBox', `0 0 ${width+spaceAtBorder} ${height}`)
+    .attr('preserveAspectRatio', 'xMidYMid meet')
     .append('g')
     .attr('transform', `translate( ${margin.left} , ${margin.top} )`)
 
