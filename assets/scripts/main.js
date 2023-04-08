@@ -139,7 +139,6 @@ document.getElementById('explain-rotate').addEventListener( 'input', function() 
 
  });
 
-
 // refactor code to remove duplicated code 
 function drawSecondDiagram( stick ) {
 
@@ -158,8 +157,8 @@ function drawSecondDiagram( stick ) {
  
       //set display propertoes of the diagram
       tempDisplayConfiguration.displaySelector = '#explain-diagram'
-      tempDisplayConfiguration.height = diagram.clientHeight;
-      tempDisplayConfiguration.width = diagram.clientWidth;
+      tempDisplayConfiguration.height = displayConfiguration.height;
+      tempDisplayConfiguration.width = displayConfiguration.width;
       tempDisplayConfiguration.numberOfMidlines = displayConfiguration.numberOfMidlines;
       tempDisplayConfiguration.stickLengthOnScreen = displayConfiguration.stickLengthOnScreen ;
       tempDisplayConfiguration.distanceBetweenMidlines = displayConfiguration.distanceBetweenMidlines ;
