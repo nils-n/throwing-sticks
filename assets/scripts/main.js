@@ -57,33 +57,22 @@ document.getElementById('hero-throw').addEventListener( "click", function() {
     drawMidlines( svg , displayConfiguration  )
     drawSticks( svg,  sticks, displayConfiguration )
 
-    //  display the updated Pi estimate 
-    let span = document.getElementById('pi-estimate');
-    span.innerHTML = `<bold> ${simulation.estimatedValueOfPi.toFixed(6)} </bold>`
+    //display total number of sticks used in the simulation
+    span = document.getElementById('red-sticks');
+    span.innerHTML = `<bold> ${simulation.stickCounter['red']}  </bold>`
 
     //display total number of sticks used in the simulation
-    span = document.getElementById('number-sticks');
-    span.innerHTML = `<bold> ${simulation.sticks.length} </bold>`
+    span = document.getElementById('green-sticks');
+    span.innerHTML = `<bold> ${simulation.stickCounter['green']}  </bold>`
 
-    // now make the text be a bit playful too 
-    // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/switch
-    switch ( totalNumberOfSticks )
-     {
-        case 0:     
-            console.log(`We have 0 = ${totalNumberOfSticks} sticks.`)
-            break;
-        case 1: 
-            console.log(`We have 1 = ${totalNumberOfSticks} sticks.`)
-            break;
-        case 2: 
-            console.log(`We have 2 = ${totalNumberOfSticks} sticks.`)
-            break;  
-        default: 
-        console.log(`We have more than 3 =<  ${totalNumberOfSticks} sticks.`)
-        break;  
+    if ( totalNumberOfSticks > 3) {
+            span = document.getElementById('more-than-3');
+            innerHTML = `
+            ${totalNumberOfSticks} sticks, divided by half of number of red sticks, 
+            was ..... ${simulation.estimatedValueOfPi.toFixed(6)}      
+            Wait a moment! Is that no me? , wondered Pi.       `
+            span.innerHTML = innerHTML
     }
-  
-
 })
 
 // listener when the slider value changes 
