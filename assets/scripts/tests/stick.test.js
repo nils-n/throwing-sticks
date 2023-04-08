@@ -19,8 +19,6 @@ describe( `Class ${Stick.name}`, () => {
 
     beforeEach( () => {
         const data = { position: '', orientation:'' ,  length: '' , colour: '' }; 
-        const minAllowedPosition = 0.0;
-        const maxAllowedPosition = 1.0;
         model = new Stick(data);
     })
 
@@ -34,10 +32,12 @@ describe( `Class ${Stick.name}`, () => {
           expect(model.verticalOffsetOnScreen).toBeNull()
         });
 
-    xtest('maps a position from other sectors correctly into the first sector', () => {
+    test('maps a position from other sectors correctly into the first sector', () => {
        // random stick in the 4th sector 
        const randomPosition = 4.5
-  
+       const minAllowedPosition = 0.0;
+       const maxAllowedPosition = 1.0;
+       
        const result =  model.mapPositionIntoFirstSector( randomPosition );
 
        expect(  result ).toBeLessThanOrEqual( maxAllowedPosition );
@@ -54,7 +54,23 @@ describe( `Class ${Stick.name}`, () => {
         expect(  result ).toBe( mappedPosition );
     })
 
-  
+    test('handles correctly the case that mapped number is between 1 and 2', () => {
+        // stick in the 4th sector that is mapped betweeon 1 and 2
+        // note : the mapping mirrors the any number between 1 and 2 into the mirrored interval between 0 and 1
+        // note : this needs to be done because the simulation operates in the interval 0 and 1, but the visualization allows larger numbers.
+        const randomInputPositions = [ 5.5, 5.6, 5.7, 5.8, 5.9, 6.0] ;
+        const correctlyMappedPositions = [ 0.5, 0.4, 0.3, 0.2, 0.1, 0.0 ] ;
+
+        const mappedPositions = []
+        for (const inputPosition of randomInputPositions) {
+            mappedPositions.push( model.mapPositionIntoFirstSector( inputPosition ) )
+        }
+
+        for (const i in correctlyMappedPositions){
+            expect( mappedPositions[i] ).toBe( correctlyMappedPositions[i] )
+        }
+    })
+
     
         
 });
