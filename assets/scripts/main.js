@@ -22,7 +22,7 @@ displayConfiguration.calculateStickLengthOnScreen()
 const simulation = new Simulation();
 
 // start with an empty diagram
-sticks = [];
+let sticks = [];
 simulation.sticks = [];
 svg = drawEmptyDiagram( displayConfiguration )
 drawMidlines( svg, displayConfiguration )
@@ -85,6 +85,10 @@ document.getElementById('hero-throw').addEventListener( "click", function() {
     svgScatter = drawEmptyDiagram( tempDisplayConfiguration )
     drawScatterDiagram( sticks, svgScatter, tempDisplayConfiguration )
 
+    //reset for last diagragm
+    document.getElementById('total-sticks').innerHTML = `${totalNumberOfSticks}`;
+
+
 })
 
 // listener when the slider value changes 
@@ -114,6 +118,9 @@ document.getElementsByClassName('slider')[0].addEventListener( 'change', functio
 
     // reset also second text
     document.getElementById('more-than-3').innerHTML = " <br><br>";
+
+    //reset for last diagragm
+    document.getElementById('total-sticks').innerHTML = "";
 
  })
 

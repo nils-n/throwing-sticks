@@ -200,8 +200,11 @@ function drawScatterDiagram ( sticks, svgScatter, tempDisplayConfiguration ) {
                 color: sticks[i].colour,
                 orientation: sticks[i].orientation,
              } )
-        }
-       
+        } 
+    }
+
+    function toRadians (angle) {
+        return (Math.PI * angle) / 180.0;
     }
 
     const margin = {
@@ -226,7 +229,24 @@ function drawScatterDiagram ( sticks, svgScatter, tempDisplayConfiguration ) {
     svgScatter
     .append('g')
     .attr("transform", `translate( ${margin.left } , ${height} )`)
-    .call(d3.axisBottom( xScale ));
+    .call(d3.axisBottom( xScale ))
+    
+    // https://stackoverflow.com/questions/11189284/d3-axis-labeling
+    svgScatter.append("text")
+    .attr("class", "x label")
+    .attr("text-anchor", "middle")
+    .attr("x", width - 2 * margin.left  )
+    .attr("y", height + 40)
+    .text("Angle / Degrees ");
+
+    // https://stackoverflow.com/questions/11189284/d3-axis-labeling
+    svgScatter.append("text")
+    .attr("class", "y label")
+    .attr("text-anchor", "end")
+    .attr("y", 6)
+    .attr("dy", ".75em")
+    .attr("transform", "rotate(-90) translate(0,40)")
+    .text("Position");
 
     svgScatter
     .append('g')
@@ -257,22 +277,46 @@ function drawScatterDiagram ( sticks, svgScatter, tempDisplayConfiguration ) {
             return d.color
         })
         .attr("fill-opacity","0.3")
+        .attr("text-anchor", "end")
 
-// // Add dots
-// svg.append('g')
-// .selectAll("dot")
-// .data(data)
-// .enter()
-// .append("circle")
-//   .attr("cx", function (d) { return x(d.GrLivArea); } )
-//   .attr("cy", function (d) { return y(d.SalePrice); } )
-//   .attr("r", 1.5)
-//   .style("fill", "#69b3a2")
+    // now draw the theoretical data as a line 
+    //https://www.educative.io/answers/how-to-create-a-line-chart-using-d3/
+
+    // add scales to the axes  
+    const x = d3.scaleLinear()
+    .domain( [ 0, 90 ])
+    .range([ 0, width ])
+
+    const y = d3.scaleLinear()
+            .domain( [ 0, 0.5 ])
+            .range([ height, 0 ])
+
+     // create a second dataset with the true line that separates green and red
+    trueData = []
+    const maxAngle = 90
+    for (let i = 0; i < maxAngle ; i++) {
+        trueData.push({
+                angle: i,
+                position: 0.5 * Math.cos( toRadians( i ) )
+            });
+    } 
+
+    const line = d3.line()
+    .x( function(d) { return x(d.angle)})
+    .y( function(d) { return y(d.position)})
+    .curve( d3.curveBasis)
+
+    svgScatter.append('path')
+    .datum(trueData)
+    .attr("class", "line") 
+    .attr("d", line)
+    .attr('transform', `translate( ${margin.left} )` )
+    .style("fill", "none")
+    .style("stroke", "#CC0000")
+    .style("stroke-width", "2");
 
 }
    
-
-
 
 /**
  * if there is time left, try to add zoom from here om https://www.d3indepth.com/zoom-and-pan/
