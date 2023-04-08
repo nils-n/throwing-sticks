@@ -185,8 +185,11 @@ p {
     
 }
 
-.middle-panel {
+.text-panel {
+    padding: 4rem 1rem;
+}
 
+.middle-panel {
     width: 100%;
     padding: 4rem 1rem;
     background-image: linear-gradient(to bottom, rgba(255,255,255,0.2) ,rgba(255,255,255,0.2) )  ,
@@ -200,16 +203,20 @@ p {
 
 
 .bottom-panel {
-
     width: 100%;
-    padding: 4rem 1rem;
+    padding: 1rem 0.5rem;    
     background-image: linear-gradient(to bottom, rgba(255,255,255,0.2) ,rgba(255,255,255,0.2) )  ,
                     url(../images/free-blue-retractable-pen-on-top-of-notebook-near-magic-keyboard-stock-small-compressed-small.jpg);
     background-size: cover;
     background-position: center center;
     border-bottom-left-radius: 25px;
-    border-bottom-right-radius: 25px;
-    
+    border-bottom-right-radius: 25px;  
+}
+
+@media (min-width: 800px) {
+    .bottom-panel {
+        padding: 4rem 1rem;    
+    }
 }
 
 
