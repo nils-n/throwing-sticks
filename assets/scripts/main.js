@@ -133,6 +133,7 @@ document.getElementsByClassName('slider')[0].addEventListener( 'change', functio
      tempDisplayConfiguration.displaySelector = '#scatter-diagram'
  
      svgScatter = drawEmptyDiagram( tempDisplayConfiguration )
+     drawScatterDiagram( sticks, svgScatter, tempDisplayConfiguration )
 
  })
 
