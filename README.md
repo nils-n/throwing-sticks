@@ -71,7 +71,7 @@ As a first-time user...
 -  This had to be discarded because it is currently not feasible without using dedicated simulation software (i.e. [Processing](https://processing.org/)) or running the simulation on a backend server - which is beyond the scope of this project. 
 - I figured that for educational purposes, an animation of ~1000 sticks the simulation can be handled by most browsers using d3.js and would still lead to a sufficient approximation of &pi; .
 - It was consciously chosen to develop the Javascript using a `test-driven development` (TDD) approach. While it was not strictly necessary to do this, in my opinion this approach enforced clean coding, small functions, and less likelihood for errors - which greatly enhanced readibility and maintainability of the code. It came with a small risk since i just started programming with Javascript, but in retrospective it turned out extremly valuable. 
-- During the implementation, I have come to realize that implementing a `test-driven` approach for front-end display of the simulation is better suited within a framework such as `React`.  The history of the struggle with `d3` unit test using `jest` in Resolved Bugs).
+- During the implementation, I have come to realize that implementing a `test-driven` approach for front-end display of the simulation is better suited within a framework such as `React`.  The history of the struggle with `d3` unit test using `jest` was documented in [ this section](./SETUP.md).
  I left this up for future extension as this would be beyond the current scope of the project. As consequence, unit testing of all front-end elements using `d3.js` was reduced to checking correct inputs (and not the actual rendering inside the DOM). 
 
 
