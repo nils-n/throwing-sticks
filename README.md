@@ -199,6 +199,9 @@ Also, this website was developed using a `test-driven development` (TDD) approac
         npm run build
     ```
 - Functions related to drawing the `d3.js` outputs of the simulation such as`drawEmptyDisplay` or `drawMidlines` would either draw at wrong locations or log errors such as `Error: <svg> attribute width: Expected length, "NaN".` This was caused when calling it with a previous version of this function that would occasionaly use different global parameter such as `width` or `height` that would be overwritten at various points in the code. The soltuion was to refactor the code into a `DisplayConfiguration` class that handles the sizing and positioning of the elements on the screen (without actually drawing them). In this way, the `TDD` approach of implementing functions that use `d3.js` was still at least partially achieved.
+- During Manual Testing using the WebAIM Accessibility Checker, it turned out that the sliders did not have associated `aria` labels, which would make this website impossible to interact for users with visual impairments. Adding the apropriate `aria-labels`, the validation passes. 
+- Testing with Google Lighthouse discovered that loading Google Fonts caused the Performance Score to be `79%` which is below my target value of equal or above `90%`. Following a tutorial on CSS Tricks how to load those Google Fonts [Link](https://css-tricks.com/how-to-load-fonts-in-a-way-that-fights-fout-and-makes-lighthouse-happy/) increased the Performance to score `96%`
+
 
 ### open Bugs 
 
@@ -219,6 +222,7 @@ Also, this website was developed using a `test-driven development` (TDD) approac
 - Unit Testing based on `Simon game` example of the Code Institute Course Material (`Javascript Testing with Jest`), especially how to check DOM changes and how to test for events
 - D3.js Tutorial about general D3.Js aspects including Translation and Rotation of Elements : [Link](https://www.tutorialspoint.com/d3js/d3js_svg_transformation.htm) 
 - General Tutorial for d3.js : [Link](https://d3-graph-gallery.com/intro_d3js.html)
+- To significantly improve Google Lighthouse Performance : [The optimal way to load fonts - CSS Tricks](https://css-tricks.com/how-to-load-fonts-in-a-way-that-fights-fout-and-makes-lighthouse-happy/)
 
 ### Content 
 
