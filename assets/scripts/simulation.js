@@ -19,8 +19,8 @@ class Simulation {
 
     // adds a new stick
     addNewStick( data ){
-        this.sticks.push( new Stick( data ) )
-        this.stickCounter['total'] += 1;
+        this.sticks.push( new Stick( data ) );
+        this.stickCounter.total += 1;
 
         // if color has been defined, move to the next
         if (data.colour) {
@@ -45,9 +45,9 @@ class Simulation {
         // create a random position 
         const randomPosition =  maxPosition * Math.random() ;
         const randomOrientation = maxAngle * Math.random();
-        const data = { position:randomPosition, orientation:randomOrientation}
+        const data = { position:randomPosition, orientation:randomOrientation};
 
-        this.addNewStick( data )
+        this.addNewStick( data );
     }
 
     // only for display : assign a random sector to the sticks
@@ -92,7 +92,7 @@ class Simulation {
             const stickTouchesMidline =  Math.abs( Math.cos( this.toRadians( stick.orientation ) ))  > mappedPosition;
            
             // set the color to red if the stick touches - green otherwise 
-            stick.colour = stickTouchesMidline ? "red" : 'green'
+            stick.colour = stickTouchesMidline ? "red" : 'green';
 
             // update the stick count too
             this.stickCounter[stick.colour] += 1;
@@ -107,14 +107,14 @@ class Simulation {
     estimatePi () {
 
         // ensure that this.stickCounter['red'] is not zero 
-        if ( !this.stickCounter['red'] ) {
+        if ( !this.stickCounter.red ) {
             return 0;
         }
-        const result =  2 * ( this.stickCounter['total']) / this.stickCounter['red']
+        const result =  2 * ( this.stickCounter.total ) / this.stickCounter.red;
 
         this.estimatedValueOfPi =  result ;
 
     }
-};
+}
 
 module.exports =  Simulation;
