@@ -29,12 +29,12 @@ class Stick {
      * If the mapped number is is between 0  and 1, we are checking the left all good.
      * If the number is between 1 and 2, we need to mirror it to the interval between 0 and 1 and check there
      */
-    mapPositionIntoFirstSector ( position  ) {
+    mapPositionIntoFirstSector( position  ) {
         const maxNumberInFirstSector = 2;
         const mappedPosition =  position % maxNumberInFirstSector;
         return mappedPosition < 1 ?  mappedPosition : ( 2 - mappedPosition );
     }
     
-};
+}
 
 module.exports =  Stick;
