@@ -168,7 +168,8 @@ At this point in time, there were following options to deal with this problem:
     - allowed for testability with an acceptable coverage 
     - works perfectly in the browser
     - poses no security risk while using it.
-    
+
+
     <img src="https://img.shields.io/badge/TDD-acceptable-green.svg?logo=LOGO">
     <img src="https://img.shields.io/badge/Testability-acceptable-green.svg?logo=LOGO">
     <img src="https://img.shields.io/badge/Runs in Browser-works-brightgreen.svg?logo=LOGO">
