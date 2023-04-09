@@ -1,120 +1,198 @@
 <!DOCTYPE html>
 <html lang="en">
- 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Throwing Sticks</title>
-    <link rel="stylesheet" href="./assets/css/style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Catamaran:wght@700&family=Mulish:wght@700&family=Roboto+Slab&display=swap"
-        rel="stylesheet">
+
+    <link rel="stylesheet" href="./assets/css/style.css" />
+
+       <!-- To improve Google Lighthouse Score better 
+    https://css-tricks.com/how-to-load-fonts-in-a-way-that-fights-fout-and-makes-lighthouse-happy/ -->
+    <link rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin />
+    <!-- We use the full link to the CSS file in the rest of the tags -->
+    <link rel="preload"
+    as="style"
+    href="https://fonts.googleapis.com/css2?family=Catamaran:wght@700&family=Mulish:wght@700&family=Roboto+Slab&display=swap" />
+    <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Catamaran:wght@700&family=Mulish:wght@700&family=Roboto+Slab&display=swap"
+    media="print" onload="this.media='all'" />
+    <noscript>
+    <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Catamaran:wght@700&family=Mulish:wght@700&family=Roboto+Slab&display=swap" />
+    </noscript>
     <!-- import js  -->
-    <script src="https://d3js.org/d3.v7.min.js"></script>
-</head>
-   
-<body>
+    <script src="https://d3js.org/d3.v7.min.js" ></script>
+  </head>
+
+  <body>
     <main>
-        <div class="top-panel">
-            <div class="container">
-                <h1>A short story about a magic number and sticks on a table</h1>
-                <p>Once upon a time, there was a magic number that no one understood. Her name was Pi.
-                    One day, she met a group of sticks that played the following game: </p>
-                <!-- this is based on the d3 tutorial how to animate transitions
+      <div class="top-panel">
+        <div class="container">
+          <h1>A short story about a magic number and sticks on a table</h1>
+          <p>
+            Once upon a time, there was a magic number that no one understood.
+            Her name was Pi. One day, she met a group of sticks that played the
+            following game:
+          </p>
+          <!-- this is based on the d3 tutorial how to animate transitions
                      https://d3-graph-gallery.com/intro_d3js.html
                      https://d3-graph-gallery.com/graph/interactivity_transition.html -->
-                <div class="diagram">
-                    <div id="main-diagram" style="max-width: 450px; min-height: 200px;">
-                    </div>
-                    <p id="output"></p>
-                    <div class="btn-box">
-                        <button id="hero-throw">Throw!</button>
-                        <button id="hero-reset">Reset</button>
-                    </div>
-                </div>
-                <!-- this is based on  https://www.w3schools.com/howto/howto_js_rangeslider.asp -->
-                <div class="slidecontainer">
-                    <input type="range" min="1" max="100" value="1" class="slider" id="myRange" aria-label='slider to control number of sticks per throw' aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
-                    <p><span id="slider-count"> 1 </span> per Throw</p>
-                </div>
-                <p>The sticks jumped on a table with black marks with their eyes closed.
-                    If they opened their eyes and saw that they touched the line, they would turn green. If they would
-                    not touch the line, they would turn red. </p>
-                <p> The magic number counted <span id="red-sticks">0</span> red and <span id="green-sticks">0</span> green sticks. 
-                </p>     
-                <p>
-                    <span id="more-than-3"></span>
-                </p>        
+          <div class="diagram">
+            <div
+              id="main-diagram"
+              style="max-width: 450px; min-height: 200px"
+            ></div>
+            <p id="output"></p>
+            <div class="btn-box">
+              <button id="hero-throw">Throw!</button>
+              <button id="hero-reset">Reset</button>
             </div>
+          </div>
+          <!-- this is based on  https://www.w3schools.com/howto/howto_js_rangeslider.asp -->
+          <div class="slidecontainer">
+            <input
+              type="range"
+              min="1"
+              max="100"
+              value="1"
+              class="slider"
+              id="myRange"
+              aria-label="slider to control number of sticks per throw"
+              aria-valuemin="0"
+              aria-valuemax="100"
+              aria-valuenow="50"
+            />
+            <p><span id="slider-count"> 1 </span> per Throw</p>
+          </div>
+          <p>
+            The sticks jumped on a table with black marks with their eyes
+            closed. If they opened their eyes and saw that they touched the
+            line, they would turn green. If they would not touch the line, they
+            would turn red.
+          </p>
+          <p>
+            The magic number counted <span id="red-sticks">0</span> red and
+            <span id="green-sticks">0</span> green sticks.
+          </p>
+          <p>
+            <span id="more-than-3"></span>
+          </p>
         </div>
+      </div>
 
-        <div class="container text-panel">
-            <h2>Can it be true?</h2>
-            <p>The magic number wondered: How did the sticks know her? One of the sticks sat next to her and explained:
-                “Look at us. We are all 1 metre tall. The marks on the floor are 1 meter apart. Would you not agree that
-                we all have the same chance to touch a line?”</p>
-            <p>Pi wondered. Yes, that has occurred to her. The stick drew a circle in the sand to explain more .
-                “When we fall on the ground, we can point in any direction we want. But only a few directions will us to
-                touch a line. Try to change the <span class="important"> Angle </span> on the diagram below!”</p>
-            <div class="diagram middle-panel ">
-                <div id="explain-diagram" style="max-width: 550px;"> </div>
-                    <div class="btn-box"> 
-                        <div><span>Angle</span>                   
-                            <input type="range" min="0" max="180" value="42" class="slider" id="explain-rotate"  aria-label='slider to control angle of an example stick' aria-valuemin="0" aria-valuemax="180" aria-valuenow="42">
-                        </div>   
-                        <div>
-                            <span>Position</span>                         
-                            <input type="range" min="50" max="600" value="360" class="slider" id="explain-move"  aria-label='slider to control position of an example stick' aria-valuemin="50" aria-valuemax="600" aria-valuenow="360">
-                        </div>
-                    </div>          
+      <div class="container text-panel">
+        <h2>Can it be true?</h2>
+        <p>
+          The magic number wondered: How did the sticks know her? One of the
+          sticks sat next to her and explained: “Look at us. We are all 1 metre
+          tall. The marks on the floor are 1 meter apart. Would you not agree
+          that we all have the same chance to touch a line?”
+        </p>
+        <p>
+          Pi wondered. Yes, that has occurred to her. The stick drew a circle in
+          the sand to explain more . “When we fall on the ground, we can point
+          in any direction we want. But only a few directions will us to touch a
+          line. Try to change the <span class="important"> Angle </span> on the
+          diagram below!”
+        </p>
+        <div class="diagram middle-panel">
+          <div id="explain-diagram" style="max-width: 550px"></div>
+          <div class="btn-box">
+            <div>
+              <span>Angle</span>
+              <input
+                type="range"
+                min="0"
+                max="180"
+                value="42"
+                class="slider"
+                id="explain-rotate"
+                aria-label="slider to control angle of an example stick"
+                aria-valuemin="0"
+                aria-valuemax="180"
+                aria-valuenow="42"
+              />
             </div>
+            <div>
+              <span>Position</span>
+              <input
+                type="range"
+                min="50"
+                max="600"
+                value="360"
+                class="slider"
+                id="explain-move"
+                aria-label="slider to control position of an example stick"
+                aria-valuemin="50"
+                aria-valuemax="600"
+                aria-valuenow="360"
+              />
+            </div>
+          </div>
         </div>
+      </div>
 
-        <div class="container text-panel">
-            <h2>What’s your angle, Pi?</h2>
-            <p>Ok, Pi thought, but she could not see what this has to do with her. It could be any number... Or not?
-                The stick pointed on the diagram on the sand and explained: “I have a challenge for you, Pi. Can you find a position where 
-                we are always red, no matter at which angle? And another positon where we are always green?"
-            </p>
-            <p>
-                Try to move <span class="important"> Position </span> and <span class="important"> Angle </span> in the diagram above to find these positions!
-            </p>
+      <div class="container text-panel">
+        <h2>What’s your angle, Pi?</h2>
+        <p>
+          Ok, Pi thought, but she could not see what this has to do with her. It
+          could be any number... Or not? The stick pointed on the diagram on the
+          sand and explained: “I have a challenge for you, Pi. Can you find a
+          position where we are always red, no matter at which angle? And
+          another positon where we are always green?"
+        </p>
+        <p>
+          Try to move <span class="important"> Position </span> and
+          <span class="important"> Angle </span> in the diagram above to find
+          these positions!
+        </p>
+      </div>
+
+      <div class="container text-panel">
+        <h2>This will confuse you, Pi.</h2>
+
+        <p>
+          Now the stick stood up. This will confuse you, Pi. Stay with me. Of
+          all possible directions, we can find only two different sets of angles
+          : angles that touch the line, and angles that doesn’t. Look, i have
+          drawn it for all the <span id="total-sticks"></span> sticks that you
+          created above, here in the sand. Do you recognise something?”
+        </p>
+        <div class="diagram bottom-panel">
+          <div
+            id="scatter-diagram"
+            style="max-width: 550px; min-height: 350px"
+          ></div>
         </div>
+        <p>
+          Pi could not believe what is drawn in the sand in front of her. The
+          stick has just drawn a picutre of herself, upside down on the sand.
+          She was exactly the ratio between red and green sticks. Which means,
+          when a stick falls on the lines, it has exactly the chance of 1/pi to
+          touch the line!
+        </p>
+      </div>
 
-        <div class="container text-panel">
-            <h2> This will confuse you, Pi.</h2>
-
-            <p> Now the stick stood up. This will confuse you, Pi. Stay with me. Of all possible directions, we can find
-                only two different sets of angles : angles that touch the line, and angles that doesn’t.
-                Look, i have drawn it for all the <span  id="total-sticks"></span> sticks that you created above, here in the sand. Do you recognise something?” </p>
-                <div class="diagram bottom-panel ">
-                    <div id="scatter-diagram" style="max-width: 550px; min-height: 350px;"> 
-                    </div>     
-                </div>
-            <p>Pi could not believe what is drawn in the sand in front of her. The stick has just drawn a picutre of
-                herself, upside down on the sand.
-                She was exactly the ratio between red and green sticks. Which means, when a stick falls on the lines, it
-                has exactly the chance of 1/pi to touch the line! </p>
-        </div>
-
-        <div class="container text-panel">
-            <h2>Pi understood.</h2>
-            <p>Pi was happy. Finally, she felt understood by someone! When the sticks fell on the marks, she <span class="important"> was </span> the
-                likelihood that they would turn green or red.
-                Happily, she sat together with the sticks playing the game, with the feeling that finally someone has
-                understood her. </p>
-        </div>
+      <div class="container text-panel">
+        <h2>Pi understood.</h2>
+        <p>
+          Pi was happy. Finally, she felt understood by someone! When the sticks
+          fell on the marks, she <span class="important"> was </span> the
+          likelihood that they would turn green or red. Happily, she sat
+          together with the sticks playing the game, with the feeling that
+          finally someone has understood her.
+        </p>
+      </div>
     </main>
 
-<!-- for testing and degbugging d3.js -->
-<script src="./assets/scripts/external-d3.js"></script>
+    <!-- for testing and degbugging d3.js -->
+    <script src="./assets/scripts/external-d3.js"></script>
 
-<!-- import js files -->
-<script src="./dist/main.js"></script>
-
-</body>
-
+    <!-- import js files -->
+    <script src="./dist/main.js"></script>
+  </body>
 </html>
