@@ -22,11 +22,15 @@ Examples:
 
 
 Visualization: 
-- In order to visualize the features , the following conventions will be used : 
+- In order to visualize how the above features are satisfied by of each approach, the following conventions will be used : 
 
-    <img src="https://img.shields.io/badge/Runs in Browser-working-brightgreen.svg?logo=LOGO">
-    <img src="https://img.shields.io/badge/Runs in Browser-acceptable-green.svg?logo=LOGO">
-    <img src="https://img.shields.io/badge/Jest-not acceptable-red.svg?logo=LOGO">
+    | Result             | Label |
+    |---------------------|-------------|
+    | Works without issue |  <img src="https://img.shields.io/badge/Runs in Browser-working-brightgreen.svg?logo=LOGO">   |
+    | Is acceptable      |   <img src="https://img.shields.io/badge/Runs in Browser-acceptable-green.svg?logo=LOGO">  |
+    | Is not acceptable        |  <img src="https://img.shields.io/badge/Jest-not acceptable-red.svg?logo=LOGO">   |
+
+
 
 
  --- 
@@ -73,7 +77,7 @@ Visualization:
     - install babel preset with `npm install @babel/preset-env --save-dev` (as mentioned on website)
 - This passes now successfully the unit test and allows import/export via the `export function` command into `jest`. But when i tried to add an eventlistener to invoke a function that is being testing with `Jest`, the console would throw an error `Uncaught ReferenceError: buttonClick is not defined`. The solution to that was to **not** import the javascript file that is tested by `jest` into the browser that is being tested. Instead, the way to go was to create a new `main.js` that **imports** the (successfully tested) functions, adds an event listener to the button and calls the imported `buttonClick` function. 
 - While functions without `d3` are now running correctly in the browser and can be tested with `jest`, my previous approach to test functions that use `d3` in `jest` failed with an error message (`SyntaxError: Unexpected token 'export'` of the named export. The problem here is now that we are using ES6 syntax in our function (see `diagram.js`) but jest runs in `node.js`. A solution to this problem was hinted here : [Stackoverflow](https://stackoverflow.com/questions/72893900/how-to-import-d3-js-in-a-node-and-typescript-project-err-require-esm) . Thi post recommends (until further notice) to use the last stable build of `d3` that worked under `node.js`. Since this project here does not require any latest features of `d3`, I followed the adivse and used `v6.7.0`. 
-- the browser still had a problem with loading functions that import `d3`. I will follow the approach from this Youtube tutorials [18. Webpack installation ](https://youtu.be/vGZoGwBC7js) and  [19. Babel Loader Setup in the Webpack 4 ](https://youtu.be/9KL8ob7utr8) . This video recommeds to convert all ES6 into ES5 before loading the file into the browser using `webpack`. To do this, they are 
+- the browser still had a problem with loading functions that import `d3`. I will follow the approach from this Youtube tutorials [18. Webpack installation ](https://youtu.be/vGZoGwBC7js) and  [19. Babel Loader Setup in the Webpack 4 ](https://youtu.be/9KL8ob7utr8) . This video recommeds to convert all ES6 into ES5 before loading the file into the browser using `webpack`. To do this, they are: 
     - install `wepack` and `webpack-cli` using default settings, see on [their website](https://webpack.js.org/)
     - go to babel website  > `Setup`
     - click on `webpack`
@@ -96,7 +100,6 @@ Visualization:
             }
         ```
     - before loading into the browser, you need to compiles your ES6 code into ES5 by `npm run build` (assuming `"build": "webpack"` to the `scripts` of `package.json`)
-
     - now, apparently we have reached the end of our journey and can actually begin to implement the first line of code for the project: 
 
     <img src="https://img.shields.io/badge/TDD-acceptable-green.svg?logo=LOGO">
@@ -166,7 +169,7 @@ At this point in time, there were following options to deal with this problem:
     - works perfectly in the browser
     - poses no security risk while using it.
 
-<br>
+
     <img src="https://img.shields.io/badge/TDD-acceptable-green.svg?logo=LOGO">
     <img src="https://img.shields.io/badge/Testability-acceptable-green.svg?logo=LOGO">
     <img src="https://img.shields.io/badge/Runs in Browser-works-brightgreen.svg?logo=LOGO">
