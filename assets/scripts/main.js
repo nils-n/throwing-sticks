@@ -3,20 +3,20 @@ const Simulation = require('././simulation');
 const DisplayConfiguration = require('././display');
 const Stick = require('././stick');
 
-const d3 = require('d3')
+const d3 = require('d3');
 
 // object that will handle input to d3.js 
 let displayConfiguration =  new DisplayConfiguration();
 
 // should but tested but currently cannot test for DOM changes - would need react for that (but is beyond scope of this project).
-const diagram = document.getElementById('main-diagram')
+const diagram = document.getElementById('main-diagram');
 displayConfiguration.height = diagram.clientHeight;
 displayConfiguration.width = diagram.clientWidth;
 displayConfiguration.displaySelector = '#main-diagram';
 
 // update distance between midlines and stick lenghts. This probably should have a listener to observe if browser window changes
-displayConfiguration.calculateDistanceBetweenMidLines()
-displayConfiguration.calculateStickLengthOnScreen()
+displayConfiguration.calculateDistanceBetweenMidLines();
+displayConfiguration.calculateStickLengthOnScreen();
 
 // start a simulation. Its behaviour will be contolled via events. 
 const simulation = new Simulation();
@@ -24,8 +24,8 @@ const simulation = new Simulation();
 // start with an empty diagram
 let sticks = [];
 simulation.sticks = [];
-svg = drawEmptyDiagram( displayConfiguration )
-drawMidlines( svg, displayConfiguration )
+svg = drawEmptyDiagram( displayConfiguration );
+drawMidlines( svg, displayConfiguration );
 
 // add an event listener to throw button 
 document.getElementById('hero-throw').addEventListener( "click", function() {
@@ -35,11 +35,11 @@ document.getElementById('hero-throw').addEventListener( "click", function() {
 
     const numberOfRepetitions = slider.value  ;
     for (let i = 0; i < numberOfRepetitions ; i++) {
-       simulation.addNewRandomStick()
+       simulation.addNewRandomStick();
     }
-    simulation.assignRandomSectorOnDisplay( displayConfiguration.numberOfMidlines  )
-    simulation.assignRandomVerticalOffsetOnDisplay()
-    simulation.assignColours()
+    simulation.assignRandomSectorOnDisplay( displayConfiguration.numberOfMidlines  );
+    simulation.assignRandomVerticalOffsetOnDisplay();
+    simulation.assignColours();
     simulation.estimatePi();
 
     const totalNumberOfSticks = simulation.sticks.length;
@@ -51,59 +51,59 @@ document.getElementById('hero-throw').addEventListener( "click", function() {
    
     // for now, lets just assign the sticks to the result of the simulation 
     sticks = simulation.sticks;
-    svg = drawEmptyDiagram( displayConfiguration )
-    drawMidlines( svg , displayConfiguration  )
-    drawSticks( svg,  sticks, displayConfiguration )
+    svg = drawEmptyDiagram( displayConfiguration );
+    drawMidlines( svg , displayConfiguration  );
+    drawSticks( svg,  sticks, displayConfiguration );
 
     //display total number of sticks used in the simulation
     span = document.getElementById('red-sticks');
-    span.innerHTML = `<bold> ${simulation.stickCounter['red']}  </bold>`
+    span.innerHTML = `<bold> ${simulation.stickCounter.red}  </bold>`;
 
     //display total number of sticks used in the simulation
     span = document.getElementById('green-sticks');
-    span.innerHTML = `<bold> ${simulation.stickCounter['green']}  </bold>`
+    span.innerHTML = `<bold> ${simulation.stickCounter.green}  </bold>`;
 
     if ( totalNumberOfSticks > 3) {
             span = document.getElementById('more-than-3');
             innerHTML = `
             ${totalNumberOfSticks} sticks, divided by half of number of red sticks, 
             was ..... ${simulation.estimatedValueOfPi.toFixed(6)}      
-            Wait a moment! Is that no me? , wondered Pi.       `
-            span.innerHTML = innerHTML
+            Wait a moment! Is that no me? , wondered Pi.`;
+            span.innerHTML = innerHTML;
     }
 
     //  update the scatter plot on the third panel 
-    const tempDisplayConfiguration = DisplayConfiguration.from( displayConfiguration )
-    const scatterDiagram = document.getElementById('scatter-diagram')
+    const tempDisplayConfiguration = DisplayConfiguration.from( displayConfiguration );
+    const scatterDiagram = document.getElementById('scatter-diagram');
 
     tempDisplayConfiguration.height = scatterDiagram.clientHeight ;
     tempDisplayConfiguration.width = scatterDiagram.clientWidth;
-    tempDisplayConfiguration.displaySelector = '#scatter-diagram'
+    tempDisplayConfiguration.displaySelector = '#scatter-diagram';
 
-    svgScatter = drawEmptyDiagram( tempDisplayConfiguration )
-    drawScatterDiagram( sticks, svgScatter, tempDisplayConfiguration )
+    svgScatter = drawEmptyDiagram( tempDisplayConfiguration );
+    drawScatterDiagram( sticks, svgScatter, tempDisplayConfiguration );
 
     // add to last diagragm
     document.getElementById('total-sticks').innerHTML = `${totalNumberOfSticks}`;
 
-})
+});
 
 // listener when the slider value changes 
 document.getElementsByClassName('slider')[0].addEventListener( 'change', function(){
 
     // update also the slider count 
-    const span = document.getElementById('slider-count')
-    span.innerHTML = `<bold> ${this.value} </bold>`
-})
+    const span = document.getElementById('slider-count');
+    span.innerHTML = `<bold> ${this.value} </bold>`;
+});
 
 // listener to the clear button to remove the elements of the sticks array
  document.getElementById('hero-reset').addEventListener( 'click', function() { 
 
-    console.log('Reset Button pushed - Removing all elements from Display')
+    console.log('Reset Button pushed - Removing all elements from Display');
     sticks = [];
     simulation.sticks = [];
-    svg = drawEmptyDiagram( displayConfiguration )
-    drawMidlines( svg , displayConfiguration )
+    svg = drawEmptyDiagram( displayConfiguration );
+    drawMidlines( svg , displayConfiguration );
 
     // reset also the scatter plot 
     d3.select( '#scatter-plot')
@@ -112,11 +112,11 @@ document.getElementsByClassName('slider')[0].addEventListener( 'change', functio
 
     // reset also the text on the first diagram 
     span = document.getElementById('red-sticks');
-    span.innerHTML = `<bold> ${simulation.stickCounter['red']}  </bold>`
+    span.innerHTML = `<bold> ${simulation.stickCounter.red}  </bold>`;
 
     //display total number of sticks used in the simulation
     span = document.getElementById('green-sticks');
-    span.innerHTML = `<bold> ${simulation.stickCounter['green']}  </bold>`
+    span.innerHTML = `<bold> ${simulation.stickCounter.green}  </bold>`;
 
     // reset also second text
     document.getElementById('more-than-3').innerHTML = " <br><br>";
@@ -125,17 +125,17 @@ document.getElementsByClassName('slider')[0].addEventListener( 'change', functio
     document.getElementById('total-sticks').innerHTML = "";
 
      //  update the scatter plot on the third panel 
-     const tempDisplayConfiguration = DisplayConfiguration.from( displayConfiguration )
-     const scatterDiagram = document.getElementById('scatter-diagram')
+     const tempDisplayConfiguration = DisplayConfiguration.from( displayConfiguration );
+     const scatterDiagram = document.getElementById('scatter-diagram');
  
      tempDisplayConfiguration.height = scatterDiagram.clientHeight ;
      tempDisplayConfiguration.width = scatterDiagram.clientWidth;
-     tempDisplayConfiguration.displaySelector = '#scatter-diagram'
+     tempDisplayConfiguration.displaySelector = '#scatter-diagram';
  
-     svgScatter = drawEmptyDiagram( tempDisplayConfiguration )
-     drawScatterDiagram( sticks, svgScatter, tempDisplayConfiguration )
+     svgScatter = drawEmptyDiagram( tempDisplayConfiguration );
+     drawScatterDiagram( sticks, svgScatter, tempDisplayConfiguration );
 
- })
+ });
 
  //listener to the slider on the second diagrm 
 document.getElementById('explain-rotate').addEventListener( 'input', function() {
@@ -146,10 +146,10 @@ document.getElementById('explain-rotate').addEventListener( 'input', function() 
                 "orientation": this.value, 
                 "colour": 'green', 
                 'sector': 0 ,
-                'verticalOffsetOnScreen':0 } )
+                'verticalOffsetOnScreen':0 } );
 
       // draw this stick on the panel of the second diagram
-      drawSecondDiagram( stick)
+      drawSecondDiagram( stick);
 
  });
 
@@ -162,10 +162,10 @@ document.getElementById('explain-rotate').addEventListener( 'input', function() 
                 "orientation":  document.getElementById('explain-rotate').value, 
                 "colour": 'green', 
                 'sector': 0 ,
-                'verticalOffsetOnScreen':0 } )
+                'verticalOffsetOnScreen':0 } );
 
       // draw this stick on the panel of the second diagram
-      drawSecondDiagram( stick)
+      drawSecondDiagram( stick);
 
  });
 
@@ -183,16 +183,13 @@ document.getElementById('explain-rotate').addEventListener( 'input', function() 
                 "orientation":  document.getElementById('explain-rotate').value, 
                 "colour": 'green', 
                 'sector': 0 ,
-                'verticalOffsetOnScreen':0 } )
+                'verticalOffsetOnScreen':0 } );
 
       // draw this stick on the panel of the second diagram
-      drawSecondDiagram( stick)
+      drawSecondDiagram( stick);
 
     // reset also second text
     document.getElementById('more-than-3').innerHTML = " <br><br>";
-
-    displayConfiguration
-
 
  });
 
@@ -203,17 +200,17 @@ function drawSecondDiagram( stick ) {
       const mappedPosition = stick.mapPositionIntoFirstSector( stick.position ); 
      
       // the stick will touch the line under this condition for the orientation 
-      const stickTouchesMidline =  Math.abs( Math.cos( simulation.toRadians( stick.orientation ) )) > mappedPosition
+      const stickTouchesMidline =  Math.abs( Math.cos( simulation.toRadians( stick.orientation ) )) > mappedPosition;
            
       // set the color to red if the stick touches - green otherwise 
-      stick.colour = stickTouchesMidline ? "red" : 'green'
+      stick.colour = stickTouchesMidline ? "red" : 'green';
  
      // create a temp configurator for this diagram 
-     const tempDisplayConfiguration = DisplayConfiguration.from( displayConfiguration )
-     const diagram = document.getElementById('explain-diagram')
+     const tempDisplayConfiguration = DisplayConfiguration.from( displayConfiguration );
+     const diagram = document.getElementById('explain-diagram');
  
       //set display propertoes of the diagram
-      tempDisplayConfiguration.displaySelector = '#explain-diagram'
+      tempDisplayConfiguration.displaySelector = '#explain-diagram';
       tempDisplayConfiguration.height = displayConfiguration.height;
       tempDisplayConfiguration.width = displayConfiguration.width;
       tempDisplayConfiguration.numberOfMidlines = displayConfiguration.numberOfMidlines;
@@ -222,13 +219,13 @@ function drawSecondDiagram( stick ) {
       tempDisplayConfiguration.numberSticksOnCanvas = 1 ;
  
       // for now, lets just assign the sticks to the result of the simulation 
-     explain_sticks = []
+     explain_sticks = [];
      explain_sticks.push( stick);
  
      // draw empty diagram and add a stick
-     const svgExplain  = drawEmptyDiagram( tempDisplayConfiguration )
+     const svgExplain  = drawEmptyDiagram( tempDisplayConfiguration );
  
-     drawMidlines( svgExplain , tempDisplayConfiguration  )
-     drawSticks( svgExplain,  explain_sticks, tempDisplayConfiguration )
+     drawMidlines( svgExplain , tempDisplayConfiguration  );
+     drawSticks( svgExplain,  explain_sticks, tempDisplayConfiguration );
 }
 
