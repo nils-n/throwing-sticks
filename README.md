@@ -2,7 +2,13 @@
 
 The number $\pi$ is widely used in probably each and every modern technological device. Yet, its understanding is somehow limited - like a car, we can use it without knowing exactly what it does. This website is an attempt to teach the value of this number in an interactive and fun way.
 
-Link to the live page : [To do]
+Link to the live page : [Link to live Website]( https://nils-n.github.io/throwing-sticks/)
+
+<p align="center">
+<img src="./assets/images/am-i-responsive.png"
+     alt="Image with views of the website on different devices to visualize responsiveness"
+     style="max-width:800px; padding:22px" >
+</p>
 
 
 ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
@@ -127,11 +133,27 @@ As a first-time user...
 
 ### Deployment 
 
+This website was deployed via GitHub Pages using the main branch: [Link to live Website]( https://nils-n.github.io/throwing-sticks/). The following steps were followed: 
+
+- Log into GitHub and navigate to this repository  
+- Click on "Settings" Button 
+- Click on "Pages" button 
+- Select "main" brach as Source and click on "Save". After a few minutes, the website should be live. 
+
 ### Local Development
 
 #### How to Fork
 
+- Log into GitHub and navigate to this repository  
+- Click on the "Main" Branch button and type the name of the forked branch
+- Click on "Create Branch" to confirm
+
 #### How to Clone
+
+- Click on the "Code" button and copy the link to this repository
+- open terminal on your machine and navigate to the folder you want to store a local copy
+- in the terminal, type 'git clone ' followed by the link you copied
+- press enter to confirm
 
 
 --- 

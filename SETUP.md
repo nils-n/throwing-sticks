@@ -10,7 +10,6 @@ The features that needed to be addressed were:
 | Testability           | In order to feed functions into an automated testing framework such as `Jest` |
 | Ability to run in Browser  | The functions eventually need to be able to be work in Browser - just passing the unit test is not enough. |
 |  Security             |    The importance of this feature appeared during the implementation work - it is important to use a late and safe version of external libraries used (and not necessarily a conventient older version you find a YouTube tutorial for)                                              |
-|                       |                                                                                                                                                       |
 
 It just so appeared that some of these features were mutually exclusive, and this document describes the reasoning when making a compromise towards one or other feature.
 
@@ -119,7 +118,7 @@ At this point in time, there were following options to deal with this problem:
 - ...Being mindful about the scope of this website, there were several options how to address this bug. One option was to simply avoid testing any functions that utilized the `d3.js` library, and only test functions that calculated pi, or to test the input for the `d3.js` functions, for example. However, this was not an ideal solution as it would reduce the coverage of the unit tests.
 - ...Another option was to use a dedicated front-end framework, such as`react`or `vue`, to handle the display in the browser while still being able to use `jest` for testing. However, this would have introduced unnecessary complexity, which was beyond the scope of this project. In the future, when more experience with these tools is gained, this may be an appropriate solution.
 - ...A third option was to switch to a different unit testing framework, such as `mocha`, as the root of the conflict was between `jest` and `d3`. This seemed like a viable solution.
-- ... Of course, there would have been the option of ignoring the security issue as this project is not meant to be used in a commerical setting. However, this seemed to me to the appropriate answer to the problem, also it would have been the easier way for sure.
+- ... Of course, there would have been the option of ignoring the security issue as this project is not meant to be used in a commerical setting. However, this seemed not to be an appropriate answer to the problem, although it would have been the easier way for sure.
 
     <img src="https://img.shields.io/badge/TDD-works-brightgreen.svg?logo=LOGO">
     <img src="https://img.shields.io/badge/Testability-works-brightgreen.svg?logo=LOGO">
