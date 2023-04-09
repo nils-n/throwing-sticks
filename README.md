@@ -117,6 +117,7 @@ As a first-time user...
 - Favicon for making a browser Icon [Link](https://favicon.io/favicon-converter/)
 - W3 Validation Tools for Testing [Link](https://validator.w3.org/)
 - Shields.io for adding badges this Readme file [Link](https://shields.io/)
+- [Markdown Beautifier](https://markdownbeautifier.com/#)  to format tables in Readme
 
 ### Languages Used
 

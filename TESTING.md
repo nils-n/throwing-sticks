@@ -49,13 +49,36 @@ In the table below the outputs of the W3C HTML Validation results. All tests pas
 | Page     | Output       | Result |
 | -------- |:------------:| ------:|
 | Main     | <img src="./assets/testing/validation-html.png" alt="image of W3C Html Validation result" >  | Pass   |
-| 404   |  <img src="assets/testing/html-w3c-404.png" alt="image of W3C Html Validation result" >  | Pass   |
+| 404   |  <img src="assets/testing/404-html.png" alt="image of W3C Html Validation result" >  | Pass   |
 
 
 ### Results W3C CSS Validation
 
+In the table below the outputs of the W3C CSS Jigsaw Validation results. All tests passed. 
+
+
+| Page     | Output       | Result |
+| -------- |:------------:| ------:|
+| Main     | <img src="./assets/testing/validation-css.png" alt="image of W3C Html Validation result" >  | Pass   |
+| 404   |  <img src="assets/testing/404-css.png" alt="image of W3C Html Validation result" >  | Pass   |
+
 ### Results Jshint Javascript Validation 
 
+In the table below the outputs of the JSHint Validation results. No significant errors occured. 
+
+| File           | Result | Justificaction of insignificant errors  |
+| -------------- | :----: | ----: |
+| display.js     |  Pass  |  1 error : Class properties must be methods. I call this insignificant regarding the scope of the project. |
+| external-d3.js |  Pass  |   4 errors  :  Missing "use strict" statement. I call that this is not a significant error in the context of this project as this was not covered by the course material up until now.  |
+| main.js        |  Pass  |   7 errors  : Missing "use strict" statement. insignificant regarding the project scope.  |
+| simulation.js  |  Pass  |  1 Warning : Class properties must be methods. I call this insignificant regarding the scope of the project. |
+| stick.js  |  Pass  |  Warning :  Class properties must be methods. Also tested with ESlint and this linter does not complain. |
+| simulation.test.js       |  Pass  |  1 error left ‘document.write can be a form of eval.’ From the line document.write( fileContents). This line was copy + paste from the Code Institute Course Material, so i must assume that this is not a significant error.  |
+| stick.test.js       |  Pass  |  1 error left Missing "use strict" statement |
+
+
+
+ 
 ### Results Unit Tests With Jest
 
 -----
