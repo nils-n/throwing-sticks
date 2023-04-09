@@ -1,4 +1,4 @@
-console.log(`->OK now let's test some D3.`)
+console.log(`->OK now let's test some D3.`);
 
 /**
  * These functions use d3.js library to render the sticks on the display
@@ -14,7 +14,7 @@ let sticks = [
 
 
 // this will be variable too later but for testing I will hard-code it.
-const diagram = document.getElementById('main-diagram')
+const diagram = document.getElementById('main-diagram');
 var height = diagram.clientHeight;
 var width = diagram.clientWidth;
 
@@ -46,9 +46,9 @@ const mockConfiguration = {
                         }
                      };
 
-svg = drawEmptyDiagram( mockConfiguration )
-drawMidlines( svg , mockConfiguration )
-drawSticks( svg,  sticks, mockConfiguration )
+svg = drawEmptyDiagram( mockConfiguration );
+drawMidlines( svg , mockConfiguration );
+drawSticks( svg,  sticks, mockConfiguration );
 
 /**
  * This function draws an empty svg element on the DOM, returns d3 SVG element
@@ -58,9 +58,9 @@ function drawEmptyDiagram( displayConfiguration ) {
     // for now just extract the height from the mock configuration
     const { width , height, margin, displaySelector, spaceAtBorder } = displayConfiguration;
 
-    console.log(`enter drawEmptyDiagram now, height is ${height}, width is ${width}`)
+    console.log(`enter drawEmptyDiagram now, height is ${height}, width is ${width}`);
 
-    console.log(displaySelector)
+    console.log(displaySelector);
 
     // create empty svg
     d3.select( displaySelector)
@@ -76,12 +76,12 @@ function drawEmptyDiagram( displayConfiguration ) {
     .attr('viewBox', `0 0 ${width+spaceAtBorder} ${height-2*spaceAtBorder}`)
     .attr('preserveAspectRatio', 'xMidYMid meet')
     .append('g')
-    .attr('transform', `translate( ${margin.left} , ${margin.top} )`)
+    .attr('transform', `translate( ${margin.left} , ${margin.top} )`);
 
     // make the background transparent 
     svg.fillStyle = "#FF0000";
 
-    return svg
+    return svg;
 }
 
 /**
@@ -97,16 +97,16 @@ function drawEmptyDiagram( displayConfiguration ) {
        // twoTimesRadius : comes from he way we do the simulation ( simulating half the circle )
        const xScale = d3.scaleLinear() 
        .domain([ 0, 1 ])
-       .range([ 0, width / ( numberOfMidlines - 1 ) / 2])
+       .range([ 0, width / ( numberOfMidlines - 1 ) / 2]);
 
        // add a scaling also for the vertical position of the sticks
        const yScale = d3.scaleLinear()
                 .domain([ 0,1])
-                .range( [0, height])
+                .range( [0, height]);
 
     // now create a circle and move its position 
     let dataset = [];
-    const centerHeight = 0.5
+    const centerHeight = 0.5;
     for (let i in sticks) {
         dataset.push( { 
             x: sticks[i].position ,  
@@ -114,7 +114,7 @@ function drawEmptyDiagram( displayConfiguration ) {
             color: sticks[i].colour,
             orientation: sticks[i].orientation,
             sector: sticks[i].sector
-         } )
+         } );
     }
 
     svg.selectAll("test-sticks")
@@ -122,26 +122,25 @@ function drawEmptyDiagram( displayConfiguration ) {
         .enter()
         .append('ellipse')
         .attr('cx', function (d) {
-            return xScale(d.x)
+            return xScale(d.x);
         })
         .attr('cy', function (d) {
-            return d.y
+            return d.y;
         })
         .attr("rx", stickLengthOnScreen  )
         .attr("ry", stickLengthOnScreen / 8 / 2)
         .attr('fill', function (d) {
-            return d.color
+            return d.color;
         })
        .attr('transform', function(d) {
-            return`translate( ${d.sector * xScale(2)} ) rotate (${d.orientation} , ${xScale(d.x)} , ${d.y} )`
+            return`translate( ${d.sector * xScale(2)} ) rotate (${d.orientation} , ${xScale(d.x)} , ${d.y} )`;
          })
         .attr("stroke-width", "3px")
         .attr("stroke", function (d) {
-            return d.color
+            return d.color;
         })
-        .attr("fill-opacity","0.3")
-        //.attr("stroke-opacity","0.2")    
- }
+        .attr("fill-opacity","0.3");
+}
  
 /**
  * this is a function to visualize the parallel midlines.
@@ -154,7 +153,7 @@ function drawMidlines( svg, displayConfiguration ) {
     // create a scale for the input data 
     const xScale = d3.scaleLinear() 
     .domain([0,0.5])
-    .range([0, width ])
+    .range([0, width ]);
    
     // scale the position of the midlines 
     let positionOfMidline =  0;
@@ -167,10 +166,10 @@ function drawMidlines( svg, displayConfiguration ) {
             .attr('x1', positionOfMidline)
             .attr('y1', 0)
             .attr('x2', positionOfMidline)
-            .attr('y1', height)
+            .attr('y1', height);
 
         // this is where we want to draw the line 
-        positionOfMidline  += distanceBetweenMidlines 
+        positionOfMidline  += distanceBetweenMidlines ;
     }
 }
 
@@ -183,12 +182,12 @@ function drawScatterDiagram ( sticks, svgScatter, tempDisplayConfiguration ) {
     let { height, width,  displaySelector } = tempDisplayConfiguration;
 
     // reduce the height to make room for axes 
-    height -= 50
-    width  -= 50
+    height -= 50;
+    width  -= 50;
 
-    console.log('enterScatterDiagram . This is the displaySelector')
-    console.log(height)
-    console.log(displaySelector)
+    console.log('enterScatterDiagram . This is the displaySelector');
+    console.log(height);
+    console.log(displaySelector);
 
     // prepare the data to be plotted
     // we will just look at the angles between 0 and 90 for this visualization. The other half of 90 to 180 degrees is just mirrored.
@@ -199,7 +198,7 @@ function drawScatterDiagram ( sticks, svgScatter, tempDisplayConfiguration ) {
                 x:  sticks[i].mappedPosition ,  
                 color: sticks[i].colour,
                 orientation: sticks[i].orientation,
-             } )
+             } );
         } 
     }
 
@@ -210,26 +209,26 @@ function drawScatterDiagram ( sticks, svgScatter, tempDisplayConfiguration ) {
     const margin = {
         top: 0,
         left: 40,
-    }
+    };
 
     // add scales to the axes  
     const xScale = d3.scaleLinear()
     .domain( [ 0, 90 ])
-    .range([ 0, width ])
+    .range([ 0, width ]);
 
     const yScale = d3.scaleLinear()
             .domain( [ 0, 1 ])
-            .range([ height, 0 ])   
+            .range([ height, 0 ]);
 
     svgScatter
     .append('g')
     .attr('width', width )
-    .attr('height', height)
+    .attr('height', height);
     
     svgScatter
     .append('g')
     .attr("transform", `translate( ${margin.left } , ${height} )`)
-    .call(d3.axisBottom( xScale ))
+    .call(d3.axisBottom( xScale ));
     
     // https://stackoverflow.com/questions/11189284/d3-axis-labeling
     svgScatter.append("text")
@@ -258,22 +257,22 @@ function drawScatterDiagram ( sticks, svgScatter, tempDisplayConfiguration ) {
     .enter()
         .append('circle')
         .attr('cx', function (d) {
-            return xScale(d.orientation)
+            return xScale(d.orientation);
         })
         .attr('cy', function (d) {
-            return yScale(d.x)
+            return yScale(d.x);
         })
         .attr("r", 1.5  )
         .attr('fill', function (d) {
-            return d.color
+            return d.color;
         })
         .attr('transform', `translate( ${margin.left} )` )
         .attr("stroke-width", "3px")
         .attr("stroke", function (d) {
-            return d.color
+            return d.color;
         })
         .attr("fill-opacity","0.3")
-        .attr("text-anchor", "end")
+        .attr("text-anchor", "end");
 
     // now draw the theoretical data as a line 
     //https://www.educative.io/answers/how-to-create-a-line-chart-using-d3/
@@ -281,15 +280,15 @@ function drawScatterDiagram ( sticks, svgScatter, tempDisplayConfiguration ) {
     // add scales to the axes  
     const x = d3.scaleLinear()
     .domain( [ 0, 90 ])
-    .range([ 0, width ])
+    .range([ 0, width ]);
 
     const y = d3.scaleLinear()
             .domain( [ 0, 0.5 ])
-            .range([ height, 0 ])
+            .range([ height, 0 ]);
 
      // create a second dataset with the true line that separates green and red
-    trueData = []
-    const maxAngle = 90
+    trueData = [];
+    const maxAngle = 90;
     for (let i = 0; i < maxAngle ; i++) {
         trueData.push({
                 angle: i,
@@ -298,9 +297,9 @@ function drawScatterDiagram ( sticks, svgScatter, tempDisplayConfiguration ) {
     } 
 
     const line = d3.line()
-    .x( function(d) { return x(d.angle)})
-    .y( function(d) { return y(d.position)})
-    .curve( d3.curveBasis)
+    .x( function(d) { return x(d.angle);})
+    .y( function(d) { return y(d.position);})
+    .curve( d3.curveBasis);
 
     svgScatter.append('path')
     .datum(trueData)
