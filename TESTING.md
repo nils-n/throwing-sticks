@@ -11,6 +11,7 @@ The main Testing document can be found here : [Numbers Testing Results](/assets/
     - [Results W3C HTML Validation](#results-w3c-html-validation)
     - [Results W3C CSS (Jigsaw) Validation ](#results-w3c-css-validation)
     - [Results Jshint Javascript Validation ](#results-jshint-javascript-validation)
+    - [ Results Unit Tests With Jest](#results-unit-tests-with-jest)
 - [Tests for Accessibility](#tests-of-accessibility)
     - [Results WebAIM Accesibility Test](#results-webaim-accesibility-test)
     - [Results A11y Color Test](#results-a11y-color-test)
