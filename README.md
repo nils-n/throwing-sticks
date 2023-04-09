@@ -19,7 +19,7 @@ Link to the live page : [Link to live Website]( https://nils-n.github.io/throwin
 ![GitHub last commit](https://img.shields.io/github/last-commit/nils-n/throwing-sticks)
 ![GitHub language count](https://img.shields.io/github/languages/count/nils-n/throwing-sticks)
 ![GitHub repo file count](https://img.shields.io/github/directory-file-count/nils-n/throwing-sticks)
-![W3C Validation](https://img.shields.io/w3c-validation/html?targetUrl=https%3A%2F%2Fnils-n.github.io%2Fasd%2F)
+![W3C Validation](https://img.shields.io/w3c-validation/html?targetUrl=https%3A%2F%2Fnils-n.github.io%2Fthrowing-sticks%2F)
 
 ## Table of Contents
 
