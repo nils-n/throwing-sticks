@@ -162,18 +162,22 @@ At this point in time, there were following options to deal with this problem:
     ```
 - In this approach, the scope of the unit testing during the `test-driven developement` covers the entire simulation and the data processing behind the scene to calculate $\pi$ . For the visual diagrams, testing was reduced to check the `input` to the `d3.js` library by creating a `DisplayConfiguration` class, which properties could be asserted and checked using `jest` in a `TDD`-fashioned way.
 - The remaining part of how `d3.js` functions render the diagrams, and makes changes to the DOM, was then tested in retrospective after and during the implementation using `manual testing` approach, which is justified regarding the scope of the project. Eventually, with more Javascript experience, a complete solution via `react` or `vue` would allow to also do the `TDD` aproach for visual representations of libraries such as `d3.js`. In total,  given the time constraints of the project it was justified to leave this solution for future implementation.
-
-    <img src="https://img.shields.io/badge/TDD-acceptable-green.svg?logo=LOGO">
-    <img src="https://img.shields.io/badge/Testability-acceptable-green.svg?logo=LOGO">
-    <img src="https://img.shields.io/badge/Runs in Browser-works-brightgreen.svg?logo=LOGO">
-    <img src="https://img.shields.io/badge/Security-works-brightgreen.svg?logo=LOGO">
-
 - Given that, this solution was finally acceptable as it:
     - allowed to implement the project using TDD  
     - allowed for testability with an acceptable coverage 
     - works perfectly in the browser
     - poses no security risk while using it. 
 
+<img src="https://img.shields.io/badge/TDD-acceptable-green.svg?logo=LOGO">
+<img src="https://img.shields.io/badge/Testability-acceptable-green.svg?logo=LOGO">
+<img src="https://img.shields.io/badge/Runs in Browser-works-brightgreen.svg?logo=LOGO">
+<img src="https://img.shields.io/badge/Security-works-brightgreen.svg?logo=LOGO">
+
+
+--- 
+
 With more Javascript experience, a complete solution via `react` or `vue` will allow to also do the `TDD` aproach for visual representations of libraries such as `d3.js`. In total, given the time constraints of the project it was justified to leave this solution for future implementation.
+
+---
 
 
