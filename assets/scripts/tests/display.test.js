@@ -19,7 +19,7 @@ describe( `Class ${DisplayConfiguration.name}`, () => {
 
     beforeEach( () => {
         model = new DisplayConfiguration();
-    })
+    });
 
     test("exists and is initialized with empty values", () => {
           const initialSizeValues = [ 300, 350];
@@ -32,9 +32,9 @@ describe( `Class ${DisplayConfiguration.name}`, () => {
           expect( model.numberSticksOnCanvas).toBe(0);
           expect( model.width ).toBe( initialSizeValues[0] );
           expect( model.height ).toBe( initialSizeValues[1] );
-          expect( model.backgroundColor ).toBe( initialBGColor )
-          expect( model.numberOfMidlines ).toBe( numberMidlines )
-          expect( model.midlineStrokeWidth ).toBe( midlineStrokeWidth )
+          expect( model.backgroundColor ).toBe( initialBGColor );
+          expect( model.numberOfMidlines ).toBe( numberMidlines );
+          expect( model.midlineStrokeWidth ).toBe( midlineStrokeWidth );
           
         });
 
@@ -43,11 +43,11 @@ describe( `Class ${DisplayConfiguration.name}`, () => {
         const widths = [ 100, 200] ;
         model.numberOfMidlines = 2;
 
-        const calculatedDistances = []
+        const calculatedDistances = [];
         for (let i in expectedDistances) {
-            model.width = widths[i]
+            model.width = widths[i];
             model.calculateDistanceBetweenMidLines();
-            calculatedDistances.push( model.distanceBetweenMidlines )
+            calculatedDistances.push( model.distanceBetweenMidlines );
         }
 
         for (let i in expectedDistances) {
@@ -60,15 +60,15 @@ describe( `Class ${DisplayConfiguration.name}`, () => {
         const widths = [ 100, 200] ;
         const expectedStickLengths = [ 50, 100];
         
-        const calculatedStickLengths = []
+        const calculatedStickLengths = [];
         for (let i in expectedStickLengths) {
-            model.width = widths[i]
+            model.width = widths[i];
             model.calculateStickLengthOnScreen();
-            calculatedStickLengths.push( model.stickLengthOnScreen )
+            calculatedStickLengths.push( model.stickLengthOnScreen );
         }
 
         for (let i in expectedStickLengths){
-            expect( calculatedStickLengths[i] ).toBe( expectedStickLengths[i] )
+            expect( calculatedStickLengths[i] ).toBe( expectedStickLengths[i] );
         }
     });
 
