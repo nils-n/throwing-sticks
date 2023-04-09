@@ -26,7 +26,31 @@ The main Testing document can be found here : [Numbers Testing Results](/assets/
 
 First, the website has been tested that it works functionally correct. All testes have passed.
 
+
+<p align="center">
+<img src="./assets/testing/functionality-1.png"
+     alt="Image with preview of Manual testing results of the functionality (1 of 2)"
+     style="max-width:800px" >
+</p>
+
+
+<p align="center">
+<img src="./assets/testing/functionality-1.png"
+     alt="Image with preview of Manual testing results of the functionality (2 of 2)"
+     style="max-width:800px" >
+</p>
+
+
+
 ### Results W3C HTML Validation
+
+In the table below the outputs of the W3C HTML Validation results. All tests passed. 
+
+| Page     | Output       | Result |
+| -------- |:------------:| ------:|
+| Main     | <img src="./assets/testing/validation-html.png" alt="image of W3C Html Validation result" >  | Pass   |
+| 404   |  <img src="assets/testing/html-w3c-404.png" alt="image of W3C Html Validation result" >  | Pass   |
+
 
 ### Results W3C CSS Validation
 
