@@ -133,12 +133,13 @@ As a first-time user...
 
 #### How to Clone
 
------ 
+
+--- 
 
 ## Testing 
 
 ### Testing Procedure 
-The website was tested extensively for several apsects , and the results were documented in [TO DO TESTING.md](./TESTING.md) 
+The website was tested extensively for several apsects , and the results were documented in [TESTING.md](./TESTING.md) 
 
 - Functionality
 - User Stories
@@ -152,68 +153,14 @@ Also, this website was developed using a `test-driven development` (TDD) approac
 
 (clean code principles).
 
---- 
 
+---
 ### Solved Bugs 
-- the `d3` library would cause `jest` unit test to fail with a `Reference Error: d3 is not defined`. It was not easy to fix this since documentation about unit testing and d3 is sparse. The solution was not to import `d3.js` via a script but by installing through `npm install d3 --save-dev` and commenting out the web-import
-- This still did not work as it caused a ` SyntaxError: Cannot use import statement outside a module` inside the unit test module . The problem was the line `import * as d3 from "d3"` causing an `SyntaxError: Unexpected token 'export'`. The unit test finally passes with solutions from (Link to [Stackoverflow](https://stackoverflow.com/questions/69226759/jest-unexpected-token-export-when-using-d3)) to map to the minified build of `d3` and (Link to [Stackoverflow](https://stackoverflow.com/questions/9948350/how-to-use-d3-in-node-js-properly)) and to load the `d3` library using `const d3 = require('d3');`
-- The functions were tested correctly in `jest` - but trying to call them in the browser caused a error `Uncaught ReferenceError: module is not defined`. This problem was mentioned in the Code Institute slack channel (`#project-miletone-2`, 18.April 2022 'automated testing (as per requirements) causing an this error"). The solution was (I am not 100% sure if that is the case) to modify the `module:exports statement` and the import on the `diagram.test.js` side.
-- Now all unit test pass also with functions that use the `d3`. But when opening the script in the browser, I am getting an `Uncaught ReferenceError: module is not defined` which is caused by the `module.exports`. It seems like (see [Stackoverflow](https://stackoverflow.com/questions/64914701/jest-module-not-defined)) that I am using `node.js` syntax for my unit test which the browser does not understand. Bummer! I do want to follow TDD development as a learning experience for this project, but i also want to make it run without errors in the browser - so not using TDD was not a solution for me. 
-- The final clue gave this Youtube Tutorial [15. Install Jest Testing Framework with npm for ES6 module support - JavaScript Testing](https://youtu.be/ZnIv8u2-XrA). The problem above was caused by a conflict of two types of Javascript (commonJS and ES6), where commonJS is required for testing with JEST and ES6 for scripts that run in the browser. The solution to this problem as per [this Youtube tutorial](https://youtu.be/ZnIv8u2-XrA) was to install `babel`. According to this tutorial, the way to solve this problem was :
-    - go to the `babel.js` website > `Setup` 
-    - click on `Jest`
-    - in gitpod, create a `.babelrc` file in the root directory with content 
-        ```js
-        {
-            "presets": ["@babel/preset-env"]
-        }
-        ```
-    - install babel preset with `npm install @babel/preset-env --save-dev` (as mentioned on website)
-- This passes now successfully the unit test and allows import/export via the `export function` command into `jest`. But when i tried to add an eventlistener to invoke a function that is being testing with `Jest`, the console would throw an error `Uncaught ReferenceError: buttonClick is not defined`. The solution to that was to **not** import the javascript file that is tested by `jest` into the browser that is being tested. Instead, the way to go was to create a new `main.js` that **imports** the (successfully tested) functions, adds an event listener to the button and calls the imported `buttonClick` function. Heureka!
-- While functions without `d3` are now running correctly in the browser and can be tested with `jest`, my previous approach to test functions that use `d3` in `jest` failed with an error message (`SyntaxError: Unexpected token 'export'` of the named export. The problem here is now that we are using ES6 syntax in our function (see `diagram.js`) but jest runs in `node.js`. A solution to this problem was hinted here : [Stackoverflow](https://stackoverflow.com/questions/72893900/how-to-import-d3-js-in-a-node-and-typescript-project-err-require-esm) . Thi post recommends (until further notice) to use the last stable build of `d3` that worked under `node.js`. Since this project here does not require any latest features of `d3`, I followed the adivse and used `v6.7.0`. 
-- the browser still had a problem with loading functions that import `d3`. I will follow the approach from this Youtube tutorials [18. Webpack installation ](https://youtu.be/vGZoGwBC7js) and  [19. Babel Loader Setup in the Webpack 4 ](https://youtu.be/9KL8ob7utr8) . This video recommeds to convert all ES6 into ES5 before loading the file into the browser using `webpack`. To do this, they are 
-    - install `wepack` and `webpack-cli` using default settings, see on [their website](https://webpack.js.org/)
-    - go to babel website  > `Setup`
-    - click on `webpack`
-    - install on the terminal via `npm install --save-dev babel-loader @babel/core`
-    - create a `webpack.config.js` config file and add
-        ```js
-            module: {
-                rules: [
-                {
-                    test: /\.m?js$/,
-                    exclude: /node_modules/,
-                    use: {
-                    loader: "babel-loader",
-                    options: {
-                        presets: ['@babel/preset-env']
-                    }
-                    }
-                }
-                ]
-            }
-        ```
-    - before loading into the browser, you need to compiles your ES6 code into ES5 by `npm run build` (assuming `"build": "webpack"` to the `scripts` of `package.json`)
-- Now that everyting seemed to work fine (functions using `d3` could be tested with `jest` and be displayed in browsers after `babel` converts them to `ES5` ), the `dependabot[bot]` created a warning that using the old version `6.7.0` of `d3` is a security risk in the `d3-color` sub-package due to ` vulnerable to a denial of service, caused by improper input validation`, see [this Article from IBM](https://www.ibm.com/support/pages/security-bulletin-vulnerability-d3-color-affects-ibm-process-mining-ws-2022-0322#:~:text=DESCRIPTION%3A%20d3%2Dcolor%20is%20vulnerable,regular%20expression%20denial%20of%20service.). Now, to fix this security bug, `dependabot[bot]` automatically updated this repository to the latest `d3` version from `6.7.0` to `7.8.4` - but with the consequence that the unit test fails now again - that's why we downgraded to `6.7.0` in the first place. 
-    - Being mindful about the scope of this website, there were several options how to address this bug. One option was to simply avoid testing any functions that utilized the `d3` library, and only test functions that calculated pi, for example. However, this was not an ideal solution as it would significantly reduce the coverage of the unit tests.
-    - Another option was to use a dedicated front-end framework, such as `vue`, to handle the display in the browser while still being able to use `jest` for testing. However, this would have introduced unnecessary complexity, which was beyond the scope of this project. In the future, when more experience with these tools is gained, this may be an appropriate solution.
-    - A third option was to switch to a different unit testing framework, such as `mocha`, as the root of the conflict was between `jest` and `d3`. This seemed like a viable solution.
-- Moving from `jest` to `mocha` raised the simuliar error messages that i had previously with `jest` regarding `ES6` types . The solution was as per previous solution the `webpack` tool to convert the javascript into a compiled version that the browser understands. There was one more complication : the following code section can be used in `jest` but not in `mocha`
-    ```
-    let fs = require('fs')
-    let fileContents = fs.readFileSync('index.html', 'utf-8')
-    document.open()
-    document.write(fileContents)
-    document.close()
-    document.
-    ```
-    -  a solution to this problem was suggested in [Testing with Node, Jest, and JSDOM](https://sparkbox.com/foundry/improve_unit_testing_with_mocha_chai_jsdom) to create a fake DOM element using `jsdom`, which then replaces the `global.document`. This makes it now `d3` functions accessible for manipulaton during the unit test. There are some words of caution about this approach on [the JSDOM github page](https://github.com/jsdom/jsdom) but I think it can be justified for this project : `1)` it only executes script written in this document `2)` it will not be executed on the actual website, only during unit testing. On a later stage, when I am more familiar with `vue` or `react`, this will not be an issue. 
-- The `dependabot` spotted another potential security risk of using `jsdom` : `Prototype Pollution in JSON5 via Parse Method`. This function was used in this repository to test changes to the DOM during unit testing. Since i did not want to introduce an unnecesary security risk, the best short-term solution to this problem was to refactor the code and its testing procedure to be more simplistic. This solution was  inspired by [this talk from David Whitney](https://www.youtube.com/watch?v=D7LKslgwxmQ) where he advocates minimalistic testing with only using `jest`, `jest-cli` and `@babel/present-env`:
-    ```
-    npm init
-    npm install --save-dev @babel/preset-env jest jest-cli @types/jest
-    ```
 
+- There is a a separate document in this repository that describes in more details :  [SETUP.md](./SETUP.md) 
+    - This  [SETUP.md](./SETUP.md)  document describes the majority of bugs encountered during the setup of of this project.
+    - it also documents the successful and unsuccessful solution approaches, and provides a justification for the final resolution strategy that was eventually applied to this project.  
+    - the majority of the bugs occured while trying to setup an javascript environment that can be tested with a unit testing framework such as `Jest`, works in the browser (conflict between `commonJS` and `ES` modules), and poses no security risk from using external libaries such as `d3.js`
 - There was a bug of a wrongly designed test that created false positive test result. The test was for randomness of the orientation of new stick. It was designed to assert that an array of `100` sticks had unique orientations. This approach was inspired by a hint from [Stackoverflow](https://stackoverflow.com/questions/57001262/jest-expect-only-unique-elements-in-an-array)
   to test that the `Array` length equals the lenght of the array converted to a `Set` (if there was a duplicate, the `size of Set <  Array Length`)). However, in my implementation of the `for` loop i switched the the second and third entry, which casuses the loop to run exaclty `1 times` - with the consequence that `Array Length` is always equal to `Set Size`!
     - The solution was to correct the order of loop header in the `simulation.test.js`, and now the test failed as expected. 
@@ -224,10 +171,11 @@ Also, this website was developed using a `test-driven development` (TDD) approac
         npm install uniq
         browserify main.js -o bundle.js
         ```
-- This bundling works for individual files with files that use `require` - but it failed with same `Reference error - require not defined` with scripts that have  nested imports such as the `Simulation` class from `simulation.js`. The solution was to check out a solution in this README from a previous bugfix (see above) to use `webpack` instead to create a compiled version of the vanilla javascript file. The small downside is, now we have to manually compile the javascript files before using them in the browser - but this is acceptable since it does not affect the final website, only the development workflow.
-    ```bash
-    npm run build
-    ``` 
+- This bundling works for individual files with files that use `require` - but it failed with same `Reference error - require not defined` with scripts that have  nested imports such as the `Simulation` class from `simulation.js`. The solution was to check out a solution in this README from a previous bugfix (as described in [SETUP.md](./SETUP.md)) to use `webpack` instead to create a compiled version of the vanilla javascript file. The small downside is, now we have to manually compile the javascript files before using them in the browser - but this is acceptable since it does not affect the final website, only the development workflow.
+    ```
+        bash
+        npm run build
+    ```
 - Functions related to drawing the `d3.js` outputs of the simulation such as`drawEmptyDisplay` or `drawMidlines` would either draw at wrong locations or log errors such as `Error: <svg> attribute width: Expected length, "NaN".` This was caused when calling it with a previous version of this function that would occasionaly use different global parameter such as `width` or `height` that would be overwritten at various points in the code. The soltuion was to refactor the code into a `DisplayConfiguration` class that handles the sizing and positioning of the elements on the screen (without actually drawing them). In this way, the `TDD` approach of implementing functions that use `d3.js` was still at least partially achieved.
 
 ### open Bugs 
