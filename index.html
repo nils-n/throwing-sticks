@@ -37,7 +37,7 @@
                 </div>
                 <!-- this is based on  https://www.w3schools.com/howto/howto_js_rangeslider.asp -->
                 <div class="slidecontainer">
-                    <input type="range" min="1" max="100" value="1" class="slider" id="myRange" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+                    <input type="range" min="1" max="100" value="1" class="slider" id="myRange" aria-label='slider to control number of sticks per throw' aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
                     <p><span id="slider-count"> 1 </span> per Throw</p>
                 </div>
                 <p>The sticks jumped on a table with black marks with their eyes closed.
@@ -63,11 +63,11 @@
                 <div id="explain-diagram" style="max-width: 550px;"> </div>
                     <div class="btn-box"> 
                         <div><span>Angle</span>                   
-                            <input type="range" min="0" max="180" value="42" class="slider" id="explain-rotate">
+                            <input type="range" min="0" max="180" value="42" class="slider" id="explain-rotate"  aria-label='slider to control angle of an example stick' aria-valuemin="0" aria-valuemax="180" aria-valuenow="42">
                         </div>   
                         <div>
                             <span>Position</span>                         
-                            <input type="range" min="50" max="600" value="360" class="slider" id="explain-move">
+                            <input type="range" min="50" max="600" value="360" class="slider" id="explain-move"  aria-label='slider to control position of an example stick' aria-valuemin="50" aria-valuemax="600" aria-valuenow="360">
                         </div>
                     </div>          
             </div>
