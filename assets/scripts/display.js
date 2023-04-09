@@ -22,7 +22,7 @@ class DisplayConfiguration {
             right: 0,
             bottom: 0,
             left: 4,
-        }
+        };
         this.backgroundColor = "#FF0000";
         this.width = 300;  //update with clientWidth in the browser
         this.height = 350;  //update with clientHeight in the browser
@@ -51,10 +51,10 @@ class DisplayConfiguration {
 
     // cacluate the displayed lenght of a stick 
     calculateStickLengthOnScreen () {
-        this.calculateDistanceBetweenMidLines()
+        this.calculateDistanceBetweenMidLines();
         this.stickLengthOnScreen = ( this.distanceBetweenMidlines ) / 2;
     } 
 
-};
+}
 
-module.exports =  DisplayConfiguration 
+module.exports =  DisplayConfiguration ;
