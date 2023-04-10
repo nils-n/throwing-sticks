@@ -23,6 +23,48 @@ Link to the live page : [Link to live Website]( https://nils-n.github.io/throwin
 
 ## Table of Contents
 
+  * [User Experience (UX)](#user-experience--ux-)
+    + [User Stories](#user-stories)
+    + [Website Aims](#website-aims)
+    + [How these needs are addressed](#how-these-needs-are-addressed)
+    + [Opportunities](#opportunities)
+    + [Feature selection](#feature-selection)
+  * [Design](#design)
+    + [Color Scheme](#color-scheme)
+    + [Typography](#typography)
+    + [Imagery](#imagery)
+  * [Wireframes](#wireframes)
+    + [Design Phase](#design-phase)
+    + [Final Wireframe](#final-wireframe)
+  * [Simulation Flow](#simulation-flow)
+  * [Features](#features)
+    + [General Features](#general-features)
+    + [Main Page](#main-page)
+    + [404 Page](#404-page)
+    + [Future Implementations](#future-implementations)
+    + [Accessibility](#accessibility)
+  * [Technologies Used](#technologies-used)
+    + [Languages Used](#languages-used)
+    + [Frameworks Used](#frameworks-used)
+  * [Deployment and Local Development](#deployment-and-local-development)
+    + [Deployment](#deployment)
+    + [Local Development](#local-development)
+      - [How to Fork](#how-to-fork)
+      - [How to Clone](#how-to-clone)
+  * [Testing](#testing)
+    + [Testing Procedure](#testing-procedure)
+    + [Solved Bugs](#solved-bugs)
+    + [Solved Visualization Bugs](#solved-visualization-bugs)
+    + [open Bugs](#open-bugs)
+  * [Credits](#credits)
+    + [Code Used](#code-used)
+    + [Content](#content)
+  * [Acknowledgements](#acknowledgements)
+
+<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
+
+
+
 ----- 
 
 ## User Experience (UX)
@@ -355,6 +397,7 @@ This page contains a friendly message that the 404 server error has occured.
 - Shields.io for adding badges this Readme file [Link](https://shields.io/)
 - [Markdown Beautifier](https://markdownbeautifier.com/#)  to format tables in Readme
 - convert markdown tables to html via [HTML Table Converter](https://tableconvert.com/markdown-to-html)
+-  Markdown [TOC Generator](https://ecotrust-canada.github.io/markdown-toc/)
 
 ### Languages Used
 
