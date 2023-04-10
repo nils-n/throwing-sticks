@@ -80,6 +80,35 @@ As a first-time user...
 ## Design
 
 ### Color Scheme
+A neutral colour tone was selected to create an inviting, positive atmosphere. Three colors were chosen as sufficient to be used on the website. The reason for the small number of colors was to not overload the user with visual information and keep distractions to a minimum:
+
+- White was chosen as Background 
+- Dark Gray was chosen instead of black as it looked less aggressive and did not fit the playful intention of the website 
+- Blue Green was chosen by using the [Color Palette Generator](https://mycolor.space/). As input, the wooden color tone of the hero image was used. Then, the `Blue Green` was selected as one of the complementary colors.
+
+
+<table style="width:100%">
+    <tr>
+        <th>Color</th>
+        <th> Example</th>
+        <th> Hex Code</th>
+    </tr>
+    <tr>
+        <td>Blue Green</td>
+        <td> <img src="./assets/images/colour-blue-green.png"; alt="image of bug"></td>
+        <td> #4F6E7A</td>
+    </tr>
+     <tr>
+        <td>Dark Gray</td>
+        <td> <img src="./assets/images/colour-dark-gray.png"; alt="image of bug"></td>
+        <td>#3A3A3A</td>
+    </tr>
+     <tr>
+        <td>White</td>
+        <td> <img src="./assets/images/colour-white.png"; alt="image of bug"></td>
+        <td>#FFFFFF</td>
+    </tr>
+ </table>
 
 ### Typography
 
@@ -101,19 +130,25 @@ As a first-time user...
 
 ### Future Implementations
 
-- Estimate $\pi$ using similar heuristical methods ( see example  [here](https://academo.org/demos/estimating-pi-monte-carlo/) )
+- Estimate $\pi$ using other simulation-based approaches ( see example  [here](https://academo.org/demos/estimating-pi-monte-carlo/) )
 - compare these estimates using interactive charts (i.e. for efficiency, run-time, stability)
 - visualize  how to derive $\pi$ in a graphical or algebraic way 
-- visualize other intersting numbers such as $\phi$ (golden ratio), or the  Euler number, or $\tau$ 
+- visualize other interesting numbers such as $\phi$ (golden ratio) or Euler number $e$
 
 ### Accessibility
 
+- Document structure is conveyed through proper use of `h1` - `h3` elements and semantic html  
+- Input html elements such as `button`, `slider` have approriate `aria` labels
+- Color Contrast is ensured according to `A11y` recommendations and validated by  contrast checking (see [TESTING.md](./TESTING.md)) 
+- Image elements have `alt` attributes with description for visually impaired users 
+
 ## Technologies Used 
 
-- GitPod as IDE [Link](https://www.gitpod.io/)
-- Git / GitHub  for Version Control [Link] (https://github.com/)
+- [Gitpod](https://www.gitpod.io/) cloud-based IDE
+-  [VS Code ](https://code.visualstudio.com/) as IDE for local devlopment  
+- Git / [Github](https://github.com/)  for Version Control 
 - Figma for Wireframs [Link](https://www.figma.com/)
-- Mac OS Image Preview Tool for cropping and resizing Images 
+- Mac OS Image Preview and [Skitch](https://apps.apple.com/us/app/skitch-snap-mark-up-share/id425955336?mt=12) for capture, crop and resize images 
 - Favicon for making a browser Icon [Link](https://favicon.io/favicon-converter/)
 - W3 Validation Tools for Testing [Link](https://validator.w3.org/)
 - Shields.io for adding badges this Readme file [Link](https://shields.io/)
@@ -127,7 +162,7 @@ As a first-time user...
 - Javascript
 
 ### Frameworks Used
-- N/A
+- [Jest](https://jestjs.io/) for Unit Testing 
 
 ----- 
 
@@ -336,7 +371,7 @@ Going through manual testing of the application, I encountered a few bugs that i
         <td>The simulation uses angles from 0 to 180, but the diagram shows angles from 0 to 90. It's just that this curve is nicer to look at in this range. Plotting this curve from 0 to 180 would lead to a mirrored curve that adds more to confusion than it helps to understand the point of the diagram. With more time, i could have mapped the simulated angles from 90 to 180 into the diagram - but again, I don't have the time to properly develop the tests for that, and it would not add any extra value.</td>
         <td> <img src="./assets/testing/unsolved-issues/bug3-less-datapoints.png"; alt="image of bug"></td>
     </tr>
-    13-less-datapoints.png
+   
 
 </table>
 
