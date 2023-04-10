@@ -35,7 +35,7 @@ First, the website has been tested that it works functionally correct. All teste
 
 
 <p align="center">
-<img src="./assets/testing/functionality-1.png"
+<img src="./assets/testing/functionality-2.png"
      alt="Image with preview of Manual testing results of the functionality (2 of 2)"
      style="max-width:800px" >
 </p>
