@@ -86,7 +86,6 @@ In the screenshot below the outputs of the Jest Unit Test results. No errors occ
 - Large parts of the front-ent are not included in the unit tests due to the use `d3.js` outside of a dedicated Front-end frameworks such as `vue` or `react` (as reasoned above) 
 - The tests istself were not the strictest - being mindful about the time to complete this project I decided to have some of the functionality tested manually
 - it is not within the assessment criteria of the project
-- A code coverage summary can be found [Here](./coverage/lcov-report/index.html)
 
 
 | Page     | Output       | Result |
@@ -101,9 +100,39 @@ In the screenshot below the outputs of the Jest Unit Test results. No errors occ
 
 ### Results A11y Color Test
 
+In the table below the outputs of the A11y Color Contrast Validation results of the main color contrasts of the website. All tests passed.
+
+
+| Page     |                                                  Output                                                  | Result |
+| -------- | :------------------------------------------------------------------------------------------------------: | -----: |
+| Main     |   <img src="./assets/testing/validation-a11y-color-contrast.png" alt="image of output from A11y accessibility test of main page" >   |   Pass |
+| 404      |    <img src="./assets/testing/404-a11y.png" alt="image of output from A11y accessibility test of 404 page" >  |   Pass |
+
 ### Results WebAIM Accesibility Test
 
+In the table below the outputs of the WebAIM Accessibility results of the website. All Tests passed.
+
+| Page     |                                                  Main                                                  | 404 Page |
+| -------- | :------------------------------------------------------------------------------------------------------: | -----: |
+| Output      |   <img src="./assets/testing/validation-wave-webAIM.png" alt="image of output from WAVE WebAIM accessibility test of main page" >   |    <img src="./assets/testing/404-wave-webAIM.png" alt="image of output from WAVE WebAIM accessibility test of 404 page" >  |
+| Result      |  Pass   |   Pass |
+
+
 ### Results Chrome Lighthouse 
+
+The Chrome Lighthouse Tool integrated in the Chrome Developer Tools has been applied to test the performance and accessibility of each page.
+
+For all pages, it suggest to serve static assets with an efficient cache policys.
+Accessibility scores sufficiently high across all pages. 
+
+Performance Score is a little low but for the scope of the project in an acceptable range. 
+
+| Page     | Result       | 
+| -------- |:------------:| 
+| Main   | <img src="./assets/testing/validation-lighthouse.png" alt="image of result of chrome lighthouse test" >  | 
+|        |  Performance scores a bit low.  Lighthouse suggests to serve static assets with an efficient cache policys. | 
+| 404   |  <img src="./assets/testing/404-lighthouse.png" alt="image of result of chrome lighthouse test" >  | 
+|        |  Performance scores a bit low. Lighthouse suggests to serve static assets with an efficient cache policys. | 
 
 -----
 
