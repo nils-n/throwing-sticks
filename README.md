@@ -275,8 +275,29 @@ Additionally, there was a multitude of bugs to be fixed for the visual display o
 </tr>
 </table>
 
+----- 
 
 ### open Bugs 
+
+Going through manual testing of the application, I encountered a few bugs that i decided to leave unsolved, but documented. These bugs 
+- do not affect the correctness of the simulation
+- are only minor display issues that would probably be resolved when switching to a more appropriate front-end framework such as `vue` or `react`. 
+- For the scope of the project, I marked these bugs as not not significant. 
+
+<table style="width:100%">
+    <tr>
+        <th>#</th>
+        <th>Bug Decription</th>
+        <th>Justification</th>
+        <th style="width:40%">Result</th>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>The sticks don't use the entire canvas of the screen</td>
+        <td>Right now I don't have the time to address this problem properly. I increased the maximum value of the slider so that at least most of the canvas is used - this should probably be handled better but I leave this up for a future release</td>
+        <td> <img src="./assets/testing/unsolved-issues/bug1-maximum-size-not-used.png"; alt="image of bug"></td>
+    </tr>
+</table>
 
 ---- 
 
