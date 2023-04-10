@@ -260,6 +260,8 @@ Top Diagram
     </tr>
 </table>
 
+---- 
+
 Second Diagram 
 - Continuation of the story and an interactive chart where the user can explore how a single stick moves 
 - The stick changes its color from green to red every time it touches a midline, introducing a learning effect 
@@ -276,6 +278,8 @@ Second Diagram
         <td> <img src="./assets/images/features/second-diagram.png"; alt="screenshot of the landing page of the website" >  </td>
     </tr>
 </table>
+
+---- 
 
 Third Diagram 
 
@@ -301,8 +305,22 @@ Third Diagram
     </tr>
 </table>
 
+---- 
 
 #### 404 Page 
+
+This page contains a friendly message that the 404 server error has occured.
+
+<table style="height:100%">
+    <tr>
+        <th> 404 Page </th>
+    </tr>
+    <tr>
+        <td> <img src="./assets/images/features/404-page.png"; alt="the page that is display when the 404 error occurs " >  </td>
+    </tr>
+
+</table>
+
 
 ----- 
 
