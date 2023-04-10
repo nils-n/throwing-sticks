@@ -118,6 +118,15 @@ document.getElementsByClassName('slider')[0].addEventListener( 'change', functio
     //reset for last diagragm
     document.getElementById('total-sticks').innerHTML = "";
 
+    // add to last diagragm
+    document.getElementById('total-sticks').innerHTML = `0`;
+
+    // add a little advice to the last diagram - with very few numbers of sticks, the figure is not very explanatory.
+    const friendlyReminder =  `
+            <bold> Tip : </bold> There are currently no Sticks. This Figure looks much nicer with sticks! How about you throw some? 
+        `;
+    document.getElementById('little-advice').innerHTML = friendlyReminder;
+
      //  update the scatter plot on the third panel 
      const tempDisplayConfiguration = DisplayConfiguration.from( displayConfiguration );
      const scatterDiagram = document.getElementById('scatter-diagram');
@@ -184,6 +193,12 @@ document.getElementById('explain-rotate').addEventListener( 'input', function() 
 
     // reset also second text
     document.getElementById('more-than-3').innerHTML = " <br><br>";
+
+    // add a little advice to the last diagram - with very few numbers of sticks, the figure is not very explanatory.
+    const friendlyReminder =  `
+            <bold> Tip : </bold> There are currently no Sticks. This Figure looks much nicer with sticks! How about you throw some? 
+        `;
+    document.getElementById('little-advice').innerHTML = friendlyReminder;
 
  });
 
