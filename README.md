@@ -143,7 +143,48 @@ The approach to find an approprate image was :
      width=60%>
 </p>
 
-### Wireframes
+---- 
+
+## Wireframes
+
+### Design Phase
+
+At the beginning of this project, several options for the Front-End Layout were developed. 
+
+- View of a chalkboard to create and educational touch (but a bit cold)
+- Top View of a Desk with Keyboard and Pen on the side 
+- Top View of a different desk with paper on it 
+
+<table style="width:100%">
+    <tr>
+        <th> Option</th>
+        <th> Layout </th>
+    </tr>
+ <tr>
+        <td> 1 </td>
+        <td> <img src="./assets/images/wireframes/design-option-1.png"; alt="design option1" >  </td>
+    </tr>
+ <tr>
+        <td> 2 </td>
+        <td> <img src="./assets/images/wireframes/design-option-2.png"; alt="design option1" >  </td>
+    </tr>
+     <tr>
+        <td> 3 </td>
+        <td> <img src="./assets/images/wireframes/design-option-3.png"; alt="design option1" >  </td>
+    </tr>
+
+ </table>
+
+- It was then decided to go with Option 2. 
+- Option 1 was excluded with the following reasoning : although it looked professional, the general tone was cold and not in line with the intention of an alternative, fun education. Also, if you throw sticks, they would not stick on a chalkboard and follow gravity, so it would give the website a little too abstract touch.
+- Between Option 2 and 3,  just personal preference. 
+
+### Front-End 
+
+
+
+## Simulation Flow 
+
 
 ----- 
 
