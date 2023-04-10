@@ -73,15 +73,7 @@ document.getElementById('hero-throw').addEventListener( "click", function() {
     }
 
     //  update the scatter plot on the third panel 
-    const tempDisplayConfiguration = DisplayConfiguration.from( displayConfiguration );
-    const scatterDiagram = document.getElementById('scatter-diagram');
-
-    tempDisplayConfiguration.height = scatterDiagram.clientHeight ;
-    tempDisplayConfiguration.width = scatterDiagram.clientWidth;
-    tempDisplayConfiguration.displaySelector = '#scatter-diagram';
-
-    svgScatter = drawEmptyDiagram( tempDisplayConfiguration );
-    drawScatterDiagram( sticks, svgScatter, tempDisplayConfiguration );
+    drawThirdDiagram( displayConfiguration )
 
     // add to last diagragm
     document.getElementById('total-sticks').innerHTML = `${totalNumberOfSticks}`;
@@ -197,6 +189,14 @@ document.getElementById('explain-rotate').addEventListener( 'input', function() 
  window.addEventListener( 'resize', function () {
     console.log('window size has changed! ')
 
+    //resize the elements of the scatter plot
+    drawThirdDiagram( displayConfiguration)
+
+ })
+
+ // refactor code to remove duplicate code 
+ function drawThirdDiagram( displayConfiguration ) {
+
      //  update the scatter plot on the third panel 
      const tempDisplayConfiguration = DisplayConfiguration.from( displayConfiguration );
      const scatterDiagram = document.getElementById('scatter-diagram');
@@ -208,8 +208,7 @@ document.getElementById('explain-rotate').addEventListener( 'input', function() 
      svgScatter = drawEmptyDiagram( tempDisplayConfiguration );
      drawScatterDiagram( sticks, svgScatter, tempDisplayConfiguration );
 
-
- })
+ }
 
 // refactor code to remove duplicated code 
 function drawSecondDiagram( stick ) {
