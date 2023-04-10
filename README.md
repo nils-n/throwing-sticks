@@ -209,6 +209,7 @@ Also, this website was developed using a `test-driven development` (TDD) approac
 | -------- |:------------:| ------:|
 | Unit test failed in `stick.test.js`   |  <img src="./assets/testing/solved-issues/6-unit-test-matcher.png" alt="image of bug" style='max-width:500px'>    | use a more apropriate matcher `toBeCloseTo` to assert equality of floating point values | | 
 
+- adding the `aria-valuemin` and `aria-valuemax`  to the sliders in order to increase accessiblity of the site made the website fail the W2C HTML validation. The errors were : `Error: The aria-valuemin attribute must not be used on an element which has a min attribute.`. This problem was solved according [W3C : ARIA in HTML - test cases for aria-valuemin](https://w3c.github.io/html-aria/tests/min-test.html) by removing the these attributes again, and instead use only the attribute `aria-valuenow`for all sliders.
 
 -----
 
@@ -323,14 +324,14 @@ Going through manual testing of the application, I encountered a few bugs that i
     </tr>
 
   <tr>
-        <td>1</td>
+        <td>2</td>
         <td>The sticks can flow out of the displayed canvas </td>
         <td>This has something to do how `d3.js` draws elements onto an svg. Eventually this should be handled better by setting appropriate margins and the use of `d3-translate` but this seemed not a trivial operation, outside the scope of the project. </td>
         <td> <img src="./assets/testing/unsolved-issues/bug2-min-position-outside-canvas.png"; alt="image of bug"></td>
     </tr>
 
  <tr>
-        <td>1</td>
+        <td>3</td>
         <td>The number of sticks display on the third diagram may not be equal to number of simulated sticks </td>
         <td>The simulation uses angles from 0 to 180, but the diagram shows angles from 0 to 90. It's just that this curve is nicer to look at in this range. Plotting this curve from 0 to 180 would lead to a mirrored curve that adds more to confusion than it helps to understand the point of the diagram. With more time, i could have mapped the simulated angles from 90 to 180 into the diagram - but again, I don't have the time to properly develop the tests for that, and it would not add any extra value.</td>
         <td> <img src="./assets/testing/unsolved-issues/bug3-less-datapoints.png"; alt="image of bug"></td>
