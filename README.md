@@ -123,7 +123,7 @@ Classic Fonts were selected to add to a professional, clean tone. Font pairs wer
 <p align="center">
 <img src="./assets/images/fonts-throwing-sticks.png"
      alt="Image with screenhot about selecting fonts for this project using Fontjoy website "
-     style="max-width:800px" >
+     style="width:80%" >
 </p>
 
 ### Imagery
@@ -140,7 +140,7 @@ The approach to find an approprate image was :
 <p align="center">
 <img src="./assets/images/free-blue-retractable-pen-on-top-of-notebook-near-magic-keyboard-stock-small-compressed.jpg"
      alt="Image with screenhot about selecting fonts for this project using Fontjoy website "
-     width=50%>
+     width=60%>
 </p>
 
 ### Wireframes
