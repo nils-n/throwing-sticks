@@ -42,18 +42,8 @@ document.getElementById('hero-throw').addEventListener( "click", function() {
     simulation.assignColours();
     simulation.estimatePi();
 
-    const totalNumberOfSticks = simulation.sticks.length;
-    const newPosition = simulation.sticks[totalNumberOfSticks-1].position;
-    const newOrientation = simulation.sticks[totalNumberOfSticks-1].orientation;
-    const newColour = simulation.sticks[totalNumberOfSticks-1].colour;
-    const newSector = simulation.sticks[totalNumberOfSticks-1].sector;
-    const newVerticalOffset= simulation.sticks[totalNumberOfSticks-1].verticalOffsetOnScreen;
-   
-    // for now, lets just assign the sticks to the result of the simulation 
-    sticks = simulation.sticks;
-    svg = drawEmptyDiagram( displayConfiguration );
-    drawMidlines( svg , displayConfiguration  );
-    drawSticks( svg,  sticks, displayConfiguration );
+    //draw the first fiagram 
+    drawFirstDiagram(  simulation );
 
     //display total number of sticks used in the simulation
     span = document.getElementById('red-sticks');
@@ -76,6 +66,7 @@ document.getElementById('hero-throw').addEventListener( "click", function() {
     drawThirdDiagram( displayConfiguration )
 
     // add to last diagragm
+    const totalNumberOfSticks = simulation.sticks.length;
     document.getElementById('total-sticks').innerHTML = `${totalNumberOfSticks}`;
 
 });
@@ -189,6 +180,9 @@ document.getElementById('explain-rotate').addEventListener( 'input', function() 
  window.addEventListener( 'resize', function () {
     console.log('window size has changed! ')
 
+    //draw the first fiagram 
+    drawFirstDiagram(  simulation );
+
     //resize the elements of the scatter plot
     drawThirdDiagram( displayConfiguration)
 
@@ -246,3 +240,21 @@ function drawSecondDiagram( stick ) {
      drawSticks( svgExplain,  explain_sticks, tempDisplayConfiguration );
 }
 
+/**
+ * This function is to draw the first diagram on the main panel 
+ */
+function drawFirstDiagram ( simulation,  ) {
+
+    const totalNumberOfSticks = simulation.sticks.length;
+    const newPosition = simulation.sticks[totalNumberOfSticks-1].position;
+    const newOrientation = simulation.sticks[totalNumberOfSticks-1].orientation;
+    const newColour = simulation.sticks[totalNumberOfSticks-1].colour;
+    const newSector = simulation.sticks[totalNumberOfSticks-1].sector;
+    const newVerticalOffset= simulation.sticks[totalNumberOfSticks-1].verticalOffsetOnScreen;
+   
+    // for now, lets just assign the sticks to the result of the simulation 
+    sticks = simulation.sticks;
+    svg = drawEmptyDiagram( displayConfiguration );
+    drawMidlines( svg , displayConfiguration  );
+    drawSticks( svg,  sticks, displayConfiguration );
+}
