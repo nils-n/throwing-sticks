@@ -244,12 +244,12 @@ The website consits of a single page, and a 404 page. Each page has a Favicon ic
 
 ### Main Page 
 
-Top Diagram : 
+Top Diagram  
 - The  diagram on the top is the entry point of the website with a heading , small text and interactive elements with a Call-to-Action (CTA). 
-- The intention is to create an emotion of curiosity, and to inform the user that that this website will be a **story**, also by using the phrase "Once upon a time, ..."
-- The first CTA encourages the user to throw a stick on the canvas 
-- The second CTA allows the the user to remove all sticks, to start again
-- the slider allows the user to playfully adjust the number of sticks per throw 
+- A story line is intoduced to the user. The intention is to create curiosity and to encourage some playful interactions with the interface 
+- A CTA encourages the user to throw a stick on the canvas 
+- A second CTA allows the the user to remove all sticks, to start again
+- A slider allows the user to adjust the number of sticks per throw 
 
 <table style="height:90%">
     <tr>
@@ -260,11 +260,46 @@ Top Diagram :
     </tr>
 </table>
 
-
-
 Second Diagram 
+- Continuation of the story and an interactive chart where the user can explore how a single stick moves 
+- The stick changes its color from green to red every time it touches a midline, introducing a learning effect 
+- User is encouraged to interact with the diagram : 
+    -  ... to rotate and change position of the stick and observe colour changes 
+    - ... to play with buttons to find the position where the stick will never turn `red`, no matter the angle 
+    - ... to play with buttons to find the position where the stick will never turn `green`
+
+<table style="height:100%">
+    <tr>
+        <th> Second Diagram </th>
+    </tr>
+    <tr>
+        <td> <img src="./assets/images/features/second-diagram.png"; alt="screenshot of the landing page of the website" >  </td>
+    </tr>
+</table>
 
 Third Diagram 
+
+- visualizes the data from the first diagram using a 2-dimensional scatterplot: 
+    - x-axis is the angle of the current sticks 
+    - y-axis is the position of the current sticks 
+    - color of the point is whether this stick was painted as `red` or `green` on the first diagram
+- A red line is drawn that magically predicts how the two groups are separated  
+- This diagram should make the user realize about the value of $\pi$ 
+- If the user has not thrown enough sticks (less than 120 sticks) , the user will be friendly encouraged to throw more sticks in order to see the pattern 
+- Story line encourages the user to understand the pattern that is in front of him 
+- After that, the short story ends with a happy ending. 
+ 
+<table style="height:100%">
+    <tr>
+        <th> Third Diagram </th>
+    </tr>
+    <tr>
+        <td> <img src="./assets/images/features/third-diagram-1.png"; alt="screenshot of the scatter plot, small number of sticks, with encouraging message to throw more sticks" >  </td>
+    </tr>
+     <tr>
+        <td> <img src="./assets/images/features/third-diagram-2.png"; alt="screenshot of the scatter plot, large number of sticks" >  </td>
+    </tr>
+</table>
 
 
 #### 404 Page 
@@ -277,6 +312,8 @@ Third Diagram
 - compare these estimates using interactive charts (i.e. for efficiency, run-time, stability)
 - visualize  how to derive $\pi$ in a graphical or algebraic way 
 - visualize other interesting numbers such as $\phi$ (golden ratio) or Euler number $e$
+- implement some more interactive feedback to the user, for example when he has found the two special positions on the second diagram 
+- A second page with a more strict explanation why the likelihood of turning green or red has the value 1/$\pi$ for the interested user  
 
 ### Accessibility
 
