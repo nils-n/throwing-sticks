@@ -297,6 +297,15 @@ Going through manual testing of the application, I encountered a few bugs that i
         <td>Right now I don't have the time to address this problem properly. I increased the maximum value of the slider so that at least most of the canvas is used - this should probably be handled better but I leave this up for a future release</td>
         <td> <img src="./assets/testing/unsolved-issues/bug1-maximum-size-not-used.png"; alt="image of bug"></td>
     </tr>
+
+  <tr>
+        <td>1</td>
+        <td>The sticks can flow out of the displayed canvas </td>
+        <td>This has something to do how `d3.js` draws elements onto an svg. Eventually this should be handled better by setting appropriate margins and the use of `d3-translate` but this seemed not a trivial operation, outside the scope of the project. </td>
+        <td> <img src="./assets/testing/unsolved-issues/bug2-min-position-outside-canvas.png"; alt="image of bug"></td>
+    </tr>
+
+    
 </table>
 
 ---- 
