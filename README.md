@@ -151,9 +151,9 @@ The approach to find an approprate image was :
 
 At the beginning of this project, several options for the Front-End Layout were developed. 
 
-- View of a chalkboard to create and educational touch (but a bit cold)
-- Top View of a Desk with Keyboard and Pen on the side 
-- Top View of a different desk with paper on it 
+- Option 1 : View of a chalkboard to create and educational touch (but a bit cold)
+- Option 2 :  Top View of a Desk with Keyboard and Pen on the side 
+- Option 3 : Top View of a different desk with paper on it 
 
 <table style="width:100%">
     <tr>
@@ -175,11 +175,30 @@ At the beginning of this project, several options for the Front-End Layout were 
 
  </table>
 
+
 - It was then decided to go with Option 2. 
 - Option 1 was excluded with the following reasoning : although it looked professional, the general tone was cold and not in line with the intention of an alternative, fun education. Also, if you throw sticks, they would not stick on a chalkboard and follow gravity, so it would give the website a little too abstract touch.
 - Between Option 2 and 3,  just personal preference. 
 
 ### Front-End 
+
+The final wireframe was then developed for Option 2 using [Figma](https://www.figma.com/), using a mobile-first approach. 
+
+<table style="height:60%">
+    <tr>
+        <th> Mobile</th>
+        <th> Desktop </th>
+    </tr>
+ <tr>
+        <td> <img src="./assets/images/wireframes/figma-iphone14.png"; alt="final wireframe mobile" >  </td>
+        <td> <img src="./assets/images/wireframes/figma-desktop.png"; alt="final wireframe desktop" >  </td>
+    </tr>
+ <tr>
+
+
+ </table>
+
+
 
 
 
