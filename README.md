@@ -259,6 +259,20 @@ Additionally, there was a multitude of bugs to be fixed for the visual display o
         <td>this was actually not just a simple fix. It had to do with `stickLengthOnScreen` and `distanceBetweenMidLines`. The actual solution consisted in creating a `DisplayConfiguration` class that handles the lenghts. Here, `TDD` helped a lot since i could just test stick positions that i `knew` the color of : for example, the position of the midline itself or the position in the middle of two midlines - sticks are `always` green there no matter the angle.</td>
         <td><img src="./assets/testing/solved-issues/5-wrong-scaling-x.png" alt="image of bug" ></td>
     </tr>
+    
+ <tr>
+    <td>8</td>
+    <td>Loading the page, second diagram was not displayed and would only change after moving one of the sliders </td>
+    <td>Add an event listener that listens to the `DOMContentLoaded` and draws second diagram directly after Html is loaded.</td>
+    <td><img src="./assets/testing/solved-issues/8-not-initialized.png" alt="image of bug" ></td>
+</tr>
+
+ <tr>
+    <td>9</td>
+    <td>Not all positions on the display were used to display the simulation result. </td>
+    <td>The problem was that the simulation runs with values between 0 and 1, which is a midlines and the middle position to the next midline. Adding only a random sector is therefore not enough to display the simulated positions in an equally distribued fashion. The soltion was to add a `mappedPosition` property and a `mapPositionIntoFirstSector` method to account for mirrored positions for sticks that land on the unused half between midlines.  </td>
+    <td><img src="./assets/testing/solved-issues/9-not-all-positions-used.png" alt="image of bug" ></td>
+</tr>
 </table>
 
 
