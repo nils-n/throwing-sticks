@@ -36,7 +36,7 @@ Link to the live page : [Link to live Website]( https://nils-n.github.io/throwin
   * [Wireframes](#wireframes)
     + [Design Phase](#design-phase)
     + [Final Wireframe](#final-wireframe)
-  * [Simulation Flow](#simulation-flow)
+  * [Simulation Flow Chart](#simulation-flow)
   * [Features](#features)
     + [General Features](#general-features)
     + [Main Page](#main-page)
@@ -54,7 +54,7 @@ Link to the live page : [Link to live Website]( https://nils-n.github.io/throwin
   * [Testing](#testing)
     + [Testing Procedure](#testing-procedure)
     + [Solved Bugs](#solved-bugs)
-    + [Solved Visualization Bugs](#solved-visualization-bugs)
+    + [Solved Front-End Bugs](#solved-front-end-bugs)
     + [open Bugs](#open-bugs)
   * [Credits](#credits)
     + [Code Used](#code-used)
@@ -241,7 +241,7 @@ The final wireframe was then developed for Option 2 using [Figma](https://www.fi
  </table>
 
 
-## Simulation Flow 
+## Simulation Flow Chart
 
 The actual simulation was required to be implemented using purely Javascript, as per definition of the scope of the project. 
 
@@ -492,7 +492,7 @@ Also, this website was developed using a `test-driven development` (TDD) approac
 
 -----
 
-### Solved Visualization Bugs
+### Solved Front-End Bugs
 
 Additionally, there was a multitude of bugs to be fixed for the visual display of the simulation. A collection of them will be discussed in the table below.  
 
