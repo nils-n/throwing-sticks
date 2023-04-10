@@ -202,14 +202,19 @@ Also, this website was developed using a `test-driven development` (TDD) approac
 - Functions related to drawing the `d3.js` outputs of the simulation such as`drawEmptyDisplay` or `drawMidlines` would either draw at wrong locations or log errors such as `Error: <svg> attribute width: Expected length, "NaN".` This was caused when calling it with a previous version of this function that would occasionaly use different global parameter such as `width` or `height` that would be overwritten at various points in the code. The soltuion was to refactor the code into a `DisplayConfiguration` class that handles the sizing and positioning of the elements on the screen (without actually drawing them). In this way, the `TDD` approach of implementing functions that use `d3.js` was still at least partially achieved.
 - During Manual Testing using the WebAIM Accessibility Checker, it turned out that the sliders did not have associated `aria` labels, which would make this website impossible to interact for users with visual impairments. Adding the apropriate `aria-labels`, the validation passes. 
 
+-----
+
 ### Solved Visualization Bugs
 
 Additionally, there was a multitude of bugs to be fixed for the visual display of the simulation. A collection of them will be discussed in the table below.  
 
 | #     | Bug Decription       | Solution | Result |
 | -------- |:------------:| ------:|------:|
-| 1     |   The sticks were simulated correctly, but not distributed on screen   |  introduce a `sector` property of the `Stick` class that assigns a stick randomly to a sector between midlines. Since the simulation takes place with 0 and 1, this is just a cosmetic operation to make the output look nicer.  | <img src="./assets/testing/solved-issues/1-not-distributed.png" alt="image of W3C Html Validation result" >   |
-
+| 1     |   The sticks were simulated correctly, but not distributed on screen   |  introduce a `sector` property of the `Stick` class that assigns a stick randomly to a sector between midlines. Since the simulation takes place with 0 and 1, this was just a cosmetic operation to make the output look nicer.  | <img src="./assets/testing/solved-issues/1-not-distributed.png" alt="image of W3C Html Validation result" style="min-width:400px">   |
+| 2    |   SVG of first diagram does not use full width of parent container  | update `width` of SVG from a hard-coded `200px` to use global `window.clientWidth` property  | <img src="./assets/testing/solved-issues/2-small-svg.png" alt="image of W3C Html Validation result" style="min-width:400px">   |
+| 3   |  After translating the sticks to their position , `d3-rotate` would rotate around svg origin (0,0) | add for rotating not in the origin, do `d3-translate` first and then `d3-rotate` to adjust center of rotation for `d3` | <img src="./assets/testing/solved-issues/3-wrong-rotation.png" alt="image of W3C Html Validation result" style="min-width:400px">   |
+| 4   |  First and last midline would fit only half of their stroke width in the SVG | add `viewBox` property to the `d3` SVG selector | <img src="./assets/testing/solved-issues/4-first-last-midline.png" alt="image of W3C Html Validation result" style="min-width:400px">   |
+ 
 
 ### open Bugs 
 
