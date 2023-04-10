@@ -112,6 +112,23 @@ A neutral colour tone was selected to create an inviting, positive atmosphere. T
 
 ### Typography
 
+Classic Fonts were selected to add to a professional, clean tone. Font pairs were generated using [Fontjoy](https://fontjoy.com/). Font chosen were : 
+
+
+- For the main heading  (`<h1>` element)  : Catamaran, Font-weight 900, Font-size 3.5 rem
+-  For sub-headings ( `<h2>` - `<h6>`): Musli , Font-weight 700, Font-size 3 rem
+- For text on the body  : Roboto Slab, Font-weight 400, Font-size , 1.2 rem
+
+
+<p align="center">
+<img src="./assets/images/fonts-throwing-sticks.png"
+     alt="Image with screenhot about selecting fonts for this project using Fontjoy website "
+     style="max-width:800px" >
+</p>
+
+
+
+
 ### Imagery 
 
 ### Wireframes
