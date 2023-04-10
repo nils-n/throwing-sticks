@@ -273,6 +273,16 @@ Additionally, there was a multitude of bugs to be fixed for the visual display o
     <td>The problem was that the simulation runs with values between 0 and 1, which is a midlines and the middle position to the next midline. Adding only a random sector is therefore not enough to display the simulated positions in an equally distribued fashion. The soltion was to add a `mappedPosition` property and a `mapPositionIntoFirstSector` method to account for mirrored positions for sticks that land on the unused half between midlines.  </td>
     <td><img src="./assets/testing/solved-issues/9-not-all-positions-used.png" alt="image of bug" ></td>
 </tr>
+
+<tr>
+    <td>10</td>
+    <td>After pressing the 'reset' button of the first diagram, the text around it would not update </td>
+    <td>Adding to the event listener of the 'reset' buttons instructions to update the 'span' elements that count the 'red' and 'green' sticks, and the total number of sticks.  </td>
+    <td><img src="./assets/testing/solved-issues/10-reset-diagram-but-not-text-2.png" alt="image of bug" ></td>
+</tr>
+
+
+
 </table>
 
 ----- 
@@ -282,7 +292,7 @@ Additionally, there was a multitude of bugs to be fixed for the visual display o
 Going through manual testing of the application, I encountered a few bugs that i decided to leave unsolved, but documented. These bugs 
 - do not affect the correctness of the simulation
 - are only minor display issues that would probably be resolved when switching to a more appropriate front-end framework such as `vue` or `react`. 
-- For the scope of the project, I marked these bugs as not not significant. 
+- are not significant regarding the scope of the project. 
 
 <table style="width:100%">
     <tr>
@@ -304,6 +314,8 @@ Going through manual testing of the application, I encountered a few bugs that i
         <td>This has something to do how `d3.js` draws elements onto an svg. Eventually this should be handled better by setting appropriate margins and the use of `d3-translate` but this seemed not a trivial operation, outside the scope of the project. </td>
         <td> <img src="./assets/testing/unsolved-issues/bug2-min-position-outside-canvas.png"; alt="image of bug"></td>
     </tr>
+
+
 
     
 </table>
