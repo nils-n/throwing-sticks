@@ -281,7 +281,16 @@ Additionally, there was a multitude of bugs to be fixed for the visual display o
     <td><img src="./assets/testing/solved-issues/10-reset-diagram-but-not-text-2.png" alt="image of bug" ></td>
 </tr>
 
+  <tr>
+        <td>11</td>
+        <td>The SVG with the scatter plot of the third diagram does not use full width of its parent div</td>
+        <td> The svg used its initial value of `width:200` and `height:300`. The solution was to update this property with 'window.clientWidth' and `window/clientHeight`</td>
+        <td> <img src="./assets/testing/solved-issues/11-scatterplot-is-scattered.png"; alt="image of bug"></td>
+    </tr>
 
+
+
+    
 
 </table>
 
@@ -315,9 +324,6 @@ Going through manual testing of the application, I encountered a few bugs that i
         <td> <img src="./assets/testing/unsolved-issues/bug2-min-position-outside-canvas.png"; alt="image of bug"></td>
     </tr>
 
-
-
-    
 </table>
 
 ---- 
