@@ -180,7 +180,7 @@ At the beginning of this project, several options for the Front-End Layout were 
 - Option 1 was excluded with the following reasoning : although it looked professional, the general tone was cold and not in line with the intention of an alternative, fun education. Also, if you throw sticks, they would not stick on a chalkboard and follow gravity, so it would give the website a little too abstract touch.
 - Between Option 2 and 3,  just personal preference. 
 
-### Front-End 
+### Final Wireframe 
 
 The final wireframe was then developed for Option 2 using [Figma](https://www.figma.com/), using a mobile-first approach. 
 
@@ -199,10 +199,36 @@ The final wireframe was then developed for Option 2 using [Figma](https://www.fi
  </table>
 
 
-
-
-
 ## Simulation Flow 
+
+The actual simulation was required to be implemented using purely Javascript, as per definition of the scope of the project. 
+
+As this project had a certain level of complexity, it was decided to split the problem into smaller problems, and then to find solutions for each of those smaller problems, namely 
+- Simulating a single stick 
+- Running a simulation for the behavious of a collection of sticks 
+- Evaluating the results of these simulation to estimate  $\pi$ by counting sticks and doing basic math operations
+- Visualizing the results of this process
+
+The most natural way of structuring the data and objects were to use `classes` in Javascript. The selection of `class` and their interactivtiy with the user was documented in the following diagram, created with [Figma](https://www.figma.com/). 
+
+<p align="center">
+<img src="./assets/images/wireframes/flowchart-sticks-v2.png"
+     alt="Image with wirefram for the logic of the simualtion and display of elements on the website "
+     width=100%>
+</p>
+
+
+In this diagram, four main user events were taken into account : 
+- User visits the page. This event would be caught by listening to the `DOMContentLoaded`. This event creates empty Simulation and Diagrams on the Canvas.
+- User clicks on 'Throw Button'. 
+    - This event first interacts with the Simulation event to simulate a new Sticks. 
+    - Once the simulation is finished, it would fire another event to inform the display object and the Calculator that simulation was finished and the estimation of  $\pi$ can be updated 
+    - The display will then start updating the drawn elements
+    - The calculator object will then update its estimation of $\pi$ taking into account the new Sticks
+- User clicks on 'Clear Button' : This should send an event to infom the `Simulation`, the `Calculator` and the `Display` to reset the values and the diagrams to its original state 
+- User moves slider to increase number of sticks per throw : The `change` event should inform the `Simulation` to use a different number of added sticks for the next time the user presses the `Throw` button 
+
+I am very thankful at this point to my mentor Ronan (Code Insitute) for having a very insightful discussion about how to split a problem like this into chuncks to make it approachable. 
 
 
 ----- 
