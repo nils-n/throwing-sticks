@@ -288,6 +288,12 @@ Additionally, there was a multitude of bugs to be fixed for the visual display o
         <td> <img src="./assets/testing/solved-issues/11-scatterplot-is-scattered.png"; alt="image of bug"></td>
     </tr>
 
+  <tr>
+        <td>12</td>
+        <td>The Slider of the third diagram would overflow on small screens (i.e. 320px)</td>
+        <td> Add a media query to the CSS stylesheet to handle the parents' grid properties 'grid-auto-flow' differently for small screens </td>
+        <td> <img src="./assets/testing/solved-issues/12-mobile-overflow.png"; alt="image of bug"></td>
+    </tr>
 
 
     
