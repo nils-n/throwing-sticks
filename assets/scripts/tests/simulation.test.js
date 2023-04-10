@@ -235,7 +235,7 @@ describe( `Class ${Simulation.name}`, () => {
         expect( model.stickCounter.green ).toBe( randomNumberGreenSticks );
     });
 
-    xtest('estimated value of Pi should be somehow close to actual value', () => {
+    test('estimated value of Pi should be somehow close to actual value', () => {
         const numberOfRepetitions = 10000;
         for (let i = 0; i < numberOfRepetitions ; i++) {
             model.addNewRandomStick();
