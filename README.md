@@ -126,10 +126,22 @@ Classic Fonts were selected to add to a professional, clean tone. Font pairs wer
      style="max-width:800px" >
 </p>
 
+### Imagery
+
+The main image on the top of the page was selected to be a top view of a desk. The intention of this view was to create an impression that this simulation could be replicated right in front of the user. In earlier Wireframes, the simulation was in front of a school chalk board to convey the educational purpose of the website - but it was decided that thrown sticks should follow gravity, hence the view from above. 
+
+The approach to find an approprate image was : 
+
+- go to  [Pexels](https://pexels.com/) platform 
+-  searched with key word 'Desk from above'
+- chosen image from the selection that seemed best to my liking. 
 
 
-
-### Imagery 
+<p align="center">
+<img src="./assets/images/free-blue-retractable-pen-on-top-of-notebook-near-magic-keyboard-stock-small-compressed.jpg"
+     alt="Image with screenhot about selecting fonts for this project using Fontjoy website "
+     width=50%>
+</p>
 
 ### Wireframes
 
