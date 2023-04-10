@@ -17,7 +17,7 @@ The main Testing document can be found here : [Numbers Testing Results](/assets/
     - [Results A11y Color Test](#results-a11y-color-test)
     - [Results Google Lighthouse ](#results-chrome-lighthouse)
 - [Tests of User Stories ](#tests-of-user-stories)
-- [Tests for Usability ](#tests-for-usability)
+- [Tests for Compatibility ](#tests-for-compatibility)
 - [ Issues Found During Testing ](#issues-found-during-testing)
 
 ---
@@ -140,11 +140,26 @@ Performance Score is a little low but for the scope of the project in an accepta
 
 -----
 
-## Tests for Usability 
+## Tests for Compatibility 
+
+The website has been tested for compatibility between browsers, and that the website is responsive and displays correctly on all screen sizes as specified during the design stage. All tests passed. 
+
+<p align="center">
+<img src="./assets/testing/functionality-compatibility.png"
+     alt="Image with preview of Excel testing results of the usability"
+     style="max-width:800px" >
+</p>
 
 -----
 
 ## Issues Found During Testing 
+
+This section is to document any bugs found during testing of the website. 
+
+
+
+
+
 
 --- 
 
