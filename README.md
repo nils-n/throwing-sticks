@@ -221,8 +221,11 @@ Additionally, there was a multitude of bugs to be fixed for the visual display o
 | 2    |   SVG of first diagram does not use full width of parent container  | update `width` of SVG from a hard-coded `200px` to use global `window.clientWidth` property  | <img src="./assets/testing/solved-issues/2-small-svg.png" alt="image of bug" style="min-width:400px">   |
 | 3   |  After translating the sticks to their position , `d3-rotate` would rotate around svg origin (0,0) | add for rotating not in the origin, do `d3-translate` first and then `d3-rotate` to adjust center of rotation for `d3` | <img src="./assets/testing/solved-issues/3-wrong-rotation.png" alt="image of bug" style="min-width:400px">   |
 | 4   |  First and last midline would fit only half of their stroke width in the SVG | add `viewBox` property to the `d3` SVG selector | <img src="./assets/testing/solved-issues/4-first-last-midline.png" alt="image of bug" style="min-width:400px">   |
-| 5  | The color of a stick on the screen would not match the expected color  | this was actually not just a simple fix. It had to do with `stickLengthOnScreen` and `distanceBetweenMidLines`. The actual solution consisted in creating a `DisplayConfiguration` class that handles the lenghts. Here, `TDD` helped a lot since i could just test stick positions that i `knew` the color of : for example, the position of the midline itself or the position in the middle of two midlines - sticks are `always` green there no matter the angle.  | <img src="./assets/testing/solved-issues/5-wrong-scaling-x.png" alt="image of bug" style="min-width:400px">   |
+| 5   |  The displayed stick lenght would be too short | fix error : axial radius of `d3-ellipse` was scaled by `2`. After removing, sticks displayed correctly. | <img src="./assets/testing/solved-issues/7-stick-length.png" alt="image of bug" style="min-width:400px">   |
+| 6  | The color of a stick on the screen would not match the expected color  | this was actually not just a simple fix. It had to do with `stickLengthOnScreen` and `distanceBetweenMidLines`. The actual solution consisted in creating a `DisplayConfiguration` class that handles the lenghts. Here, `TDD` helped a lot since i could just test stick positions that i `knew` the color of : for example, the position of the midline itself or the position in the middle of two midlines - sticks are `always` green there no matter the angle.  | <img src="./assets/testing/solved-issues/5-wrong-scaling-x.png" alt="image of bug" style="min-width:400px; max-width:500px">   |
  
+
+
 
 ### open Bugs 
 
