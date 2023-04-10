@@ -85,13 +85,14 @@ In the table below the outputs of the JSHint Validation results. No significant 
 In the screenshot below the outputs of the Jest Unit Test results. No errors occured. Code Coverage of the tests are not 100% but that is justified for this project since 
 - Large parts of the front-ent are not included in the unit tests due to the use `d3.js` outside of a dedicated Front-end frameworks such as `vue` or `react` (as reasoned above) 
 - The tests istself were not the strictest - being mindful about the time to complete this project I decided to have some of the functionality tested manually
-- it is not within the assessment criteria of the projecct 
+- it is not within the assessment criteria of the project
+- A code coverage summary can be found [Here](./coverage/lcov-report/index.html)
 
 
 | Page     | Output       | Result |
 | -------- |:------------:| ------:|
 | Results     | <img src="./assets/testing/unit-test-results.png" alt="image of output from Jest Unit Test" >  | Pass   |
-| Coverage   |  <img src="assets/testing/unit-test-coverage.png" alt="image of output from Jest Unit Test using --coverage argument" >  | Pass   |
+| Coverage   |  <img src="assets/testing/unit-test-coverage-2.png" alt="image of output from Jest Unit Test using --coverage argument" >  | Pass   |
 
 
 -----
