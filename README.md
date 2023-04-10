@@ -240,7 +240,32 @@ I am very thankful at this point to my mentor Ronan (Code Insitute) for having a
 
 ### General Features 
 
+The website consits of a single page, and a 404 page. Each page has a Favicon icon in the browser tab, and  all pages are responsive.
+
 ### Main Page 
+
+Top Diagram : 
+- The  diagram on the top is the entry point of the website with a heading , small text and interactive elements with a Call-to-Action (CTA). 
+- The intention is to create an emotion of curiosity, and to inform the user that that this website will be a **story**, also by using the phrase "Once upon a time, ..."
+- The first CTA encourages the user to throw a stick on the canvas 
+- The second CTA allows the the user to remove all sticks, to start again
+- the slider allows the user to playfully adjust the number of sticks per throw 
+
+<table style="height:90%">
+    <tr>
+        <th> Landing Page </th>
+    </tr>
+    <tr>
+        <td> <img src="./assets/images/features/landing-page.png"; alt="screenshot of the landing page of the website" >  </td>
+    </tr>
+</table>
+
+
+
+Second Diagram 
+
+Third Diagram 
+
 
 #### 404 Page 
 
@@ -489,10 +514,10 @@ Going through manual testing of the application, I encountered a few bugs that i
         <td>The simulation uses angles from 0 to 180, but the diagram shows angles from 0 to 90. It's just that this curve is nicer to look at in this range. Plotting this curve from 0 to 180 would lead to a mirrored curve that adds more to confusion than it helps to understand the point of the diagram. With more time, i could have mapped the simulated angles from 90 to 180 into the diagram - but again, I don't have the time to properly develop the tests for that, and it would not add any extra value.</td>
         <td> <img src="./assets/testing/unsolved-issues/bug3-less-datapoints.png"; alt="image of bug"></td>
     </tr>
-   
-
 </table>
 
+- Another bug that still needs to be fixed before submission is that the stick counter of the first diagram does not reset to `Zero` when clicking the `reset` button 
+ 
 ---- 
 
 ## Credits 
