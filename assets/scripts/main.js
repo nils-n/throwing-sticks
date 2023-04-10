@@ -45,8 +45,6 @@ document.getElementById('hero-throw').addEventListener( "click", function() {
     // count the number of sticks
     const totalNumberOfSticks = simulation.sticks.length;
 
-    
-
     //draw the first fiagram 
     drawFirstDiagram(  simulation );
 
@@ -72,6 +70,15 @@ document.getElementById('hero-throw').addEventListener( "click", function() {
 
     // add to last diagragm
     document.getElementById('total-sticks').innerHTML = `${totalNumberOfSticks}`;
+
+    // add a little advice to the last diagram - with very few numbers of sticks, the figure is not very explanatory.
+    let friendlyReminder = "";
+    if ( totalNumberOfSticks < 120 )  {
+        friendlyReminder =  `
+            <bold> Tip : </bold> You are using currently ${totalNumberOfSticks} Sticks. This Figure looks much nicer with more sticks! How about you throw more sticks? 
+        `;
+    } 
+    document.getElementById('little-advice').innerHTML = friendlyReminder;
 
 });
 
