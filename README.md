@@ -211,12 +211,15 @@ As this project had a certain level of complexity, it was decided to split the p
 
 The most natural way of structuring the data and objects were to use `classes` in Javascript. The selection of `class` and their interactivtiy with the user was documented in the following diagram, created with [Figma](https://www.figma.com/). 
 
-<p align="center">
-<img src="./assets/images/wireframes/flowchart-sticks-v2.png"
-     alt="Image with wirefram for the logic of the simualtion and display of elements on the website "
-     width=100%>
-</p>
 
+<table style="height:90%">
+    <tr>
+        <th> Flow Chart - Javascript</th>
+    </tr>
+    <tr>
+        <td> <img src="./assets/images/wireframes/flowchart.png"; alt="flowchart of the javscript objects" >  </td>
+    </tr>
+</table>
 
 In this diagram, four main user events were taken into account : 
 - User visits the page. This event would be caught by listening to the `DOMContentLoaded`. This event creates empty Simulation and Diagrams on the Canvas.
