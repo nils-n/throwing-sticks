@@ -193,6 +193,24 @@ document.getElementById('explain-rotate').addEventListener( 'input', function() 
 
  });
 
+ // to address TC10 : thrid diagram not resizing when changing window size of browser 
+ window.addEventListener( 'resize', function () {
+    console.log('window size has changed! ')
+
+     //  update the scatter plot on the third panel 
+     const tempDisplayConfiguration = DisplayConfiguration.from( displayConfiguration );
+     const scatterDiagram = document.getElementById('scatter-diagram');
+ 
+     tempDisplayConfiguration.height = scatterDiagram.clientHeight ;
+     tempDisplayConfiguration.width = scatterDiagram.clientWidth;
+     tempDisplayConfiguration.displaySelector = '#scatter-diagram';
+ 
+     svgScatter = drawEmptyDiagram( tempDisplayConfiguration );
+     drawScatterDiagram( sticks, svgScatter, tempDisplayConfiguration );
+
+
+ })
+
 // refactor code to remove duplicated code 
 function drawSecondDiagram( stick ) {
 
