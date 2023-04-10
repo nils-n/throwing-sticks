@@ -58,10 +58,6 @@ function drawEmptyDiagram( displayConfiguration ) {
     // for now just extract the height from the mock configuration
     const { width , height, margin, displaySelector, spaceAtBorder } = displayConfiguration;
 
-    console.log(`enter drawEmptyDiagram now, height is ${height}, width is ${width}`);
-
-    console.log(displaySelector);
-
     // create empty svg
     d3.select( displaySelector)
         .select('svg')
@@ -184,10 +180,6 @@ function drawScatterDiagram ( sticks, svgScatter, tempDisplayConfiguration ) {
     // reduce the height to make room for axes 
     height -= 50;
     width  -= 50;
-
-    console.log('enterScatterDiagram . This is the displaySelector');
-    console.log(height);
-    console.log(displaySelector);
 
     // prepare the data to be plotted
     // we will just look at the angles between 0 and 90 for this visualization. The other half of 90 to 180 degrees is just mirrored.

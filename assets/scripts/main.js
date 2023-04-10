@@ -42,6 +42,11 @@ document.getElementById('hero-throw').addEventListener( "click", function() {
     simulation.assignColours();
     simulation.estimatePi();
 
+    // count the number of sticks
+    const totalNumberOfSticks = simulation.sticks.length;
+
+    
+
     //draw the first fiagram 
     drawFirstDiagram(  simulation );
 
@@ -66,7 +71,6 @@ document.getElementById('hero-throw').addEventListener( "click", function() {
     drawThirdDiagram( displayConfiguration )
 
     // add to last diagragm
-    const totalNumberOfSticks = simulation.sticks.length;
     document.getElementById('total-sticks').innerHTML = `${totalNumberOfSticks}`;
 
 });
