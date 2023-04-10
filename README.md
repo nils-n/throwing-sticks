@@ -216,48 +216,48 @@ Also, this website was developed using a `test-driven development` (TDD) approac
 
 Additionally, there was a multitude of bugs to be fixed for the visual display of the simulation. A collection of them will be discussed in the table below.  
 
-<table>
+<table style="width:100%">
     <tr>
-        <td>#</td>
-        <td>Bug Decription</td>
-        <td>Solution</td>
-        <td>Result</td>
+        <th>#</th>
+        <th>Bug Decription</th>
+        <th>Solution</th>
+        <th style="width:40%">Result</th>
     </tr>
     <tr>
         <td>1</td>
         <td>The sticks were simulated correctly, but not distributed on screen</td>
         <td>introduce a `sector` property of the `Stick` class that assigns a stick randomly to a sector between midlines. Since the simulation takes place with 0 and 1, this was just a cosmetic operation to make the output look nicer.</td>
-        <td> <img src="./assets/testing/solved-issues/1-not-distributed.png"; alt="image of bug"; style="min-width:400px"></td>
+        <td> <img src="./assets/testing/solved-issues/1-not-distributed.png"; alt="image of bug"></td>
     </tr>
     <tr>
         <td>2</td>
         <td>SVG of first diagram does not use full width of parent container</td>
         <td>update `width` of SVG from a hard-coded `200px` to use global `window.clientWidth` property</td>
-        <td><img src="./assets/testing/solved-issues/2-small-svg.png" alt="image of bug" style="min-width:400px">;</td>
+        <td><img src="./assets/testing/solved-issues/2-small-svg.png" alt="image of bug" ></td>
     </tr>
     <tr>
         <td>3</td>
         <td>After translating the sticks to their position , `d3-rotate` would rotate around svg origin (0,0)</td>
         <td>add for rotating not in the origin, do `d3-translate` first and then `d3-rotate` to adjust center of rotation for `d3`</td>
-        <td><img src="./assets/testing/solved-issues/3-wrong-rotation.png" alt="image of bug" style="min-width:400px">;</td>
+        <td><img src="./assets/testing/solved-issues/3-wrong-rotation.png" alt="image of bug" ></td>
     </tr>
     <tr>
         <td>4</td>
         <td>First and last midline would fit only half of their stroke width in the SVG</td>
         <td>add `viewBox` property to the `d3` SVG selector</td>
-        <td><img src="./assets/testing/solved-issues/4-first-last-midline.png" alt="image of bug" style="min-width:400px">;</td>
+        <td><img src="./assets/testing/solved-issues/4-first-last-midline.png" alt="image of bug" ></td>
     </tr>
     <tr>
         <td>5</td>
         <td>The displayed stick lenght would be too short</td>
         <td>fix error : axial radius of `d3-ellipse` was scaled by `2`. After removing, sticks displayed correctly.</td>
-        <td><img src="./assets/testing/solved-issues/7-stick-length.png" alt="image of bug" style="min-width:400px">;</td>
+        <td><img src="./assets/testing/solved-issues/7-stick-length.png" alt="image of bug" ></td>
     </tr>
     <tr>
         <td>6</td>
         <td>The color of a stick on the screen would not match the expected color</td>
         <td>this was actually not just a simple fix. It had to do with `stickLengthOnScreen` and `distanceBetweenMidLines`. The actual solution consisted in creating a `DisplayConfiguration` class that handles the lenghts. Here, `TDD` helped a lot since i could just test stick positions that i `knew` the color of : for example, the position of the midline itself or the position in the middle of two midlines - sticks are `always` green there no matter the angle.</td>
-        <td><img src="./assets/testing/solved-issues/5-wrong-scaling-x.png" alt="image of bug" style="width:400px; max-width:500px">;</td>
+        <td><img src="./assets/testing/solved-issues/5-wrong-scaling-x.png" alt="image of bug" ></td>
     </tr>
 </table>
 
