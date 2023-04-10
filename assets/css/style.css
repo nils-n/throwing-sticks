@@ -160,10 +160,17 @@ p {
 .slidecontainer {
     display: grid;
     place-content: center;
-    grid-auto-flow: column;
-    gap: 3rem;
     padding: 1rem 0 1rem;
 }
+
+/* to address TC11 - slider on first diagram overflows   */
+@media (min-width: 800px) {
+    .slidecontainer {
+        grid-auto-flow: column;
+        gap: 3rem;  
+    }
+}
+
 
 .placeholder-background {
     background-color: beige;
