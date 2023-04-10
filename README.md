@@ -256,7 +256,10 @@ Top Diagram
         <th> Landing Page </th>
     </tr>
     <tr>
-        <td> <img src="./assets/images/features/landing-page.png"; alt="screenshot of the landing page of the website" >  </td>
+        <td> <img src="./assets/images/features/landing-page.png"; alt="screenshot of the landing page of the website, 0 sticks on the canvas" >  </td>
+    </tr>
+     <tr>
+        <td> <img src="./assets/images/features/landing-page-2.png"; alt="screenshot of the landing page of the website, 20 sticks on the canvas" >  </td>
     </tr>
 </table>
 
