@@ -30,6 +30,13 @@
     <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Catamaran:wght@700&family=Mulish:wght@700&family=Roboto+Slab&display=swap" />
     </noscript>
+
+       <!-- import js   -->
+      <!-- loading all with defer to increase lighthouse performance, from  https://web.dev/codelab-optimize-third-party-javascript/ -->
+        <script src="https://d3js.org/d3.v7.min.js" defer ></script>
+        <script src="./assets/scripts/external-d3.js"  defer ></script>
+        <script src="./dist/main.js" defer></script>
+
   </head>
 
   <body>
@@ -189,14 +196,6 @@
         </p>
       </div>
     </main>
-
-       <!-- import js   -->
-      <!-- loading all with defer to increase lighthouse performance, from  https://web.dev/codelab-optimize-third-party-javascript/ -->
-      <!-- this is just to fullfill pass criteria L04-7 - it actually decreased Lighthouse performance to 82% in my browser. Loading
-      it inside the <head> section with a defer property would have increased the score to 86%.  To be on the safe side, I leave this unoptimized version with that remark here.   -->
-      <script src="https://d3js.org/d3.v7.min.js"  ></script>
-    <script src="./assets/scripts/external-d3.js"  ></script>
-    <script src="./dist/main.js" ></script>
 
   </body>
 </html>
