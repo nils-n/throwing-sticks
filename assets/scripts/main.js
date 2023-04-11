@@ -106,11 +106,11 @@ document.getElementsByClassName('slider')[0].addEventListener( 'change', functio
 
     // reset also the text on the first diagram 
     span = document.getElementById('red-sticks');
-    span.innerHTML = `<bold> ${simulation.stickCounter.red}  </bold>`;
+    span.innerHTML = `<bold> 0  </bold>`;
 
     //display total number of sticks used in the simulation
     span = document.getElementById('green-sticks');
-    span.innerHTML = `<bold> ${simulation.stickCounter.green}  </bold>`;
+    span.innerHTML = `<bold> 0  </bold>`;
 
     // reset also second text
     document.getElementById('more-than-3').innerHTML = " <br><br>";
@@ -119,7 +119,8 @@ document.getElementsByClassName('slider')[0].addEventListener( 'change', functio
     document.getElementById('total-sticks').innerHTML = "";
 
     // add to last diagragm
-    document.getElementById('total-sticks').innerHTML = `0`;
+    document.getElementById('red-sticks').innerHTML = `0`;
+    document.getElementById('green-sticks').innerHTML = `0`;
 
     // add a little advice to the last diagram - with very few numbers of sticks, the figure is not very explanatory.
     const friendlyReminder =  `

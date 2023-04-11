@@ -491,6 +491,8 @@ Also, this website was developed using a `test-driven development` (TDD) approac
 
 - adding the `aria-valuemin` and `aria-valuemax`  to the sliders in order to increase accessiblity of the site made the website fail the W2C HTML validation. The errors were : `Error: The aria-valuemin attribute must not be used on an element which has a min attribute.`. This problem was solved according [W3C : ARIA in HTML - test cases for aria-valuemin](https://w3c.github.io/html-aria/tests/min-test.html) by removing the these attributes again, and instead use only the attribute `aria-valuenow`for all sliders.
 
+- When clicking the `reset` button of the first diagram,  the stick counter in the text below would not reset to `0` for both red and green sticks. The solution was to explicitly set these values to zero in the `eventListener` function that is attached to the `reset` button.
+
 -----
 
 ### Solved Front-End Bugs
@@ -618,8 +620,7 @@ Going through manual testing of the application, I encountered a few bugs that i
     </tr>
 </table>
 
-- Another bug that still needs to be fixed before submission is that the stick counter of the first diagram does not reset to `Zero` when clicking the `reset` button 
- 
+
 ---- 
 
 ## Credits 
