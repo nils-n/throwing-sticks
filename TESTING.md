@@ -131,7 +131,7 @@ Performance Score is a little low but for the scope of the project in an accepta
 | -------- |:------------:| 
 | Main   | <img src="./assets/testing/validation-lighthouse.png" alt="image of result of chrome lighthouse test" >  | 
 |        |  Performance scores a bit low.  Lighthouse suggests to serve static assets with an efficient cache policys. | 
-| 404   |  <img src="./assets/testing/404-lighthouse.png" alt="image of result of chrome lighthouse test" >  | 
+| 404   |  <img src="./assets/testing/404-lighthouse-test.png" alt="image of result of chrome lighthouse test" >  | 
 |        |  Performance scores a bit low. Lighthouse suggests to serve static assets with an efficient cache policys. | 
 
 -----
