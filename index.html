@@ -194,6 +194,8 @@
 
        <!-- import js   -->
       <!-- loading all with defer to increase lighthouse performance, from  https://web.dev/codelab-optimize-third-party-javascript/ -->
+      <!-- this is just to fullfill pass criteria L04-7 - it actually decreased Lighthouse performance to 82% in my browser. Loading
+      it inside the <head> section with a defer property would have increased the score to 86%.  To be on the safe side, I leave this unoptimized version with that remark here.   -->
       <script src="https://d3js.org/d3.v7.min.js"  ></script>
     <script src="./assets/scripts/external-d3.js"  ></script>
     <script src="./dist/main.js" ></script>
