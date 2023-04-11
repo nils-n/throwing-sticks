@@ -66,7 +66,7 @@ document.getElementById('hero-throw').addEventListener( "click", function() {
     }
 
     //  update the scatter plot on the third panel 
-    drawThirdDiagram( displayConfiguration )
+    drawThirdDiagram( displayConfiguration );
 
     // add to last diagragm
     document.getElementById('total-sticks').innerHTML = `${totalNumberOfSticks}`;
@@ -202,15 +202,14 @@ document.getElementById('explain-rotate').addEventListener( 'input', function() 
 
  // to address TC10 : thrid diagram not resizing when changing window size of browser 
  window.addEventListener( 'resize', function () {
-    console.log('window size has changed! ')
 
     //draw the first fiagram 
     drawFirstDiagram(  simulation );
 
     //resize the elements of the scatter plot
-    drawThirdDiagram( displayConfiguration)
+    drawThirdDiagram( displayConfiguration);
 
- })
+ });
 
  // refactor code to remove duplicate code 
  function drawThirdDiagram( displayConfiguration ) {
@@ -273,7 +272,7 @@ function drawSecondDiagram( stick ) {
 /**
  * This function is to draw the first diagram on the main panel 
  */
-function drawFirstDiagram ( simulation,  ) {
+function drawFirstDiagram ( simulation  ) {
 
     // https://stackoverflow.com/questions/5113374/javascript-check-if-variable-exists-is-defined-initialized
     let sticks = [];
