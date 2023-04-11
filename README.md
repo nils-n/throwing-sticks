@@ -638,6 +638,7 @@ Going through manual testing of the application, I encountered a few bugs that i
 - D3.js Tutorial about general D3.Js aspects including Translation and Rotation of Elements : [Link](https://www.tutorialspoint.com/d3js/d3js_svg_transformation.htm) 
 - General Tutorial for d3.js : [Link](https://d3-graph-gallery.com/intro_d3js.html)
 - To improve Google Lighthouse Performance : [The optimal way to load fonts - CSS Tricks](https://css-tricks.com/how-to-load-fonts-in-a-way-that-fights-fout-and-makes-lighthouse-happy/)
+- Faster loading of external javascript for better Lighthouse Perfomance [Optimize third-party JavaScript](https://web.dev/codelab-optimize-third-party-javascript/)
 
 ### Content 
 

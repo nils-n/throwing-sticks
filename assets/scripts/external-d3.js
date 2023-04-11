@@ -1,5 +1,3 @@
-console.log(`->OK now let's test some D3.`);
-
 /**
  * These functions use d3.js library to render the sticks on the display
  * // based on https://d3-graph-gallery.com/intro_d3js.html

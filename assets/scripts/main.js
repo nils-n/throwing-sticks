@@ -93,7 +93,6 @@ document.getElementsByClassName('slider')[0].addEventListener( 'change', functio
 // listener to the clear button to remove the elements of the sticks array
  document.getElementById('hero-reset').addEventListener( 'click', function() { 
 
-    console.log('Reset Button pushed - Removing all elements from Display');
     sticks = [];
     simulation.sticks = [];
     svg = drawEmptyDiagram( displayConfiguration );
@@ -179,8 +178,6 @@ document.getElementById('explain-rotate').addEventListener( 'input', function() 
  // https://developer.mozilla.org/en-US/docs/Web/API/Window/DOMContentLoaded_event
  window.addEventListener( 'DOMContentLoaded', function() {
 
-      console.log("DOM fully loaded and parsed");
-
       //create an display of a stick based on the initial slider position 
       const stick = new Stick(  {  
                 "position": document.getElementById('explain-move').value / 100, 
@@ -217,6 +214,12 @@ document.getElementById('explain-rotate').addEventListener( 'input', function() 
 
  // refactor code to remove duplicate code 
  function drawThirdDiagram( displayConfiguration ) {
+
+    // https://stackoverflow.com/questions/5113374/javascript-check-if-variable-exists-is-defined-initialized
+    let sticks = [];
+    if (typeof simulation.sticks !== 'undefined') {
+            sticks = simulation.sticks; 
+    } 
 
      //  update the scatter plot on the third panel 
      const tempDisplayConfiguration = DisplayConfiguration.from( displayConfiguration );
@@ -272,16 +275,15 @@ function drawSecondDiagram( stick ) {
  */
 function drawFirstDiagram ( simulation,  ) {
 
-    const totalNumberOfSticks = simulation.sticks.length;
-    const newPosition = simulation.sticks[totalNumberOfSticks-1].position;
-    const newOrientation = simulation.sticks[totalNumberOfSticks-1].orientation;
-    const newColour = simulation.sticks[totalNumberOfSticks-1].colour;
-    const newSector = simulation.sticks[totalNumberOfSticks-1].sector;
-    const newVerticalOffset= simulation.sticks[totalNumberOfSticks-1].verticalOffsetOnScreen;
-   
-    // for now, lets just assign the sticks to the result of the simulation 
-    sticks = simulation.sticks;
+    // https://stackoverflow.com/questions/5113374/javascript-check-if-variable-exists-is-defined-initialized
+    let sticks = [];
+    if (typeof simulation.sticks !== 'undefined') {
+            sticks = simulation.sticks; 
+    } 
+
+    // draw the elements 
     svg = drawEmptyDiagram( displayConfiguration );
     drawMidlines( svg , displayConfiguration  );
     drawSticks( svg,  sticks, displayConfiguration );
+
 }
