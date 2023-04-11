@@ -290,9 +290,9 @@ The website consits of a single page, and a 404 page. Each page has a Favicon ic
 Top Diagram  
 - The  diagram on the top is the entry point of the website with a heading , small text and interactive elements with a Call-to-Action (CTA). 
 - A story line is intoduced to the user. The intention is to create curiosity and to encourage some playful interactions with the interface 
-- A CTA encourages the user to throw a stick on the canvas 
-- A second CTA allows the the user to remove all sticks, to start again
-- A slider allows the user to adjust the number of sticks per throw 
+- A CTA encourages the user to throw a stick on the canvas by clicking on the  "Throw" Button. After clicking, a random stick appears on the diagram, either red or green, depending on whether it touches the midlines
+- A second CTA allows the the user to remove all sticks, to start again, by clicking on the "Reset" Button. After clicking, all sticks disappear.
+- A slider allows the user to adjust the number of sticks per throw. The current number of sticks per throw is displayed next to the slider, and updated after the slider is set to a new position.
 
 <table style="height:90%">
     <tr>
@@ -310,11 +310,13 @@ Top Diagram
 
 Second Diagram 
 - Continuation of the story and an interactive chart where the user can explore how a single stick moves 
-- The stick changes its color from green to red every time it touches a midline, introducing a learning effect 
 - User is encouraged to interact with the diagram : 
-    -  ... to rotate and change position of the stick and observe colour changes 
-    - ... to play with buttons to find the position where the stick will never turn `red`, no matter the angle 
-    - ... to play with buttons to find the position where the stick will never turn `green`
+    -  ... to rotate and change the orientation of the stick and observe colour changes 
+    - ... to play with the sliders to find the position where the stick will never turn `red`, no matter the angle 
+    - ... to play with the sliders to find the position where the stick will never turn `green`
+- When using the "Angle" slider, the stick on the screen rotates and changes its color to either red or green, wheter it touches the midline or not
+- When using the "Position" slider, the stick translates horizontally over the screen rotates and changes its color to either red or green, wheter it touches the midline or not
+- This goal of this diagram is to introduce a learning effect ('Aha'-effect) how the angle and position of a stick affect its color. 
 
 <table style="height:100%">
     <tr>
@@ -333,10 +335,10 @@ Third Diagram
     - x-axis is the angle of the current sticks 
     - y-axis is the position of the current sticks 
     - color of the point is whether this stick was painted as `red` or `green` on the first diagram
-- A red line is drawn that magically predicts how the two groups are separated  
-- This diagram should make the user realize about the value of $\pi$ 
+- A red line is drawn that predicts how the two groups are separated using the ground truth that is known by geometry (in a future release, the geometric proof for that could be added at this point)
+- This diagram should make the user realize about the value of $\pi$ , and that the apparent chaos from the first diagram has a clear, underlying order 
 - If the user has not thrown enough sticks (less than 120 sticks) , the user will be friendly encouraged to throw more sticks in order to see the pattern 
-- Story line encourages the user to understand the pattern that is in front of him 
+- Story line encourages the user to think about the pattern that is in front of them 
 - After that, the short story ends with a happy ending. 
  
 <table style="height:100%">
@@ -378,6 +380,7 @@ This page contains a friendly message that the 404 server error has occured.
 - visualize other interesting numbers such as $\phi$ (golden ratio) or Euler number $e$
 - implement some more interactive feedback to the user, for example when he has found the two special positions on the second diagram 
 - A second page with a more strict explanation why the likelihood of turning green or red has the value 1 / $\pi$ for the interested user  
+- Another extension could be to have a simulation that calculates pi to an arbitrary precision - this will not work in a browser any more, but could be done using a large-scale simulation (>10e6 sticks) on a back-end server 
 
 ### Accessibility
 
@@ -396,10 +399,10 @@ This page contains a friendly message that the 404 server error has occured.
 - Favicon for making a browser Icon [Link](https://favicon.io/favicon-converter/)
 - W3 Validation Tools for Testing [Link](https://validator.w3.org/)
 - Shields.io for adding badges this Readme file [Link](https://shields.io/)
-- [Markdown Beautifier](https://markdownbeautifier.com/#)  to format tables in Readme
+- [Markdown Beautifier](https://markdownbeautifier.com/#)  to format tables in this Readme
 - convert markdown tables to html via [HTML Table Converter](https://tableconvert.com/markdown-to-html)
 - Markdown [TOC Generator](https://ecotrust-canada.github.io/markdown-toc/)
-- Webp Image Compression Tool [Homepage](https://developers.google.com/speed/webp/docs/using)
+- [Webp Image Compression Tool](https://developers.google.com/speed/webp/docs/using) to decrease file size of the images
 - [Eagle](https://en.eagle.cool/) for organizing ideas and images
 
 ### Languages Used
@@ -410,6 +413,7 @@ This page contains a friendly message that the 404 server error has occured.
 
 ### Frameworks Used
 - [Jest](https://jestjs.io/) for Unit Testing 
+- [D3.js](https://d3js.org/) for Data Visualization
 
 ----- 
 
@@ -555,7 +559,7 @@ Additionally, there was a multitude of bugs to be fixed for the visual display o
  <tr>
     <td>9</td>
     <td>Not all positions on the display were used to display the simulation result. </td>
-    <td>The problem was that the simulation runs with values between 0 and 1, which is a midlines and the middle position to the next midline. Adding only a random sector is therefore not enough to display the simulated positions in an equally distribued fashion. The soltion was to add a `mappedPosition` property and a `mapPositionIntoFirstSector` method to account for mirrored positions for sticks that land on the unused half between midlines.  </td>
+    <td>The problem was that the simulation runs with values between 0 and 1. This interval maps to the range between the first midline and the middle between first and second midline. Adding only a random sector is therefore not enough to display the simulated positions in an equally distribued fashion. The soltion was to add a `mappedPosition` property and a `mapPositionIntoFirstSector` method to account for mirrored positions for sticks that land on the unused half between midlines.  </td>
     <td><img src="./assets/testing/solved-issues/9-not-all-positions-used.png" alt="image of bug" ></td>
 </tr>
 
@@ -586,7 +590,7 @@ Additionally, there was a multitude of bugs to be fixed for the visual display o
 
 ----- 
 
-### open Bugs 
+### Open Bugs 
 
 Going through manual testing of the application, I encountered a few bugs that i decided to leave unsolved, but documented. These bugs 
 - do not affect the correctness of the simulation
@@ -648,7 +652,7 @@ Going through manual testing of the application, I encountered a few bugs that i
 ## Acknowledgements
 - Teaching and Support from Code Insitute [Code Insitute](https://codeinstitute.net/)
     - Lesson "JavaScript Testing with Jest" and the testing approach of its "Simon" codealong Challenge
-    - Thanks to Sirinya for her code review feedback to improve Google Lighthouse Score  
+    - Thanks to Sirinya for her code review feedback ( Code Institute Slack channel #peer-code-review )  
 - Example Readme from Kera Cudmore [Kera's Github](https://github.com/kera-cudmore/readme-examples/blob/main/milestone1-readme.md)
 - Color Palette Generator from [Mycolor.space](https://mycolor.space/)
 - Font Generator from  [Fontjoy](https://fontjoy.com/)
