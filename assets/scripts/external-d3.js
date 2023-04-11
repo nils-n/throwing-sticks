@@ -61,7 +61,7 @@ const mockConfiguration = {
   },
 };
 
-svg = drawEmptyDiagram(mockConfiguration);
+let svg = drawEmptyDiagram(mockConfiguration);
 drawMidlines(svg, mockConfiguration);
 drawSticks(svg, sticks, mockConfiguration);
 
@@ -105,7 +105,6 @@ function drawEmptyDiagram(displayConfiguration) {
 function drawSticks(svg, sticks, displayConfiguration) {
   const {
     stickLengthOnScreen,
-    displaySelector,
     numberOfMidlines,
     width,
     height,
@@ -292,7 +291,7 @@ function drawScatterDiagram(sticks, svgScatter, tempDisplayConfiguration) {
   const y = d3.scaleLinear().domain([0, 0.5]).range([height, 0]);
 
   // create a second dataset with the true line that separates green and red
-  trueData = [];
+  let trueData = [];
   const maxAngle = 90;
   for (let i = 0; i < maxAngle; i++) {
     trueData.push({
