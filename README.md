@@ -391,7 +391,7 @@ This page contains a friendly message that the 404 server error has occured.
 - [Gitpod](https://www.gitpod.io/) cloud-based IDE
 -  [VS Code ](https://code.visualstudio.com/) as IDE for local devlopment  
 - Git / [Github](https://github.com/)  for Version Control 
-- Figma for Wireframs [Link](https://www.figma.com/)
+- Figma for Wireframs and Flowcharts [Link](https://www.figma.com/)
 - Mac OS Image Preview and [Skitch](https://apps.apple.com/us/app/skitch-snap-mark-up-share/id425955336?mt=12) for capture, crop and resize images 
 - Favicon for making a browser Icon [Link](https://favicon.io/favicon-converter/)
 - W3 Validation Tools for Testing [Link](https://validator.w3.org/)
@@ -400,6 +400,7 @@ This page contains a friendly message that the 404 server error has occured.
 - convert markdown tables to html via [HTML Table Converter](https://tableconvert.com/markdown-to-html)
 - Markdown [TOC Generator](https://ecotrust-canada.github.io/markdown-toc/)
 - Webp Image Compression Tool [Homepage](https://developers.google.com/speed/webp/docs/using)
+- [Eagle](https://en.eagle.cool/) for organizing ideas and images
 
 ### Languages Used
 
@@ -646,12 +647,13 @@ Going through manual testing of the application, I encountered a few bugs that i
 ## Acknowledgements
 - Teaching and Support from Code Insitute [Code Insitute](https://codeinstitute.net/)
     - Lesson "JavaScript Testing with Jest" and the testing approach of its "Simon" codealong Challenge
+    - Thanks to Sirinya for her code review feedback to improve Google Lighthouse Score  
 - Example Readme from Kera Cudmore [Kera's Github](https://github.com/kera-cudmore/readme-examples/blob/main/milestone1-readme.md)
 - Color Palette Generator from [Mycolor.space](https://mycolor.space/)
 - Font Generator from  [Fontjoy](https://fontjoy.com/)
 - Fonts from [Google Fonts](https://fonts.google.com/) 
-- Images from  [Pexels](https://pexels.com/) : 
-    - add refernce HERE once decided on final images 
+- Images from  [Pexels](https://pexels.com/) using [this image](https://www.pexels.com/photo/blue-retractable-pen-on-top-of-notebook-near-magic-keyboard-317355/) for main background 
+    - Photographer : [Lucas](https://www.pexels.com/@goumbik/) 
 - Kevin Powell's [Youtube](https://www.youtube.com/@KevinPowell) Channel: 
     - How to approach a design layout with Figma [Youtube Link](https://youtu.be/KYFwcIRx16g)
     - 6 simple typography tips to more professional looking sites [Link](https://youtu.be/6ardZEhjvV0)
