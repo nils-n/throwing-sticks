@@ -398,7 +398,8 @@ This page contains a friendly message that the 404 server error has occured.
 - Shields.io for adding badges this Readme file [Link](https://shields.io/)
 - [Markdown Beautifier](https://markdownbeautifier.com/#)  to format tables in Readme
 - convert markdown tables to html via [HTML Table Converter](https://tableconvert.com/markdown-to-html)
--  Markdown [TOC Generator](https://ecotrust-canada.github.io/markdown-toc/)
+- Markdown [TOC Generator](https://ecotrust-canada.github.io/markdown-toc/)
+- Webp Image Compression Tool [Homepage](https://developers.google.com/speed/webp/docs/using)
 
 ### Languages Used
 
