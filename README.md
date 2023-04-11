@@ -163,11 +163,16 @@ Classic Fonts were selected to add to a professional, clean tone. Font pairs wer
 - For text on the body  : Roboto Slab, Font-weight 400, Font-size , 1.2 rem
 
 
-<p align="center">
-<img src="./assets/images/fonts-throwing-sticks.png"
-     alt="Image with screenhot about selecting fonts for this project using Fontjoy website "
-     style="width:80%" >
-</p>
+<table style="width:60%; margin: 0 auto">
+    <tr>
+        <th> Typography  </th>
+    </tr>
+    <tr>
+        <td> <img src="./assets/images/fonts-throwing-sticks.png"; alt="Image with screenhot about selecting fonts for this project using Fontjoy website" >  </td>
+    </tr>
+</table>
+
+
 
 ### Imagery
 
