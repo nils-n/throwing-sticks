@@ -377,7 +377,7 @@ This page contains a friendly message that the 404 server error has occured.
 - visualize  how to derive $\pi$ in a graphical or algebraic way 
 - visualize other interesting numbers such as $\phi$ (golden ratio) or Euler number $e$
 - implement some more interactive feedback to the user, for example when he has found the two special positions on the second diagram 
-- A second page with a more strict explanation why the likelihood of turning green or red has the value 1/$\pi$ for the interested user  
+- A second page with a more strict explanation why the likelihood of turning green or red has the value 1 / $\pi$ for the interested user  
 
 ### Accessibility
 
