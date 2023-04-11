@@ -180,11 +180,16 @@ The approach to find an approprate image was :
 - chosen image from the selection that seemed best to my liking. 
 
 
-<p align="center">
-<img src="./assets/images/free-blue-retractable-pen-on-top-of-notebook-near-magic-keyboard-stock-small-compressed.jpg"
-     alt="Image with screenhot about selecting fonts for this project using Fontjoy website "
-     width=60%>
-</p>
+
+<table style="width:60%; margin: 0 auto">
+    <tr>
+        <th> Main Image </th>
+    </tr>
+    <tr>
+        <td> <img src="./assets/images/blue-retractable-pen-q30.webp"; alt="screenshot of the background image of the first (main) diagram" >  </td>
+    </tr>
+</table>
+
 
 ---- 
 
