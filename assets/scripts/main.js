@@ -56,7 +56,7 @@ document.getElementById("hero-throw").addEventListener("click", function () {
 
   if (totalNumberOfSticks > 3) {
     span = document.getElementById("more-than-3");
-    innerHTML = `
+    let innerHTML = `
             ${totalNumberOfSticks} sticks, divided by half of number of red sticks, 
             was ..... ${simulation.estimatedValueOfPi.toFixed(6)}      
             Wait a moment! Is that no me? , wondered Pi.`;
@@ -220,7 +220,7 @@ function drawThirdDiagram(displayConfiguration) {
   tempDisplayConfiguration.width = scatterDiagram.clientWidth;
   tempDisplayConfiguration.displaySelector = "#scatter-diagram";
 
-  svgScatter = drawEmptyDiagram(tempDisplayConfiguration);
+  let svgScatter = drawEmptyDiagram(tempDisplayConfiguration);
   drawScatterDiagram(sticks, svgScatter, tempDisplayConfiguration);
 }
 
