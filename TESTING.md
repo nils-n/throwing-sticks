@@ -138,6 +138,19 @@ Performance Score is a little low but for the scope of the project in an accepta
 
 ## Tests of User Stories 
 
+The user stories have been tested case-by-case. All tests passed.
+
+<table style="height:100%">
+    <tr>
+        <th> Verify User Stories </th>
+    </tr>
+    <tr>
+        <td> <img src="./assets/testing/user-stories.png"; alt="manual testing of the user stories of the main README file " >  </td>
+    </tr>
+
+</table>
+
+
 -----
 
 ## Tests for Compatibility 
