@@ -69,13 +69,13 @@ In the table below the outputs of the JSHint Validation results. No significant 
 | File           | Result | Justificaction of insignificant errors  |
 | -------------- | :----: | ----: |
 | display.js     |  Pass  |  1 error : Class properties must be methods. I call this insignificant regarding the scope of the project. |
-| external-d3.js |  Pass  |   4 errors  :  Missing "use strict" statement. I call that this is not a significant error in the context of this project as this was not covered by the course material up until now.  |
+| external-d3.js |  Pass  |   4 errors  :  Missing "use strict" statement. I call that this is not a significant error in the context of this project as this was not covered by the course material up until now. I am aware that this is something that future version needs to address, but it dives beyond my current understanding of commonJS / ES6 to fix it at this point of the course.  |
 | main.js        |  Pass  |   7 errors  : Missing "use strict" statement. insignificant regarding the project scope.  |
 | simulation.js  |  Pass  |  1 Warning : Class properties must be methods. I call this insignificant regarding the scope of the project. |
 | stick.js  |  Pass  |  Warning :  Class properties must be methods. Also tested with ESlint and this linter does not complain. |
 | display.test.js       |  Pass  | 1 error  : Missing "use strict" statement. insignificant regarding the project scope.   |
 | simulation.test.js       |  Pass  |  1 error left ‘document.write can be a form of eval.’ From the line document.write( fileContents). This line was copy + paste from the Code Institute Course Material, so i must assume that this is not a significant error.  |
-| stick.test.js       |  Pass  |  1 error left Missing "use strict" statement |
+| stick.test.js       |  Pass  |  1 error left Missing "use strict" statement - called insignficant for this project as per justification above|
 
 
 
