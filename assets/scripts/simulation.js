@@ -1,120 +1,116 @@
-const Stick = module.require('./stick');
+const Stick = module.require("./stick");
 
 /**
  * This class contains the calculation in the background and keeps track of the sticks
  */
 class Simulation {
-    
-    sticks;
-    stickCounter ;
-    estimatedValueOfPi;
+  sticks;
+  stickCounter;
+  estimatedValueOfPi;
 
-    numberGreenSticks;  
-    
-    constructor() {
-        this.sticks = [];
-        this.stickCounter = { 'red': 0, 'green': 0, 'total': 0};
-        this.estimatedValueOfPi = 42;
+  numberGreenSticks;
+
+  constructor() {
+    this.sticks = [];
+    this.stickCounter = { red: 0, green: 0, total: 0 };
+    this.estimatedValueOfPi = 42;
+  }
+
+  // adds a new stick
+  addNewStick(data) {
+    this.sticks.push(new Stick(data));
+    this.stickCounter.total += 1;
+
+    // if color has been defined, move to the next
+    if (data.colour) {
+      this.stickCounter[data.colour] += 1;
     }
+  }
 
-    // adds a new stick
-    addNewStick( data ){
-        this.sticks.push( new Stick( data ) );
-        this.stickCounter.total += 1;
+  //clear stick array
+  removeAllSticks() {
+    this.sticks = [];
+    this.stickCounter = { red: 0, green: 0, total: 0 };
+  }
 
-        // if color has been defined, move to the next
-        if (data.colour) {
-            this.stickCounter[data.colour] +=1;
-        }
+  //add a stick with a random location and orientation
+  // the stick has a position between 0 and  1
+  addNewRandomStick() {
+    // to ensure angle is between 0 and 180 and position between 0 and 2 ( space between two midlines equals to two sticks)
+    const maxAngle = 180;
+    const maxPosition = 2;
+
+    // create a random position
+    const randomPosition = maxPosition * Math.random();
+    const randomOrientation = maxAngle * Math.random();
+    const data = { position: randomPosition, orientation: randomOrientation };
+
+    this.addNewStick(data);
+  }
+
+  // only for display : assign a random sector to the sticks
+  // otherwise, all sticks would be placed between the first and second midline on the screen
+  assignRandomSectorOnDisplay(numberOfSectors) {
+    for (let stick of this.sticks) {
+      if (!stick.drawnOnScreen) {
+        stick.sector = Math.floor(numberOfSectors * Math.random());
+        stick.drawnOnScreen = true;
+      }
     }
+  }
 
-    //clear stick array
-    removeAllSticks() {
-        this.sticks = [];
-        this.stickCounter = { 'red': 0, 'green': 0, 'total': 0};
+  // only for display : assign a small vertical offset to the stick
+  // this is just to wiggle the sticks vertically on the screen - has only on optical effect, does not affect estimation of pi.
+  assignRandomVerticalOffsetOnDisplay() {
+    for (let stick of this.sticks) {
+      if (!stick.verticallyWiggledOnScreen) {
+        stick.verticalOffsetOnScreen = Math.random() - 0.5;
+        stick.verticallyWiggledOnScreen = true;
+      }
     }
+  }
 
-    //add a stick with a random location and orientation
-    // the stick has a position between 0 and  1
-    addNewRandomStick(  ) {
+  // assigns a color to the stick wheter it touches the midlines.
+  assignColours() {
+    // loop over sticks and assign color
+    for (let stick of this.sticks) {
+      // if color has been defined, move to the next
+      if (stick.colour) {
+        continue;
+      }
 
-        // to ensure angle is between 0 and 180 and position between 0 and 2 ( space between two midlines equals to two sticks)
-        const maxAngle = 180;
-        const maxPosition = 2;
+      //map the position into the sector between the first and second midline
+      const mappedPosition = stick.mapPositionIntoFirstSector(stick.position);
 
-        // create a random position 
-        const randomPosition =  maxPosition * Math.random() ;
-        const randomOrientation = maxAngle * Math.random();
-        const data = { position:randomPosition, orientation:randomOrientation};
+      // store also the mapped positon for the scatter plot
+      stick.mappedPosition = mappedPosition;
 
-        this.addNewStick( data );
+      // the stick will touch the line under this condition for the orientation
+      const stickTouchesMidline =
+        Math.abs(Math.cos(this.toRadians(stick.orientation))) > mappedPosition;
+
+      // set the color to red if the stick touches - green otherwise
+      stick.colour = stickTouchesMidline ? "red" : "green";
+
+      // update the stick count too
+      this.stickCounter[stick.colour] += 1;
     }
+  }
 
-    // only for display : assign a random sector to the sticks
-    // otherwise, all sticks would be placed between the first and second midline on the screen 
-    assignRandomSectorOnDisplay( numberOfSectors ) {
-        for (let stick of this.sticks){
-            if (!stick.drawnOnScreen){
-                stick.sector =  Math.floor( numberOfSectors * Math.random() );
-                stick.drawnOnScreen = true;
-            }
-        }
-    } 
+  // convert angle to radians because Math.cos expects angles in rad
+  toRadians(angle) {
+    return (Math.PI * angle) / 180.0;
+  }
 
-    // only for display : assign a small vertical offset to the stick
-    // this is just to wiggle the sticks vertically on the screen - has only on optical effect, does not affect estimation of pi.
-    assignRandomVerticalOffsetOnDisplay( ) {
-        for (let stick of this.sticks){
-            if (!stick.verticallyWiggledOnScreen){
-                stick.verticalOffsetOnScreen = Math.random() - 0.5;
-                stick.verticallyWiggledOnScreen = true;
-            }
-        }
+  estimatePi() {
+    // ensure that this.stickCounter['red'] is not zero
+    if (!this.stickCounter.red) {
+      return 0;
     }
+    const result = (2 * this.stickCounter.total) / this.stickCounter.red;
 
-    // assigns a color to the stick wheter it touches the midlines.
-    assignColours ( ) {
-        // loop over sticks and assign color
-        for (let stick of this.sticks)
-        {
-            // if color has been defined, move to the next
-            if (stick.colour) {
-                continue;
-            }
-
-            //map the position into the sector between the first and second midline
-            const mappedPosition = stick.mapPositionIntoFirstSector( stick.position ); 
-
-            // store also the mapped positon for the scatter plot
-            stick.mappedPosition = mappedPosition;
-            
-            // the stick will touch the line under this condition for the orientation 
-            const stickTouchesMidline =  Math.abs( Math.cos( this.toRadians( stick.orientation ) ))  > mappedPosition;
-           
-            // set the color to red if the stick touches - green otherwise 
-            stick.colour = stickTouchesMidline ? "red" : 'green';
-
-            // update the stick count too
-            this.stickCounter[stick.colour] += 1;
-        }
-    }
-
-    // convert angle to radians because Math.cos expects angles in rad 
-    toRadians (angle) {
-        return (Math.PI * angle) / 180.0;
-    }
-
-    estimatePi () {
-
-        // ensure that this.stickCounter['red'] is not zero 
-        if ( !this.stickCounter.red ) {
-            return 0;
-        }
-        const result =  2 * ( this.stickCounter.total ) / this.stickCounter.red;
-
-        this.estimatedValueOfPi =  result ;
-
-    }
+    this.estimatedValueOfPi = result;
+  }
 }
 
-module.exports =  Simulation;
+module.exports = Simulation;

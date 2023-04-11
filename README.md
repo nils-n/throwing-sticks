@@ -404,6 +404,7 @@ This page contains a friendly message that the 404 server error has occured.
 - Markdown [TOC Generator](https://ecotrust-canada.github.io/markdown-toc/)
 - [Webp Image Compression Tool](https://developers.google.com/speed/webp/docs/using) to decrease file size of the images
 - [Eagle](https://en.eagle.cool/) for organizing ideas and images
+- [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) VS Code formatter 
 
 ### Languages Used
 
