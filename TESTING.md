@@ -170,7 +170,84 @@ The website has been tested for compatibility between browsers, and that the web
 This section is to document any bugs found during testing of the website. 
 
 
+<table style="width:90%">
+    <tr>
+        <th> Test Case</th>
+        <th> Description </th>
+        <th> Errors Found  </th>
+    </tr>
+ <tr>
+    <td> TC01  </td>
+    <td> Validate that document passes A11y Automated Color Contrast Check  </td>
+    <td> 3 errors in the first pass due to missing form labels on all 3 sliders, 4 warning for using ‘underline’ in the text </td>
+ </tr>
+ <tr>
+    <td> TC04  </td>
+    <td> Validate that Javascript modules pass Jshint Validator  </td>
+    <td> 5 errors were found, most of them related to stick.js: line 5, col 1, 'class' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz) </td>
+</tr>
 
+ <tr>
+   <td></td>
+    <td></td>
+    <td> 8 errors were found. Mainly missing semicolons and warning that [‘red’] and [‘green’] notation should be updated with ‘. </td>
+</tr>
+
+ <tr>
+     <td></td>
+    <td></td>
+    <td> 49 errors in the first run, mostly semicolons etc. ,  Missing "use strict" statement </td>
+</tr>
+
+ <tr>
+   <td></td>
+    <td></td>
+    <td> 
+63 errors in the first run, mainly semicolons,  2 errors are related to Missing "use strict" statement., 1 error was ‘document.write can be a form of eval.’ From the line document.write( fileContents).</td>
+</tr>
+
+ <tr>
+    <td> TC09  </td>
+    <td> Validate that website passes WAVE WebAIM  Accessibility Check with no Errors  </td>
+    <td> 3 errors with a missing ‘form’ label of all the sliders,  and 4 alerts regarding underlined text. </td>
+</tr>
+
+ <tr>
+    <td> TC10  </td>
+    <td> Validate website with Google Chrome Lighthouse Tools</td>
+    <td> 
+performance was at 79 % for performance due to javascript files being loaded inside the header  </td>
+</tr>
+
+
+ <tr>
+    <td> TC111  </td>
+    <td> Validate that website is responsive and displays correctly on different screen sizes (Chrome)
+ </td>
+    <td> 
+The x-axis of the scatter plot of the third diagram would stay of the size for that I had in the client window of 320px, while the surrounding div would enlarge </td>
+</tr>
+
+
+ <tr>
+    <td> TC12  </td>
+    <td> Validate that website is responsive and displays correctly on different screen sizes (Firefox)
+ </td>
+    <td> 
+ slider of the first diagram overflows </td>
+</tr>
+
+ <tr>
+    <td>   </td>
+    <td> 
+ </td>
+    <td> 
+ the first diagram did not resize correctly and stayed in the size for the display with 320px
+</td>
+</tr>
+
+
+</table>
 
 
 
