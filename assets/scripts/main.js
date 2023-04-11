@@ -23,13 +23,13 @@ const simulation = new Simulation();
 // start with an empty diagram
 let sticks = [];
 simulation.sticks = [];
-svg = drawEmptyDiagram(displayConfiguration);
+let svg = drawEmptyDiagram(displayConfiguration);
 drawMidlines(svg, displayConfiguration);
 
 // add an event listener to throw button
 document.getElementById("hero-throw").addEventListener("click", function () {
   // use here the actual slider for the number of sticks per throw
-  slider = document.getElementsByClassName("slider")[0];
+  let slider = document.getElementsByClassName("slider")[0];
 
   const numberOfRepetitions = slider.value;
   for (let i = 0; i < numberOfRepetitions; i++) {
@@ -47,7 +47,7 @@ document.getElementById("hero-throw").addEventListener("click", function () {
   drawFirstDiagram(simulation);
 
   //display total number of sticks used in the simulation
-  span = document.getElementById("red-sticks");
+  let span = document.getElementById("red-sticks");
   span.innerHTML = `<bold> ${simulation.stickCounter.red}  </bold>`;
 
   //display total number of sticks used in the simulation
@@ -99,7 +99,7 @@ document.getElementById("hero-reset").addEventListener("click", function () {
   d3.select("#scatter-plot").select("svg").remove();
 
   // reset also the text on the first diagram
-  span = document.getElementById("red-sticks");
+  let span = document.getElementById("red-sticks");
   span.innerHTML = `<bold> 0  </bold>`;
 
   //display total number of sticks used in the simulation
@@ -131,7 +131,7 @@ document.getElementById("hero-reset").addEventListener("click", function () {
   tempDisplayConfiguration.width = scatterDiagram.clientWidth;
   tempDisplayConfiguration.displaySelector = "#scatter-diagram";
 
-  svgScatter = drawEmptyDiagram(tempDisplayConfiguration);
+  let svgScatter = drawEmptyDiagram(tempDisplayConfiguration);
   drawScatterDiagram(sticks, svgScatter, tempDisplayConfiguration);
 });
 
@@ -240,7 +240,6 @@ function drawSecondDiagram(stick) {
   // create a temp configurator for this diagram
   const tempDisplayConfiguration =
     DisplayConfiguration.from(displayConfiguration);
-  const diagram = document.getElementById("explain-diagram");
 
   //set display propertoes of the diagram
   tempDisplayConfiguration.displaySelector = "#explain-diagram";
@@ -255,7 +254,7 @@ function drawSecondDiagram(stick) {
   tempDisplayConfiguration.numberSticksOnCanvas = 1;
 
   // for now, lets just assign the sticks to the result of the simulation
-  explain_sticks = [];
+  let explain_sticks = [];
   explain_sticks.push(stick);
 
   // draw empty diagram and add a stick
